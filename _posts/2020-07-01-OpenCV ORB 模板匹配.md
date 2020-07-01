@@ -3,10 +3,10 @@ layout: post
 title: "OpenCV ORB 模板匹配"
 tagline: "OpenCV ORB 模板匹配"
 categories: opencv
-#image: /thumbnail-mobile.png
 author: "kekxv"
-#meta: "Springfield"
 ---
+
+
 
 ## 简单的使用场景
 
