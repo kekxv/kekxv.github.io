@@ -1,1 +1,48 @@
-theme: jekyll-theme-cayman
+plugins: [jekyll-paginate]
+
+permalink: /:categories/:title/
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input:  GFM
+  syntax_highlighter: rouge
+
+
+paginate: 10
+paginate_path: "page/:num"
+baseurl: ""
+
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      styles : [highlight.css,gitment.css,post.css]
+      scripts : [gitment.js, post.js]
+
+
+
+title: "kekxv 个人博客"
+email: caesar@kekxv.com
+description: "个人博客"
+github:
+  username: kekxv
+swiftype:
+  searchId:
+gitment:
+    repo: kekxv.github.io
+    client_id: b187832d8d3a7c83f1f1
+    client_secret: 81534c57fd9b971aeade6346f99e67aeb9acf159
+
+url: "https://bit-ranger.github.io/blog"
+imgrepo: "https://bit-ranger.github.io/blog/static/img"
+
+
+#url: "http://127.0.0.1:4000"
+#imgrepo: "http://127.0.0.1:4000/static/img"
+
