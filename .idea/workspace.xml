@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e547caaa-5f0f-4bc9-89cc-2be5016665e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_posts/2020-07-01-kProxyCpp 服务端软件.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.md" beforeDir="false" afterPath="$PROJECT_DIR$/contact.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593591020476</updated>
-      <workItem from="1593591022280" duration="3990000" />
+      <workItem from="1593591022280" duration="4735000" />
     </task>
     <task id="LOCAL-00001" summary="测试blog模板">
       <created>1593592101435</created>
@@ -72,29 +69,47 @@
       <option name="project" value="LOCAL" />
       <updated>1593594635145</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="测试blog模板">
+      <created>1593596250757</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593596250758</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="测试blog模板" />
     <option name="LAST_COMMIT_MESSAGE" value="测试blog模板" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593594634685">
+    <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593597111858">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593594634685" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593594637108">
+    <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597111858" />
+    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593596250577">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593594637108" />
+    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593596250577" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593596253294">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593596253294" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593591830310">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1593591830310" />
+    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593597154498">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597154498" />
     <state x="541" y="280" width="598" height="490" key="find.popup" timestamp="1593592279869">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
