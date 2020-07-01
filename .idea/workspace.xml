@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e547caaa-5f0f-4bc9-89cc-2be5016665e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2020-07-02-电脑棒 Z8350 使用 Ubuntu Server 系统.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/2020-07-01-OpenCV ORB 模板匹配.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-07-01-OpenCV ORB 模板匹配.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593597495609</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="电脑棒 Z8350 使用 Ubuntu Server 系统">
+      <created>1593597714101</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593597714101</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,29 +99,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="OpenCV ORB 模板匹配" />
-    <option name="LAST_COMMIT_MESSAGE" value="OpenCV ORB 模板匹配" />
+    <MESSAGE value="电脑棒 Z8350 使用 Ubuntu Server 系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="电脑棒 Z8350 使用 Ubuntu Server 系统" />
   </component>
   <component name="WindowStateProjectService">
     <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593597111858">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597111858" />
-    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593597495417">
+    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593597713963">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597495417" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593597496817">
+    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597713963" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593597715324">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597496817" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597715324" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593591830310">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1593591830310" />
-    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593597154498">
+    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593597710329">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597154498" />
+    <state x="618" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597710329" />
     <state x="541" y="280" width="598" height="490" key="find.popup" timestamp="1593592279869">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
