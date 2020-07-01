@@ -2,7 +2,7 @@
 layout: post
 title: "clangTools"
 tagline: "clangTools聚合类"
-categories: 随笔
+categories: c/c++
 author: "kekxv"
 ---
 
