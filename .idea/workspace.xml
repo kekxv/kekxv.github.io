@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e547caaa-5f0f-4bc9-89cc-2be5016665e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2020-07-01-kProxyCpp 服务端软件.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2020-07-01-OpenCV ORB 模板匹配.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-07-01-kProxyCpp 服务端软件.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-07-01-kProxyCpp 服务端软件.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593591020476</updated>
-      <workItem from="1593591022280" duration="4735000" />
+      <workItem from="1593591022280" duration="4805000" />
     </task>
     <task id="LOCAL-00001" summary="测试blog模板">
       <created>1593592101435</created>
@@ -76,7 +76,7 @@
       <option name="project" value="LOCAL" />
       <updated>1593596250758</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,23 +85,19 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="测试blog模板" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试blog模板" />
-  </component>
   <component name="WindowStateProjectService">
     <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593597111858">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="489" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593597111858" />
-    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593596250577">
+    <state x="427" y="100" key="CommitChangelistDialog2" timestamp="1593597361633">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593596250577" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593596253294">
+    <state x="427" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597361633" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1593597241634">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593596253294" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593597241634" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593591830310">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

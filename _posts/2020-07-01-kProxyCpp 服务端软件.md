@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "kProxyCpp 服务端软件.md"
-tagline: "kProxyCpp 服务端软件.md"
+title: "kProxyCpp 服务端软件"
+tagline: "kProxyCpp 服务端软件"
 categories: c/c++
 author: "kekxv"
 ---
