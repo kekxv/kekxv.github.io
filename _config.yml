@@ -1,48 +1,30 @@
-plugins: [jekyll-paginate]
+title: Cayman Blog Theme
+description: Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages.
+show_downloads: true
 
-permalink: /:categories/:title/
-
-highlighter: rouge
-markdown: kramdown
-kramdown:
-  input:  GFM
-  syntax_highlighter: rouge
+baseurl: "" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
+url: "https://kekxv.github.io" # change this to the base hostname & protocol for your site
 
 
-paginate: 10
-paginate_path: "page/:num"
-baseurl: ""
+google_analytics:
 
+# cayman-blog date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+cayman-blog:
+  date_format: "%b %-d, %Y"
 
+theme: # leave it empty
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      styles : [highlight.css,gitment.css,post.css]
-      scripts : [gitment.js, post.js]
-
-
-
-title: "kekxv 个人博客"
-email: caesar@kekxv.com
-description: "个人博客"
-github:
+# social
+author: kekxv
+image: /thumbnail-jumbo.png
+twitter:
   username: kekxv
-swiftype:
-  searchId:
-gitment:
-    repo: kekxv.github.io
-    client_id: b187832d8d3a7c83f1f1
-    client_secret: 81534c57fd9b971aeade6346f99e67aeb9acf159
 
-url: "https://kekxv.github.io//blog"
-imgrepo: "https://kekxv.github.io//blog/static/img"
+plugins:
+  - jekyll-target-blank
 
+target-blank:
+    rel: nofollow
 
-#url: "http://127.0.0.1:4000"
-#imgrepo: "http://127.0.0.1:4000/static/img"
-
+header_page_refs: ['now', 'about', 'contact']
