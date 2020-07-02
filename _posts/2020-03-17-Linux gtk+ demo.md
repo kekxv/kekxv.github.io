@@ -6,8 +6,6 @@ categories: gtk
 author: "kekxv"
 ---
 
-# GTK 简介
-
 GTK是一款开源的、面向多平台的GUI工具箱，其英文全称为GIMP Toolkit。最初是Peter Mattis 和 Spencer Kimball 为GNU Image Manipulation Program (GIMP)编写。在后续的发展中，它已经成为通用的GUI库，应用于越来越多的程序，Linux平台的图形应用程序的半壁江山都是使用GTK编写的。
 
 # 使用
