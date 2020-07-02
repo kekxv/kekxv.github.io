@@ -6,6 +6,6 @@ ref: contact
 order: 1
 ---
 
-You can contact me by email : [caesar@kekxv.com](caesar@kekxv.com)
+You can contact me by email : [caesar@kekxv.com](mailto:caesar@kekxv.com)
 
 [Go to the Home Page]({{ '/' | absolute_url }})
