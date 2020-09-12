@@ -1,0 +1,36 @@
+version: "3"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce
+    container_name: gitlab
+    restart: always
+    hostname: 'hostname' # 主机名，最好是实际的访问地址
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url '实际的访问地址'
+        nginx['listen_https'] = false
+        nginx['listen_port'] = 80
+        gitlab_rails['gitlab_email_enabled'] = true
+        gitlab_rails['gitlab_email_from'] = '邮箱账号'
+        gitlab_rails['gitlab_email_display_name'] = '发送昵称'
+        gitlab_rails['smtp_enable'] = true
+        gitlab_rails['smtp_address'] = "smtp服务器地址"
+        gitlab_rails['smtp_port'] = 465
+        gitlab_rails['smtp_user_name'] = "邮箱账号"
+        gitlab_rails['smtp_password'] = "邮箱密码"
+        gitlab_rails['smtp_domain'] = "smtp 邮箱域名"
+        gitlab_rails['smtp_authentication'] = "login"
+        gitlab_rails['smtp_enable_starttls_auto'] = true
+        gitlab_rails['smtp_tls'] = true
+    ports:
+      - '10080:80' # 映射80端口
+      - '10443:443' # 映射443端口
+    volumes:
+      - '/docker_data/gitlab/config:/etc/gitlab' # 映射目录
+      - '/docker_data/gitlab/logs:/var/log/gitlab' # 映射目录
+      - '/docker_data/gitlab/data:/var/opt/gitlab' # 映射目录
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
