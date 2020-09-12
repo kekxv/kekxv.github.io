@@ -62,5 +62,5 @@ services:
 
 运行命令docker-compose pull && docker-compose up -d
 
-下载 [docker-compose.yml](../assets/docker.yml/gitlab.docker-compose.yml)
+下载 [docker-compose.yml](https://kekxv.github.io/assets/docker.yml/gitlab.docker-compose.yml)
 
