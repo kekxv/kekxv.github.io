@@ -8,7 +8,7 @@ author: "kekxv"
 
 之前写篇 `gitlab` 仓库搭建步骤教程，最近升级的时候发现命令实在是太长了，于是决定使用 `docker-compose.yml` 文件进行配置搭建。
 
-[关于上一篇 `gitlab` 仓库搭建步骤教程可以点击这里](2020-07-06-gitlab仓库搭建.md)
+[关于上一篇 gitlab 仓库搭建步骤教程可以点击这里](https://kekxv.github.io/gitlab/2020/07/06/gitlab%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA.html)
 
 ```yaml
 version: "3"
