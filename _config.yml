@@ -23,6 +23,8 @@ twitter:
 
 plugins:
   - jekyll-target-blank
+  - jekyll-feed
+  - jekyll-sitemap
 
 target-blank:
     rel: nofollow
