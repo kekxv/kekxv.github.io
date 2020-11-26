@@ -5,6 +5,7 @@ cache:
     - node_modules/
 
 before_script:
+  - sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
   - apk add ruby ruby-dev openssl-dev gcc g++ make zlib-dev git
   - gem install bundler
 
