@@ -13,6 +13,7 @@ pages:
   script:
     - bundle install
     - bundle exec jekyll build
+    # - bundle exec htmlproofer ./_site --check-html
   artifacts:
     paths:
       - _site
