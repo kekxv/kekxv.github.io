@@ -1,4 +1,5 @@
 _site
+/public
 .sass-cache
 .bundle
 Gemfile.lock

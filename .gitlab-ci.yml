@@ -13,9 +13,10 @@ pages:
   script:
     - bundle install
     - bundle exec jekyll build
+    - mv _site public
     # - bundle exec htmlproofer ./_site --check-html
   artifacts:
     paths:
-      - _site
+      - public
   only:
     - master
