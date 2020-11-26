@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # source 'https://rubygems.org'
-source 'http://ruby.taobao.org/'
+source 'https://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 
 gem "bigdecimal"
 gem "webrick"
