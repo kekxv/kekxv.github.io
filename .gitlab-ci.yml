@@ -1,0 +1,19 @@
+image: node:10-alpine # use nodejs v10 LTS
+cache:
+  key: ${CI_COMMIT_REF_NAME}
+  paths:
+    - node_modules/
+
+before_script:
+  - apk add ruby ruby-dev openssl-dev gcc g++ make zlib-dev
+  - gem install bundler
+
+pages:
+  script:
+    - bundle install
+    - bundle exec jekyll build
+  artifacts:
+    paths:
+      - _site
+  only:
+    - master
