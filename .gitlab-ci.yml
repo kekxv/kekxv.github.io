@@ -5,7 +5,7 @@ cache:
     - node_modules/
 
 before_script:
-  - apk add ruby ruby-dev openssl-dev gcc g++ make zlib-dev
+  - apk add ruby ruby-dev openssl-dev gcc g++ make zlib-dev git
   - gem install bundler
 
 pages:
