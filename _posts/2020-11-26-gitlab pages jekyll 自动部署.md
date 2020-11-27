@@ -24,14 +24,14 @@ author: "kekxv"
 
 `Ruby`修改国内源方式为在`Gemfile`文件头部增加清华源地址：
 
-```shell script
+```shell
 # source 'https://rubygems.org'
 source 'https://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 ```
 
 `apk` 包管理同样使用**清华源**修改源方式为：
 
-```shell script
+```shell
 sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 ```
 
