@@ -1,0 +1,33 @@
+title: kekxv 个人博客
+description: 个人博客
+show_downloads: false
+
+baseurl: "" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
+url: "https://caesar.pages.kekxv.com/blog" # change this to the base hostname & protocol for your site
+
+
+google_analytics:
+
+# cayman-blog date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+cayman-blog:
+  date_format: "%b %-d, %Y"
+
+theme: # leave it empty
+
+# social
+author: kekxv
+image: /favicon.ico
+twitter:
+  username: kekxv
+
+plugins:
+  - jekyll-target-blank
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+target-blank:
+    rel: nofollow
+
+header_page_refs: ['about', 'contact']

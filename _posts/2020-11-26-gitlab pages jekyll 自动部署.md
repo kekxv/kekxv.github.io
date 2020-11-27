@@ -57,17 +57,20 @@ pages:
   script:
     - bundle install
     - bundle exec jekyll build
+    - mv _site public
+    # - bundle exec htmlproofer ./_site --check-html
   artifacts:
     paths:
-      - _site
+      - public
   only:
     - master
 ```
 
 为了成功编译出静态`blog`，我们先在`before_script`进行必要的一些工具的安装。
 
-在 `pages` 项目里，`artifacts.paths`值`_site`为当前项目生成的静态blog目录，部分模板生成目录为`public`。请根据实际情况进行修改。
+~~在 `pages` 项目里，`artifacts.paths`值`_site`为当前项目生成的静态blog目录，部分模板生成目录为`public`。请根据实际情况进行修改。~~
 
+**在 `pages` 项目里，`artifacts.paths`值 `public`为当前项目生成的静态blog目录，必须为 `public`。**
 
 #### 参考链接：
 
