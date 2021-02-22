@@ -1,7 +1,9 @@
 ---
-layout: post title: "java PipedInputStream 管道吐槽"
+layout: post 
+title: "java PipedInputStream 管道吐槽"
 tagline: "PipedInputStream 管道吐槽"
-categories: java author: "kekxv"
+categories: java 
+author: "kekxv"
 ---
 
 最近业务上需要使用到管道，做数据缓存和通讯，使用了`PipedInputStream`、`PipedOutputStream`。记录一下一个隐藏的坑！
