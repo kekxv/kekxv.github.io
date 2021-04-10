@@ -11,11 +11,11 @@ author: "kekxv"
 
 > 身份证图片：
 >
-> <img src="/assets/imgs/old/zb_users/upload/2019/12/201912181125218966050.jpg" alt="韦小宝" width="300" />
+> <img src="/assets/imgs/old/upload/2019/12/201912181125218966050.jpg" alt="韦小宝" width="300" />
 >
 > 桌子图片：
 >
-> <img src="/assets/imgs/old/zb_users/upload/2019/12/201912181127039744167.jpg" alt="韦小宝桌子" width="400" />
+> <img src="/assets/imgs/old/upload/2019/12/201912181127039744167.jpg" alt="韦小宝桌子" width="400" />
 >
 > (什么？没有桌子？哦，不要在意这些细节问题，嗯。)
 > 
@@ -66,7 +66,7 @@ drawMatches(im1, keypoints1, im2, keypoints2, matches, imMatches);
 ```
 
 关键点匹配图：
-![关键点匹配图](/assets/imgs/old/zb_users/upload/2019/12/20191218120115157664167511771.jpg "关键点匹配图")
+![关键点匹配图](/assets/imgs/old/upload/2019/12/20191218120115157664167511771.jpg "关键点匹配图")
 
 ## 寻找目标
 
@@ -105,7 +105,7 @@ line(img_matches, scene_corners[3] + offset, scene_corners[0] + offset, Scalar(0
 warpPerspective(im1, im1Reg, h, im2.size());
 ```
 目标查找图：
-![目标查找图](/assets/imgs/old/zb_users/upload/2019/12/201912181256198502308.jpg "目标查找图")
+![目标查找图](/assets/imgs/old/upload/2019/12/201912181256198502308.jpg "目标查找图")
 
 通过结果可以发现，已经能够桌子上找到身份证了。
 
