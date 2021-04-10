@@ -11,7 +11,7 @@ author: "kekxv"
 
 ## 开始之前
 
-用到的 web 端使用的是[kProxyCpp](https://blog.kekxv.com/?id=3 "kProxyCpp") ，图像处理用的是 `OpenCV`，技术实现参考了：[OpenCV探索之路（二十四）图像拼接和图像融合技术](https://www.cnblogs.com/skyfsm/p/7411961.html "OpenCV探索之路（二十四）图像拼接和图像融合技术")（这篇文章有更详细的介绍，有兴趣的可以看看）。
+用到的 web 端使用的是[kProxyCpp](/assets/imgs/old/?id=3 "kProxyCpp") ，图像处理用的是 `OpenCV`，技术实现参考了：[OpenCV探索之路（二十四）图像拼接和图像融合技术](https://www.cnblogs.com/skyfsm/p/7411961.html "OpenCV探索之路（二十四）图像拼接和图像融合技术")（这篇文章有更详细的介绍，有兴趣的可以看看）。
 源码已经上传至 `Github` ，仓库为：[kProxyCpp](https://github.com/kekxv/kProxyCpp "kProxyCpp")
 
 ## 代码实现
@@ -136,4 +136,4 @@ kProxy.listen(20, port, ip.c_str());
 
 ## 最终效果
 
-![最终效果](https://blog.kekxv.com/zb_users/upload/2019/12/201912221453431857520.png "最终效果")
+![最终效果](/assets/imgs/old/zb_users/upload/2019/12/201912221453431857520.png "最终效果")

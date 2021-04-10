@@ -8,11 +8,11 @@ author: "kekxv"
 
 有一款小巧的开发板：`Raspberry Zero`，Broadcom BCM2835 SoC，它装有1 GHz ARM1176JZF-S单核CPU，Broadcom VideoCore IV @ 250 MHz GPU（仍支持高清）和512MB SDRAM；支持运行完整的`Linux (Arm系列)`系统，并且带有`WiFi`。
 
-![树莓派zero](https://blog.kekxv.com/zb_users/upload/2020/03/202003172109357539136.jpg "树莓派zero")
+![树莓派zero](/assets/imgs/old/zb_users/upload/2020/03/202003172109357539136.jpg "树莓派zero")
 
 当然，这只是本文的主角之一，另一个主角是对应的UPS(算是吧)：
 
-![树莓派 UPS](https://blog.kekxv.com/zb_users/upload/2020/03/202003172113385662548.png "树莓派 UPS")
+![树莓派 UPS](/assets/imgs/old/zb_users/upload/2020/03/202003172113385662548.png "树莓派 UPS")
 
 有人给树莓派做了一个电池🔋配件，能够让树莓派可以“脱离插座”，并且扩展了`USB 串口`功能，能够让`PC设备`通过`USB线`在供电的同时可以通过`串口`登录`树莓派zero`进行操作以及配置。
 
