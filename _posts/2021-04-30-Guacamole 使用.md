@@ -24,7 +24,7 @@ $ docker-compose up -d
 
 访问 `Guacamole` ；`http[s]://域名:18080/guacamole/`;
 
-![img.png](../assets/guacamole.login/img.png)
+![img.png](/assets/imgs/guacamole.login/img.png)
 
 默认账号密码为 ： `guacamole`/`guacamole`。
 
