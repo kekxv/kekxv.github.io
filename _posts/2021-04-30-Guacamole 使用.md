@@ -26,7 +26,7 @@ $ docker-compose up -d
 
 ![img.png](/assets/imgs/guacamole.login/img.png)
 
-默认账号密码为 ： `guacamole`/`guacamole`。
+默认账号密码为 ： `guacadmin`/`guacadmin`。
 
 使用 `Ctrl`+`Alt`+`Shift` (`Control`+`option`+`Shift` )可以呼出菜单，如果使用的`ssh`协议，能够在菜单内进行上传下载操作。
 
