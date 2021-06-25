@@ -33,5 +33,5 @@ args:
 
 原文参考文献
 - [Docker Build Proxy: Setup the proxy for Dockerfile building – DEV](https://dev.to/zyfa/setup-the-proxy-for-dockerfile-building--4jc8)
-- [Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/#args)
+- [Compose file version 3 reference Docker Documentation](https://docs.docker.com/compose/compose-file/#args)
 - [elasticsearch – docker-compose build and http_proxy – Stack Overflow](https://stackoverflow.com/questions/34990458/docker-compose-build-and-http-proxy)
