@@ -6,7 +6,7 @@
   <link href="http://kekxv.github.io/feed.xml" rel="self"/>
   
   <link href="http://kekxv.github.io/"/>
-  <updated>2021-08-07T07:10:21.596Z</updated>
+  <updated>2021-08-07T07:13:39.215Z</updated>
   <id>http://kekxv.github.io/</id>
   
   <author>
@@ -17,146 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>小尺寸电脑对比</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E5%B0%8F%E5%B0%BA%E5%AF%B8%E7%94%B5%E8%84%91%E5%AF%B9%E6%AF%94/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E5%B0%8F%E5%B0%BA%E5%AF%B8%E7%94%B5%E8%84%91%E5%AF%B9%E6%AF%94/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在需要带着笔记本出门的情况下，相对于如今动不动就 &lt;code&gt;15寸+&lt;/code&gt; 的笔记本电脑，我更喜欢携带一些小尺寸的电脑，毕竟，每天上下班背电脑是真的重。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搜索引擎的高级搜索技巧</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;有些时候，搜索引擎非常懂我们，随意输入关键字，便可以找到我们想要的结果（除了广告）。&lt;/p&gt;
-&lt;p&gt;但是有的时候，比如关键字较为普遍的情况下，则很难得到自己想要的结果，往往需要一页一页的翻找，才能找得到。&lt;/p&gt;
-&lt;p&gt;那么有没有办法可以让搜索引擎更懂我们呢？&lt;/p&gt;
-&lt;p&gt;答案是有的：目前主流的搜索引擎都支持&lt;code&gt;搜索操作符&lt;/code&gt;，利用搜索操作符，可以更快捷的找到我们想要的结果。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="search" scheme="http://kekxv.github.io/tags/search/"/>
-    
-    <category term="baidu" scheme="http://kekxv.github.io/tags/baidu/"/>
-    
-    <category term="google" scheme="http://kekxv.github.io/tags/google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派 OLED 屏幕</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E6%A0%91%E8%8E%93%E6%B4%BE%20OLED%20%E5%B1%8F%E5%B9%95/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E6%A0%91%E8%8E%93%E6%B4%BE%20OLED%20%E5%B1%8F%E5%B9%95/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近在研究 &lt;code&gt;IIC&lt;/code&gt;(&lt;code&gt;I2C&lt;/code&gt;)通讯，所以采购了一款支持 &lt;code&gt;IIC&lt;/code&gt; 的&lt;code&gt;OLED&lt;/code&gt;屏幕，并将其在&lt;code&gt;树莓派&lt;/code&gt;上驱动起来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/20210807/03/202003311249533709127.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="raspi" scheme="http://kekxv.github.io/categories/raspi/"/>
-    
-    
-    <category term="c/c++" scheme="http://kekxv.github.io/tags/c-c/"/>
-    
-    <category term="raspi" scheme="http://kekxv.github.io/tags/raspi/"/>
-    
-    <category term="spi" scheme="http://kekxv.github.io/tags/spi/"/>
-    
-    <category term="iic" scheme="http://kekxv.github.io/tags/iic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用户配置脚本文件.netrc</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.netrc/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.netrc/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;The .netrc file contains login and initialization information used by the auto-login process. It generally resides in the user’s home directory, but a location outside of the home directory can be set using the environment variable NETRC. Both locations are overridden by the command line option -N. The selected file must be a regular file, or access will be denied.&lt;/p&gt;
-&lt;p&gt;用于配置网络登录帐号信息的 &lt;code&gt;~/.netrc&lt;/code&gt; 文件,保存用户名密码，减少输用户名密码。&lt;/p&gt;
-&lt;p&gt;文件 &lt;code&gt;~/.netrc&lt;/code&gt; 用于设置自动登录时所需要的帐号信息。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="linux" scheme="http://kekxv.github.io/tags/linux/"/>
-    
-    <category term="随笔" scheme="http://kekxv.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电脑棒 Z8350 使用 Ubuntu Server 系统</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E7%94%B5%E8%84%91%E6%A3%92%20Z8350%20%E4%BD%BF%E7%94%A8%20Ubuntu%20Server%20%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E7%94%B5%E8%84%91%E6%A3%92%20Z8350%20%E4%BD%BF%E7%94%A8%20Ubuntu%20Server%20%E7%B3%BB%E7%BB%9F/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;只是关于一个电脑棒的简单评测&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="http://kekxv.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义WebSocket通信回复协议</title>
-    <link href="http://kekxv.github.io/2021/08/07/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://kekxv.github.io/2021/08/07/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</id>
-    <published>2021-08-07T07:10:21.596Z</published>
-    <updated>2021-08-07T07:10:21.596Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在有些情况下，我们在使用 &lt;code&gt;WebSocket&lt;/code&gt; 通信的时候，需要对方进行回应，但由于 &lt;code&gt;WebSocket&lt;/code&gt; 是&lt;code&gt;全双工&lt;/code&gt;交互，所以不能像 &lt;code&gt;http&lt;/code&gt; 协议一样，发送之后能够得到对应的回复，为了能够很好的获取到对应的回复，设计了一个简单的协议，各位有需要的话，可以参考看看。&lt;/p&gt;
-&lt;p&gt;协议的原理很简单，即：&lt;code&gt;记录消息ID&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="WebSocket" scheme="http://kekxv.github.io/categories/WebSocket/"/>
-    
-    
-    <category term="javascript" scheme="http://kekxv.github.io/tags/javascript/"/>
-    
-    <category term="WebSocket" scheme="http://kekxv.github.io/tags/WebSocket/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Gitlab Runner 自动部署</title>
     <link href="http://kekxv.github.io/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"/>
     <id>http://kekxv.github.io/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;Vue&lt;/code&gt; 之类的开发，都需要编译，然后生成编译后的文件，然后打包发布，往往需要好几个步骤，那么我们是否可以让它自动进行，不需要我们人为参与呢？&lt;/p&gt;
@@ -177,8 +42,8 @@
     <title>Guacamole 使用</title>
     <link href="http://kekxv.github.io/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/"/>
     <id>http://kekxv.github.io/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用 docker-compose 使用和管理 Guacamole。&lt;/p&gt;
@@ -207,8 +72,8 @@
     <title>Java 注意事项</title>
     <link href="http://kekxv.github.io/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
     <id>http://kekxv.github.io/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于一些原因，步入了 &lt;code&gt;Java&lt;/code&gt; 开发的大坑。&lt;/p&gt;</summary>
@@ -228,8 +93,8 @@
     <title>JetBrains Idea 开源授权申请(转载)</title>
     <link href="http://kekxv.github.io/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/"/>
     <id>http://kekxv.github.io/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;JetBrains 公司旗下的 IDEA 功能都十分强大，深受各种编程语言相关的程序员的喜爱，IDEA提供有免费版本的也有付费版本的，但功能差距还是相差不小，作为手头不太宽裕，拥有开源项目但是想使用完整版本的开发人员来说，可以尝试申请开源软件授权，一般项目有一定意义，都是可以进行申请的。&lt;/p&gt;
@@ -250,8 +115,8 @@
     <title>Linux GTK+-3 Demo</title>
     <link href="http://kekxv.github.io/2021/08/07/Linux%20gtk+%20demo/"/>
     <id>http://kekxv.github.io/2021/08/07/Linux%20gtk+%20demo/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;GTK是一款开源的、面向多平台的GUI工具箱，其英文全称为GIMP Toolkit。最初是Peter Mattis 和 Spencer Kimball 为GNU Image Manipulation Program (GIMP)编写。在后续的发展中，它已经成为通用的GUI库，应用于越来越多的程序，Linux平台的图形应用程序的半壁江山都是使用GTK编写的。&lt;/p&gt;</summary>
@@ -271,8 +136,8 @@
     <title>MFC OCX 开发一些注意事项</title>
     <link href="http://kekxv.github.io/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
     <id>http://kekxv.github.io/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于一些原因，居然开始 MFC OCX 的开发，这都是淘汰了多久的玩意了啊，心塞。&lt;/p&gt;
@@ -295,8 +160,8 @@
     <title>.Net 开发工具推荐：Rider</title>
     <link href="http://kekxv.github.io/2021/08/07/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/"/>
     <id>http://kekxv.github.io/2021/08/07/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
       
@@ -322,8 +187,8 @@
     <title>OpenCV ORB 模板匹配</title>
     <link href="http://kekxv.github.io/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/"/>
     <id>http://kekxv.github.io/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;在某些情况下，我们需要用一个已知的物体，在一个场景内进行匹配，比如有一张身份证，然后想要在桌子上找到他的位置。比如以下两张图片：&lt;/p&gt;
@@ -353,8 +218,8 @@
     <title>PHP 调用webservice</title>
     <link href="http://kekxv.github.io/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/"/>
     <id>http://kekxv.github.io/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;很多时候，我们需要调用第三方的接口，例如使用 &lt;code&gt;PHP&lt;/code&gt;调用 &lt;code&gt;webservice&lt;/code&gt; 接口。&lt;/p&gt;
@@ -376,8 +241,8 @@
     <title>Raspberry Zero UPS</title>
     <link href="http://kekxv.github.io/2021/08/07/Raspberry%20Zero%20UPS/"/>
     <id>http://kekxv.github.io/2021/08/07/Raspberry%20Zero%20UPS/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;有一款小巧的开发板：&lt;code&gt;Raspberry Zero&lt;/code&gt;，Broadcom BCM2835 SoC，它装有1 GHz ARM1176JZF-S单核CPU，Broadcom VideoCore IV @ 250 MHz GPU（仍支持高清）和512MB SDRAM；支持运行完整的&lt;code&gt;Linux (Arm系列)&lt;/code&gt;系统，并且带有&lt;code&gt;WiFi&lt;/code&gt;。&lt;/p&gt;
@@ -400,8 +265,8 @@
     <title>Web 版图像拼接(OpenCV)</title>
     <link href="http://kekxv.github.io/2021/08/07/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/"/>
     <id>http://kekxv.github.io/2021/08/07/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;在某些情况下，我们需要将两张图像合并为一张，这时候我们会选择类似 &lt;code&gt;PhotoShow&lt;/code&gt; 等画图软件进行拼接。不过我想偷个懒，自动拼接。&lt;br&gt;所以查找了一些资料之后，开发了 &lt;code&gt;Web版本的图像拼接&lt;/code&gt; 接口。&lt;/p&gt;</summary>
@@ -425,8 +290,8 @@
     <title>Windows自带的端口转发</title>
     <link href="http://kekxv.github.io/2021/08/07/Windows%E8%87%AA%E5%B8%A6%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     <id>http://kekxv.github.io/2021/08/07/Windows%E8%87%AA%E5%B8%A6%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过 &lt;code&gt;Windows&lt;/code&gt; 实现端口转发。本文为参考转发文章&lt;/p&gt;
@@ -450,8 +315,8 @@
     <title>bazel 工具链</title>
     <link href="http://kekxv.github.io/2021/08/07/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/"/>
     <id>http://kekxv.github.io/2021/08/07/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在使用 &lt;code&gt;bazel&lt;/code&gt; ，尝试使用交叉编译，在这做个记录&lt;/p&gt;
@@ -479,8 +344,8 @@
     <title>bazel 笔记 01</title>
     <link href="http://kekxv.github.io/2021/08/07/bazel%20%E7%AC%94%E8%AE%B0%2001/"/>
     <id>http://kekxv.github.io/2021/08/07/bazel%20%E7%AC%94%E8%AE%B0%2001/</id>
-    <published>2021-08-07T07:10:21.592Z</published>
-    <updated>2021-08-07T07:10:21.592Z</updated>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
     
     
     <summary type="html">&lt;p&gt;Bazel - a fast, scalable, multi-language and extensible build system&lt;/p&gt;
@@ -496,6 +361,150 @@
     <category term="笔记" scheme="http://kekxv.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="bazel" scheme="http://kekxv.github.io/tags/bazel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c51 警告问题</title>
+    <link href="http://kekxv.github.io/2021/08/07/c51%20%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/"/>
+    <id>http://kekxv.github.io/2021/08/07/c51%20%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在给一个 C51 的项目进行协议加密开发，遇到一个警告，本着警告就是没有问题跑了项目，然，加密数据全乱了！！！&lt;/p&gt;
+&lt;p&gt;警告 ⚠️ 大概长这样：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/20210807/WX20200923-162500@2x.png&quot; alt=&quot;C51 警告&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="c51" scheme="http://kekxv.github.io/categories/c51/"/>
+    
+    
+    <category term="c/c++" scheme="http://kekxv.github.io/tags/c-c/"/>
+    
+    <category term="c51" scheme="http://kekxv.github.io/tags/c51/"/>
+    
+    <category term="单片机" scheme="http://kekxv.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cSharp HttpClient Cookie 记录</title>
+    <link href="http://kekxv.github.io/2021/08/07/cSharp%20HttpClient%20Cookie%20%E8%AE%B0%E5%BD%95/"/>
+    <id>http://kekxv.github.io/2021/08/07/cSharp%20HttpClient%20Cookie%20%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用&lt;code&gt;CookieContainer&lt;/code&gt;自动管理你的&lt;code&gt;HttpClient&lt;/code&gt; &lt;code&gt;Cookie&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;因为业务需要，客户端需要进行登录，登录的会话&lt;code&gt;token&lt;/code&gt;保留在&lt;code&gt;cookie&lt;/code&gt;呢，所以需要让&lt;code&gt;HttpClient&lt;/code&gt;携带上&lt;code&gt;Cookie&lt;/code&gt;，本文作为一个记录。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cSharp" scheme="http://kekxv.github.io/categories/cSharp/"/>
+    
+    
+    <category term="笔记" scheme="http://kekxv.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="cSharp" scheme="http://kekxv.github.io/tags/cSharp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clangTools</title>
+    <link href="http://kekxv.github.io/2021/08/07/clangTools%E8%81%9A%E5%90%88%E7%B1%BB/"/>
+    <id>http://kekxv.github.io/2021/08/07/clangTools%E8%81%9A%E5%90%88%E7%B1%BB/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2NsYW5nVG9vbHM=&quot;&gt;clangTools&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 聚合类是为了将一些短小精湛的代码集合起来。&lt;/p&gt;
+&lt;p&gt;在进行&lt;code&gt;c/c++&lt;/code&gt;开发的使用，由于自带的系统库支持的问题，或者api接口的问题，导致&lt;code&gt;c/c++&lt;/code&gt;在不规范开发的时候，很容易出现冗余代码，或者各种查API手册的问题。&lt;/p&gt;
+&lt;p&gt;为了减少这些情况，所以将一些常用的方法，并且第三方依赖较少的方法进行封装。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="c/c++" scheme="http://kekxv.github.io/categories/c-c/"/>
+    
+    
+    <category term="c/c++" scheme="http://kekxv.github.io/tags/c-c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker swarm替代docker-compose</title>
+    <link href="http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/"/>
+    <id>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用 docker-compose 管理本地容器组，是非常方便的手段，但是最近遇到一个 bug，决定使用 docker stack /swarm 替代 docker-compose 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令行生成二维码可以试试 &lt;code&gt;echo &amp;quot;二维码内容&amp;quot; | qrencode -o - -t UTF8&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;事情是这样的，在 &lt;code&gt;docker-compose.yaml&lt;/code&gt; 内定义了 &lt;code&gt;network&lt;/code&gt;.&lt;code&gt;aliases&lt;/code&gt; 之后，在测试的时候，其他容器能够正常通过 &lt;code&gt;aliases&lt;/code&gt; 对其进行访问，但是，到了实际部署的时候，很容易失败，例如重启之后，或者某个容器意外或者手动重启之后，都有可能导致该情况，导致很湿郁闷。&lt;/p&gt;
+&lt;p&gt;遂，在查找资料之后，决定替换掉 &lt;code&gt;docker-compose&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ps：&lt;code&gt;docker-compose&lt;/code&gt; 的配置 &lt;code&gt;depends_on&lt;/code&gt; 只会控制控制启动顺序，并不会等待所需容器启动成功之后再启动下一 容器&lt;br&gt;简单来说，启动容器&lt;code&gt;数据库&lt;/code&gt;之后会马上启动容器&lt;code&gt;应用&lt;/code&gt;，并不在乎&lt;code&gt;应用&lt;/code&gt;容器需要&lt;code&gt;数据库&lt;/code&gt;容器才能正常运行，此时可能会造成 &lt;code&gt;应用&lt;/code&gt; 容器无法找到数据库而意外退出。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="docker" scheme="http://kekxv.github.io/categories/docker/"/>
+    
+    
+    <category term="linux" scheme="http://kekxv.github.io/tags/linux/"/>
+    
+    <category term="docker" scheme="http://kekxv.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker-compose 使用代理</title>
+    <link href="http://kekxv.github.io/2021/08/07/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/"/>
+    <id>http://kekxv.github.io/2021/08/07/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;docker-compose 使用代理&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="docker" scheme="http://kekxv.github.io/categories/docker/"/>
+    
+    
+    <category term="linux" scheme="http://kekxv.github.io/tags/linux/"/>
+    
+    <category term="docker" scheme="http://kekxv.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gitea drone CI</title>
+    <link href="http://kekxv.github.io/2021/08/07/gitea%20drone%20CI/"/>
+    <id>http://kekxv.github.io/2021/08/07/gitea%20drone%20CI/</id>
+    <published>2021-08-07T07:13:39.215Z</published>
+    <updated>2021-08-07T07:13:39.215Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;搭建 &lt;code&gt;gitea&lt;/code&gt; 仓库以及 &lt;code&gt;drone&lt;/code&gt; &lt;code&gt;CI&lt;/code&gt; 工具。&lt;/p&gt;
+&lt;p&gt;因为在用的服务器是低性能&lt;code&gt;4G&lt;/code&gt;的服务器，勉强能跑起来&lt;code&gt;gitlab&lt;/code&gt;，再加上 &lt;code&gt;gitlab runner&lt;/code&gt; 跑的比较艰难，所以研究研究 &lt;code&gt;gitea&lt;/code&gt;与&lt;code&gt;drone&lt;/code&gt;方案；&lt;br&gt;嗯，坑还不少。&lt;/p&gt;
+&lt;p&gt;按照文档以及他人的方案进行部署，发现基本上都能跑起来，但是，也只是能跑起来，如何用起来，并没有如何说明，所以在此处做一个记录。&lt;/p&gt;
+&lt;h1 id=&quot;完成图&quot;&gt;&lt;a href=&quot;#完成图&quot; class=&quot;headerlink&quot; title=&quot;完成图&quot;&gt;&lt;/a&gt;完成图&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/20210221/drone.png&quot; alt=&quot;drone完成图&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="gitea" scheme="http://kekxv.github.io/categories/gitea/"/>
+    
+    
+    <category term="ci" scheme="http://kekxv.github.io/tags/ci/"/>
+    
+    <category term="gitea" scheme="http://kekxv.github.io/tags/gitea/"/>
+    
+    <category term="git" scheme="http://kekxv.github.io/tags/git/"/>
     
   </entry>
   
