@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Gitlab Runner 自动部署</title>
-    <url>/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <url>/2021/01/06/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p><code>Vue</code> 之类的开发，都需要编译，然后生成编译后的文件，然后打包发布，往往需要好几个步骤，那么我们是否可以让它自动进行，不需要我们人为参与呢？</p>
 <p>当然是可以的，借助 <code>CI/CD</code> 工具，我们可以实现自动编译，自动部署。免去人为的干预。</p>
 <span id="more"></span>
@@ -32,7 +32,7 @@
   </entry>
   <entry>
     <title>Guacamole 使用</title>
-    <url>/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/</url>
+    <url>/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>使用 docker-compose 使用和管理 Guacamole。</p>
 <p>下载 <a href="/files/20210807/Guacamole.tar.gz">Guacamole.tar.gz</a> ：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://kekxv.github.io/assets/file/Guacamole.tar.gz</span><br><span class="line">$ tar -zxvf Guacamole.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> Guacamole</span><br><span class="line">$ <span class="comment"># 可自行修改 docker-compose.yml 配置</span></span><br><span class="line">$ docker-compose pull</span><br><span class="line">$ <span class="comment"># 启动</span></span><br><span class="line">$ docker-compose up -d</span><br></pre></td></tr></table></figure>
@@ -58,7 +58,7 @@
   </entry>
   <entry>
     <title>Java 注意事项</title>
-    <url>/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <url>/2021/04/06/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
     <content><![CDATA[<p>由于一些原因，步入了 <code>Java</code> 开发的大坑。</p>
 <span id="more"></span>
 
@@ -89,7 +89,7 @@
   </entry>
   <entry>
     <title>JetBrains Idea 开源授权申请(转载)</title>
-    <url>/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/</url>
+    <url>/2021/01/06/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/</url>
     <content><![CDATA[<p>JetBrains 公司旗下的 IDEA 功能都十分强大，深受各种编程语言相关的程序员的喜爱，IDEA提供有免费版本的也有付费版本的，但功能差距还是相差不小，作为手头不太宽裕，拥有开源项目但是想使用完整版本的开发人员来说，可以尝试申请开源软件授权，一般项目有一定意义，都是可以进行申请的。</p>
 <p>此为转载文章，进行修改和删减，想查看原文，请点击连接 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZXZlbnlhby9wLzEwMjkwNDgyLmh0bWw=">https://www.cnblogs.com/evenyao/p/10290482.html<i class="fa fa-external-link-alt"></i></span> 。(本文末会标明原文声明)。</p>
 <span id="more"></span>
@@ -123,7 +123,7 @@
   </entry>
   <entry>
     <title>Linux GTK+-3 Demo</title>
-    <url>/2021/08/07/Linux%20gtk+%20demo/</url>
+    <url>/2021/02/06/Linux%20gtk+%20demo/</url>
     <content><![CDATA[<p>GTK是一款开源的、面向多平台的GUI工具箱，其英文全称为GIMP Toolkit。最初是Peter Mattis 和 Spencer Kimball 为GNU Image Manipulation Program (GIMP)编写。在后续的发展中，它已经成为通用的GUI库，应用于越来越多的程序，Linux平台的图形应用程序的半壁江山都是使用GTK编写的。</p>
 <span id="more"></span>
 
@@ -144,7 +144,7 @@
   </entry>
   <entry>
     <title>MFC OCX 开发一些注意事项</title>
-    <url>/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <url>/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
     <content><![CDATA[<p>由于一些原因，居然开始 MFC OCX 的开发，这都是淘汰了多久的玩意了啊，心塞。</p>
 <p>MFC 如何进行 OCX 开发不在本文讨论之内，可以参考一下这些内容：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hrY3Nkbi9hcnRpY2xlL2RldGFpbHMvNTI5MDg3NDg=">MFC ActiveX (ocx)控件的开发<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIxNTM5NS9hcnRpY2xlL2RldGFpbHMvNzk3MTgzNTM=">MFC .ocx控件开发<i class="fa fa-external-link-alt"></i></span>，<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFpZHUuY29tL3M/d2Q9bWZjKyVFNSVCQyU4MCVFNSU4RiU5MW9jeA==">mfc 开发ocx<i class="fa fa-external-link-alt"></i></span></p>
 <span id="more"></span>
@@ -201,7 +201,7 @@
   </entry>
   <entry>
     <title>.Net 开发工具推荐：Rider</title>
-    <url>/2021/08/07/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/</url>
+    <url>/2021/02/06/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/</url>
     <content><![CDATA[<p>一般情况下来说，我们开发<code>c#</code>、<code>.net</code>软件的时候，都会使用<code>vs(Microsoft Visual Studio)</code>，进行开发，但是如果我们的主系统为<code>Unix</code>系列并且习惯了<code>idea</code>系列IDE的话，使用<code>VS</code>还需要开一个虚拟机，或者下载对应版本的<code>VS</code>。<br>但我更喜欢使用 <code>idea</code> 系列的<code>Rider</code>进行开发。</p>
 <p><img src="/images/20210807/WX20201125-142020@2x.png" alt="Rider 启动图"></p>
 <p><code>Rider</code> 的整个风格可以选择与<code>vs(Microsoft Visual Studio)</code>一致或者使用传统的<code>Intellij</code>主题风格。能够直接打开 <code>c#</code> 的 <code>sln</code> 格式项目，与<code>vs</code>兼容，和别人合作开发或者多机器开发测试的情况下比较方便。</p>
@@ -219,7 +219,7 @@
   </entry>
   <entry>
     <title>OpenCV ORB 模板匹配</title>
-    <url>/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</url>
+    <url>/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</url>
     <content><![CDATA[<p>在某些情况下，我们需要用一个已知的物体，在一个场景内进行匹配，比如有一张身份证，然后想要在桌子上找到他的位置。比如以下两张图片：</p>
 <blockquote>
 <p>身份证图片：</p>
@@ -263,7 +263,7 @@
   </entry>
   <entry>
     <title>PHP 调用webservice</title>
-    <url>/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/</url>
+    <url>/2021/06/06/PHP%20%E8%B0%83%E7%94%A8webservice/</url>
     <content><![CDATA[<p>很多时候，我们需要调用第三方的接口，例如使用 <code>PHP</code>调用 <code>webservice</code> 接口。</p>
 <p>关于 <code>webservice</code> 接口，我们可以直接使用<code>SoapUi</code>查看或者像对方索要具体地址函数以及参数。</p>
 <p>在<code>PHP</code>里面调用的话，可以使用 <code>SoapClient</code>，一般<code>PHP</code>都会开启该扩展，并且相对也比较简单。</p>
@@ -295,7 +295,7 @@
   </entry>
   <entry>
     <title>Raspberry Zero UPS</title>
-    <url>/2021/08/07/Raspberry%20Zero%20UPS/</url>
+    <url>/2021/05/06/Raspberry%20Zero%20UPS/</url>
     <content><![CDATA[<p>有一款小巧的开发板：<code>Raspberry Zero</code>，Broadcom BCM2835 SoC，它装有1 GHz ARM1176JZF-S单核CPU，Broadcom VideoCore IV @ 250 MHz GPU（仍支持高清）和512MB SDRAM；支持运行完整的<code>Linux (Arm系列)</code>系统，并且带有<code>WiFi</code>。</p>
 <p><img src="/images/20210807/03/202003172109357539136.jpg" alt="树莓派zero" title="树莓派zero"></p>
 <p>当然，这只是本文的主角之一，另一个主角是对应的UPS(算是吧)：</p>
@@ -321,7 +321,7 @@
   </entry>
   <entry>
     <title>Web 版图像拼接(OpenCV)</title>
-    <url>/2021/08/07/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/</url>
+    <url>/2020/03/01/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/</url>
     <content><![CDATA[<p>在某些情况下，我们需要将两张图像合并为一张，这时候我们会选择类似 <code>PhotoShow</code> 等画图软件进行拼接。不过我想偷个懒，自动拼接。<br>所以查找了一些资料之后，开发了 <code>Web版本的图像拼接</code> 接口。</p>
 <span id="more"></span>
 
@@ -403,7 +403,7 @@
   </entry>
   <entry>
     <title>bazel 工具链</title>
-    <url>/2021/08/07/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/</url>
+    <url>/2021/08/06/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/</url>
     <content><![CDATA[<p>最近在使用 <code>bazel</code> ，尝试使用交叉编译，在这做个记录</p>
 <p>配置的地方有几个：</p>
 <ol>
@@ -477,7 +477,7 @@
   </entry>
   <entry>
     <title>c51 警告问题</title>
-    <url>/2021/08/07/c51%20%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/01/06/c51%20%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>最近在给一个 C51 的项目进行协议加密开发，遇到一个警告，本着警告就是没有问题跑了项目，然，加密数据全乱了！！！</p>
 <p>警告 ⚠️ 大概长这样：</p>
 <p><img src="/images/20210807/WX20200923-162500@2x.png" alt="C51 警告"></p>
@@ -499,7 +499,7 @@
   </entry>
   <entry>
     <title>cSharp HttpClient Cookie 记录</title>
-    <url>/2021/08/07/cSharp%20HttpClient%20Cookie%20%E8%AE%B0%E5%BD%95/</url>
+    <url>/2021/03/06/cSharp%20HttpClient%20Cookie%20%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>使用<code>CookieContainer</code>自动管理你的<code>HttpClient</code> <code>Cookie</code>。</p>
 <p>因为业务需要，客户端需要进行登录，登录的会话<code>token</code>保留在<code>cookie</code>呢，所以需要让<code>HttpClient</code>携带上<code>Cookie</code>，本文作为一个记录。</p>
 <span id="more"></span>
@@ -518,7 +518,7 @@
   </entry>
   <entry>
     <title>clangTools</title>
-    <url>/2021/08/07/clangTools%E8%81%9A%E5%90%88%E7%B1%BB/</url>
+    <url>/2021/01/06/clangTools%E8%81%9A%E5%90%88%E7%B1%BB/</url>
     <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2NsYW5nVG9vbHM=">clangTools<i class="fa fa-external-link-alt"></i></span> 聚合类是为了将一些短小精湛的代码集合起来。</p>
 <p>在进行<code>c/c++</code>开发的使用，由于自带的系统库支持的问题，或者api接口的问题，导致<code>c/c++</code>在不规范开发的时候，很容易出现冗余代码，或者各种查API手册的问题。</p>
 <p>为了减少这些情况，所以将一些常用的方法，并且第三方依赖较少的方法进行封装。</p>
@@ -668,7 +668,7 @@
   </entry>
   <entry>
     <title>docker-compose 使用代理</title>
-    <url>/2021/08/07/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</url>
+    <url>/2021/08/01/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</url>
     <content><![CDATA[<p>docker-compose 使用代理</p>
 <span id="more"></span>
 
@@ -694,7 +694,7 @@
   </entry>
   <entry>
     <title>gitea drone CI</title>
-    <url>/2021/08/07/gitea%20drone%20CI/</url>
+    <url>/2021/07/06/gitea%20drone%20CI/</url>
     <content><![CDATA[<p>搭建 <code>gitea</code> 仓库以及 <code>drone</code> <code>CI</code> 工具。</p>
 <p>因为在用的服务器是低性能<code>4G</code>的服务器，勉强能跑起来<code>gitlab</code>，再加上 <code>gitlab runner</code> 跑的比较艰难，所以研究研究 <code>gitea</code>与<code>drone</code>方案；<br>嗯，坑还不少。</p>
 <p>按照文档以及他人的方案进行部署，发现基本上都能跑起来，但是，也只是能跑起来，如何用起来，并没有如何说明，所以在此处做一个记录。</p>
@@ -729,7 +729,7 @@
   </entry>
   <entry>
     <title>github actions CI 自动编译测试</title>
-    <url>/2021/08/07/github%20actions%20CI%20%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</url>
+    <url>/2021/01/06/github%20actions%20CI%20%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>最近在整一个复合类的项目（<code>cmake</code>项目），期望是跨平台，所以需要在各个平台上编译测试。</p>
 <p>但是每次改完代码还要开个虚拟机编译测试，还挺麻烦的，于是试了下 github 的 actions 自动 CI 工具，还挺好的，目前已为项目自动编译 <code>Windows</code>、<code>Linux</code>、<code>MacOS</code> 平台。</p>
 <span id="more"></span>
@@ -768,7 +768,7 @@
   </entry>
   <entry>
     <title>gitlab pages jekyll 自动部署</title>
-    <url>/2021/08/07/gitlab%20pages%20jekyll%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <url>/2021/01/06/gitlab%20pages%20jekyll%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>本篇简单的介绍一下如何使用<code>gitlab</code>搭建<code>jekyll</code>静态<code>blog</code>。感兴趣的可以看看。</p>
 <p>这里使用的是当前 blog 模板，各位可以做个参考。</p>
 <span id="more"></span>
@@ -810,7 +810,7 @@
   </entry>
   <entry>
     <title>gitlab仓库yml配置文件搭建</title>
-    <url>/2021/08/07/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/08/01/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>之前写篇 <code>gitlab</code> 仓库搭建步骤教程，最近升级的时候发现命令实在是太长了，于是决定使用 <code>docker-compose.yml</code> 文件进行配置搭建。</p>
 <p><a href="/2021/08/07/gitlab%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/">关于上一篇 gitlab 仓库搭建步骤教程可以点击这里</a></p>
 <span id="more"></span>
@@ -842,7 +842,7 @@
   </entry>
   <entry>
     <title>gitlab仓库搭建</title>
-    <url>/2021/08/07/gitlab%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/03/01/gitlab%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>承广大开发者的无私，目前开源免费的 <code>git</code> 仓库管理项目已经越来越多，也越来越好，例如<code>gitea</code>、<code>gogs</code>以及<code>gitlab</code>。这篇文章主要是简单介绍一下通过 <code>docker</code> 搭建<code>gitlab</code>以及<code>gitlab runner</code> 自动CI工具。</p>
 <span id="more"></span>
 
@@ -909,7 +909,7 @@
   </entry>
   <entry>
     <title>gradle发布到github packages</title>
-    <url>/2021/08/07/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/</url>
+    <url>/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/</url>
     <content><![CDATA[<p>最近弄了个<code>Android</code>的模拟自动注入的库，在给别人用的时候，需要发送 <code>jar</code> 或者 <code>aar</code> 给对方，这就导致我可能需要保留一份，否则每次都需要重新编译生成。为了 <del>偷懒</del><br>增加效率，在查询资料之后，将其发布到了<code>github packages</code>。</p>
 <p>准备工作：需要<code>github</code>账号（废话），生成<code>GitHub token</code>需要有写权限（如果只是使用不需要，如果需要推送则需要），将账号(<code>GITHUB_USER</code>)<br>和<code>token</code>(<code>GITHUB_PERSONAL_ACCESS_TOKEN</code>)配置到用户目录下<code>~/.gradle/gradle.properties</code>。</p>
 <blockquote>
@@ -976,7 +976,7 @@
   </entry>
   <entry>
     <title>hello github.io blog</title>
-    <url>/2021/08/07/hello%20github.io%20blog/</url>
+    <url>/2020/12/06/hello%20github.io%20blog/</url>
     <content><![CDATA[<p>hello github.io blog</p>
 ]]></content>
       <categories>
@@ -985,7 +985,7 @@
   </entry>
   <entry>
     <title>java PipedInputStream 管道吐槽</title>
-    <url>/2021/08/07/java%20PipedInputStream%20%E7%AE%A1%E9%81%93%E5%90%90%E6%A7%BD/</url>
+    <url>/2021/03/07/java%20PipedInputStream%20%E7%AE%A1%E9%81%93%E5%90%90%E6%A7%BD/</url>
     <content><![CDATA[<p>最近业务上需要使用到管道，做数据缓存和通讯，使用了<code>PipedInputStream</code>、<code>PipedOutputStream</code>。记录一下一个隐藏的坑！</p>
 <p>在项目初期，所有调用均为正常，数据也能正常写入读取管道，遂提交代码，并且交由他人使用。</p>
 <p>然，增加功能以及业务调用之后，无法读取到数据？？？？并且在进行<strong>管道写</strong>的时候报错<code>Java io ioexception read end dead</code>？？？？？？？？？？</p>
@@ -1056,7 +1056,7 @@
   </entry>
   <entry>
     <title>nmcli 简单用法</title>
-    <url>/2021/08/07/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</url>
+    <url>/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<p>在Linux系列下，我们连接WiFi的时候，可以使用nmcli作为管理工具，进行WiFi连接断开等操作，操作也相对方便。</p>
 <p><code>nmcli</code> 不仅仅支持操作 <code>Wi-Fi</code>，还支持操作所有网络设备</p>
 <blockquote>
@@ -1095,7 +1095,7 @@
   </entry>
   <entry>
     <title>reposync 同步镜像源</title>
-    <url>/2021/08/07/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</url>
+    <url>/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</url>
     <content><![CDATA[<p>某些情况下，我们只有内网的环境，无法很好的使用 <code>yum</code> 镜像源，进行安装，所以我们可以选择搭建本地镜像源站来使用。</p>
 <p>本地镜像源站最简单的方式是使用安装的<code>光盘</code>或者<code>ISO</code>文件作为资源站点。</p>
 <span id="more"></span>
@@ -1173,7 +1173,7 @@
   </entry>
   <entry>
     <title>vue网页简单拼音输入法</title>
-    <url>/2021/08/07/vue%E7%BD%91%E9%A1%B5%E7%AE%80%E5%8D%95%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+    <url>/2021/01/06/vue%E7%BD%91%E9%A1%B5%E7%AE%80%E5%8D%95%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/</url>
     <content><![CDATA[<p>当我们在开发嵌入式应用的时候，我们可能不想让输入法的虚拟键盘出现。</p>
 <p>因为虚拟键盘可以做到比较多的事情，而且也不容易控制。</p>
 <p>例如 PC 上的虚拟键盘就可以执行 Alt F4，或者调出任务管理器，但是很多情况，我们是不允许用户这样操作的。</p>
@@ -1204,7 +1204,7 @@
   </entry>
   <entry>
     <title>安卓WebView高版本无法加载</title>
-    <url>/2021/08/07/%E5%AE%89%E5%8D%93WebView%E9%AB%98%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
+    <url>/2021/05/06/%E5%AE%89%E5%8D%93WebView%E9%AB%98%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
     <content><![CDATA[<p>在电脑虚拟机上测试的时候，发现本地<code>127.0.0.1</code>无法开始加载，出现<code>net::ERR_CLEARTEXT_NOT_PERMITTED</code>错误，这是由于<code>Android</code>在<code>8</code>的版本之后默认启用<code>https</code>，由于项目中只是使用了<code>http</code>，所以安全机制下拦截了。</p>
 <p>解决的办法：在<code>manifest</code>中<code>application</code>节点添加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">android:usesCleartextTraffic=&quot;true&quot;</span><br></pre></td></tr></table></figure>
@@ -1235,7 +1235,7 @@
   </entry>
   <entry>
     <title>小尺寸电脑对比</title>
-    <url>/2021/08/07/%E5%B0%8F%E5%B0%BA%E5%AF%B8%E7%94%B5%E8%84%91%E5%AF%B9%E6%AF%94/</url>
+    <url>/2021/08/01/%E5%B0%8F%E5%B0%BA%E5%AF%B8%E7%94%B5%E8%84%91%E5%AF%B9%E6%AF%94/</url>
     <content><![CDATA[<p>在需要带着笔记本出门的情况下，相对于如今动不动就 <code>15寸+</code> 的笔记本电脑，我更喜欢携带一些小尺寸的电脑，毕竟，每天上下班背电脑是真的重。</p>
 <span id="more"></span>
 
@@ -1394,7 +1394,7 @@
   </entry>
   <entry>
     <title>搜索引擎的高级搜索技巧</title>
-    <url>/2021/08/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</url>
+    <url>/2021/03/06/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p>有些时候，搜索引擎非常懂我们，随意输入关键字，便可以找到我们想要的结果（除了广告）。</p>
 <p>但是有的时候，比如关键字较为普遍的情况下，则很难得到自己想要的结果，往往需要一页一页的翻找，才能找得到。</p>
 <p>那么有没有办法可以让搜索引擎更懂我们呢？</p>
@@ -1452,7 +1452,7 @@
   </entry>
   <entry>
     <title>树莓派 OLED 屏幕</title>
-    <url>/2021/08/07/%E6%A0%91%E8%8E%93%E6%B4%BE%20OLED%20%E5%B1%8F%E5%B9%95/</url>
+    <url>/2021/04/06/%E6%A0%91%E8%8E%93%E6%B4%BE%20OLED%20%E5%B1%8F%E5%B9%95/</url>
     <content><![CDATA[<p>最近在研究 <code>IIC</code>(<code>I2C</code>)通讯，所以采购了一款支持 <code>IIC</code> 的<code>OLED</code>屏幕，并将其在<code>树莓派</code>上驱动起来。</p>
 <p><img src="/images/20210807/03/202003311249533709127.jpg"></p>
 <span id="more"></span>
@@ -1478,7 +1478,7 @@
   </entry>
   <entry>
     <title>用户配置脚本文件.netrc</title>
-    <url>/2021/08/07/%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.netrc/</url>
+    <url>/2021/01/06/%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.netrc/</url>
     <content><![CDATA[<p>The .netrc file contains login and initialization information used by the auto-login process. It generally resides in the user’s home directory, but a location outside of the home directory can be set using the environment variable NETRC. Both locations are overridden by the command line option -N. The selected file must be a regular file, or access will be denied.</p>
 <p>用于配置网络登录帐号信息的 <code>~/.netrc</code> 文件,保存用户名密码，减少输用户名密码。</p>
 <p>文件 <code>~/.netrc</code> 用于设置自动登录时所需要的帐号信息。</p>
@@ -1514,7 +1514,7 @@
   </entry>
   <entry>
     <title>电脑棒 Z8350 使用 Ubuntu Server 系统</title>
-    <url>/2021/08/07/%E7%94%B5%E8%84%91%E6%A3%92%20Z8350%20%E4%BD%BF%E7%94%A8%20Ubuntu%20Server%20%E7%B3%BB%E7%BB%9F/</url>
+    <url>/2021/01/06/%E7%94%B5%E8%84%91%E6%A3%92%20Z8350%20%E4%BD%BF%E7%94%A8%20Ubuntu%20Server%20%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>只是关于一个电脑棒的简单评测</p>
 <span id="more"></span>
 
@@ -1556,7 +1556,7 @@
   </entry>
   <entry>
     <title>自定义WebSocket通信回复协议</title>
-    <url>/2021/08/07/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</url>
+    <url>/2021/07/06/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<p>在有些情况下，我们在使用 <code>WebSocket</code> 通信的时候，需要对方进行回应，但由于 <code>WebSocket</code> 是<code>全双工</code>交互，所以不能像 <code>http</code> 协议一样，发送之后能够得到对应的回复，为了能够很好的获取到对应的回复，设计了一个简单的协议，各位有需要的话，可以参考看看。</p>
 <p>协议的原理很简单，即：<code>记录消息ID</code>。</p>
 <span id="more"></span>
@@ -1587,7 +1587,7 @@
   </entry>
   <entry>
     <title>安卓模拟自动注入</title>
-    <url>/2021/08/07/%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/</url>
+    <url>/2021/08/05/%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/</url>
     <content><![CDATA[<p>本项目是用于模拟自动注入，通过添加注解<code>@Autowired</code>，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行<code>Instance</code>维护。</p>
 <span id="more"></span>
 

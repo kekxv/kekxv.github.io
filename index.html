@@ -161,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Windows%E8%87%AA%E5%B8%A6%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -175,7 +175,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">Gitlab Runner 自动部署</a>
+            <a href="/2021/08/07/Windows%E8%87%AA%E5%B8%A6%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="post-title-link" itemprop="url">Windows自带的端口转发</a>
         </h2>
 
         <div class="post-meta">
@@ -184,8 +184,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-07 10:23:48 / 修改时间：14:33:31" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -193,7 +194,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Gitlab-Runner/" itemprop="url" rel="index"><span itemprop="name">Gitlab Runner</span></a>
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
                 </span>
             </span>
 
@@ -208,11 +209,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>Vue</code> 之类的开发，都需要编译，然后生成编译后的文件，然后打包发布，往往需要好几个步骤，那么我们是否可以让它自动进行，不需要我们人为参与呢？</p>
-<p>当然是可以的，借助 <code>CI/CD</code> 工具，我们可以实现自动编译，自动部署。免去人为的干预。</p>
+          <p>通过 <code>Windows</code> 实现端口转发。本文为参考转发文章</p>
+<p>使用<code>Portproxy</code>模式下的<code>Netsh</code>命令即能实现<code>Windows</code>系统中的端口转发，转发命令如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenaddress=[localaddress] listenport=[localport] connectaddress=[destaddress]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/#more" rel="contents">
+              <a class="btn" href="/2021/08/07/Windows%E8%87%AA%E5%B8%A6%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -236,7 +238,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/bazel%20%E7%AC%94%E8%AE%B0%2001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -250,7 +252,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Guacamole 使用</a>
+            <a href="/2021/08/07/bazel%20%E7%AC%94%E8%AE%B0%2001/" class="post-title-link" itemprop="url">bazel 笔记 01</a>
         </h2>
 
         <div class="post-meta">
@@ -259,8 +261,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-07 10:23:48 / 修改时间：14:33:31" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +271,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Guacamole/" itemprop="url" rel="index"><span itemprop="name">Guacamole</span></a>
+                  <a href="/categories/bazel/" itemprop="url" rel="index"><span itemprop="name">bazel</span></a>
                 </span>
             </span>
 
@@ -283,17 +286,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>使用 docker-compose 使用和管理 Guacamole。</p>
-<p>下载 <a href="/files/20210807/Guacamole.tar.gz">Guacamole.tar.gz</a> ：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://kekxv.github.io/assets/file/Guacamole.tar.gz</span><br><span class="line">$ tar -zxvf Guacamole.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> Guacamole</span><br><span class="line">$ <span class="comment"># 可自行修改 docker-compose.yml 配置</span></span><br><span class="line">$ docker-compose pull</span><br><span class="line">$ <span class="comment"># 启动</span></span><br><span class="line">$ docker-compose up -d</span><br></pre></td></tr></table></figure>
-
-<p>访问 <code>Guacamole</code> ；<code>http[s]://域名:18080/guacamole/</code>;</p>
-<p><img src="/images/20210807/guacamole.login/img.png" alt="img.png"></p>
-<p>默认账号密码为 ： <code>guacadmin</code>/<code>guacadmin</code>。</p>
-<p>使用 <code>Ctrl</code>+<code>Alt</code>+<code>Shift</code> (<code>Control</code>+<code>option</code>+<code>Shift</code> )可以呼出菜单，如果使用的<code>ssh</code>协议，能够在菜单内进行上传下载操作。</p>
+          <p>Bazel - a fast, scalable, multi-language and extensible build system</p>
+<p>在使用 <code>bazel</code> 许久之后，开始做一下记录，以记录一些奇奇怪怪的处理方式（？）。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/Guacamole%20%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2021/08/07/bazel%20%E7%AC%94%E8%AE%B0%2001/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -317,7 +314,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -331,7 +328,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">Java 注意事项</a>
+            <a href="/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/" class="post-title-link" itemprop="url">docker swarm替代docker-compose</a>
         </h2>
 
         <div class="post-meta">
@@ -340,8 +337,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-07 10:23:48 / 修改时间：14:33:31" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,7 +347,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
                 </span>
             </span>
 
@@ -364,10 +362,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于一些原因，步入了 <code>Java</code> 开发的大坑。</p>
+          <p>使用 docker-compose 管理本地容器组，是非常方便的手段，但是最近遇到一个 bug，决定使用 docker stack /swarm 替代 docker-compose 。</p>
+<blockquote>
+<p>命令行生成二维码可以试试 <code>echo &quot;二维码内容&quot; | qrencode -o - -t UTF8</code></p>
+</blockquote>
+<p>事情是这样的，在 <code>docker-compose.yaml</code> 内定义了 <code>network</code>.<code>aliases</code> 之后，在测试的时候，其他容器能够正常通过 <code>aliases</code> 对其进行访问，但是，到了实际部署的时候，很容易失败，例如重启之后，或者某个容器意外或者手动重启之后，都有可能导致该情况，导致很湿郁闷。</p>
+<p>遂，在查找资料之后，决定替换掉 <code>docker-compose</code>。</p>
+<blockquote>
+<p>Ps：<code>docker-compose</code> 的配置 <code>depends_on</code> 只会控制控制启动顺序，并不会等待所需容器启动成功之后再启动下一 容器<br>简单来说，启动容器<code>数据库</code>之后会马上启动容器<code>应用</code>，并不在乎<code>应用</code>容器需要<code>数据库</code>容器才能正常运行，此时可能会造成 <code>应用</code> 容器无法找到数据库而意外退出。</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/Java%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more" rel="contents">
+              <a class="btn" href="/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -391,7 +397,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -405,7 +411,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/" class="post-title-link" itemprop="url">JetBrains Idea 开源授权申请(转载)</a>
+            <a href="/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">kProxyCpp 服务端软件</a>
         </h2>
 
         <div class="post-meta">
@@ -414,8 +420,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-07 10:23:48 / 修改时间：14:33:31" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -423,7 +430,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AC%E8%BD%BD/" itemprop="url" rel="index"><span itemprop="name">转载</span></a>
+                  <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
                 </span>
             </span>
 
@@ -438,11 +445,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>JetBrains 公司旗下的 IDEA 功能都十分强大，深受各种编程语言相关的程序员的喜爱，IDEA提供有免费版本的也有付费版本的，但功能差距还是相差不小，作为手头不太宽裕，拥有开源项目但是想使用完整版本的开发人员来说，可以尝试申请开源软件授权，一般项目有一定意义，都是可以进行申请的。</p>
-<p>此为转载文章，进行修改和删减，想查看原文，请点击连接 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZXZlbnlhby9wLzEwMjkwNDgyLmh0bWw=">https://www.cnblogs.com/evenyao/p/10290482.html<i class="fa fa-external-link-alt"></i></span> 。(本文末会标明原文声明)。</p>
+          <p>承接自 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2tIdHRwZA==">kHttpd<i class="fa fa-external-link-alt"></i></span> 项目。</p>
+<p>由于 <code>kHttpd</code> 项目使用了 <code>libevent</code> 开源库，其中某些特性导致使用上面不太方面（仅仅指的是我个人而言），所以重新开发了本项目。</p>
+<h1 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h1><ol>
+<li><p><code>http server</code> 实现， <code>http server</code> 服务端功能，使用线程池为每个连接进行处理，所以每个请求都可以阻塞（但是并不建议，除非某种特定的场景，例如进行http代理服务，必须等到对方回应，不使用 <code>libevent</code> 其中一个原因）。</p>
+</li>
+<li><p><code>WebSocket server</code> 实现，当前项目实现了<code>WebSocket server</code>端代码，可以使用 c/c++ 愉快的开发<code>WebSocket</code>项目，同时<code>WebSocket</code>服务端也支持<code>http server</code>，也就是同一个端口同时使用<code>WebSocket server</code> 以及 <code>http server</code>，使得更方便一些。使用<code>WebSocket server</code>的情况下，请根据实际情况，加大线程数量以及监听数量，否则可能造成后续连接被阻塞。</p>
+</li>
+<li><p><code>CGI</code> 功能实现，目前实现 <code>CGI</code> 调用 <code>php</code>，可以使用<code>php</code>作为动态脚本进行开发，不过现在还未实现 <code>php</code>的<code>POST</code>模式，即还未将 <code>php</code> <code>body</code>数据传入给<code>CGI</code>。</p>
+</li>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/JetBrains%20Idea%20%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7(%E8%BD%AC%E8%BD%BD)/#more" rel="contents">
+              <a class="btn" href="/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -466,7 +481,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Linux%20gtk+%20demo/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -480,7 +495,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/Linux%20gtk+%20demo/" class="post-title-link" itemprop="url">Linux GTK+-3 Demo</a>
+            <a href="/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="post-title-link" itemprop="url">ssh 隧道端口转发</a>
         </h2>
 
         <div class="post-meta">
@@ -489,8 +504,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-07 10:23:48 / 修改时间：14:33:31" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -498,7 +514,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/gtk/" itemprop="url" rel="index"><span itemprop="name">gtk</span></a>
+                  <a href="/categories/ssh/" itemprop="url" rel="index"><span itemprop="name">ssh</span></a>
                 </span>
             </span>
 
@@ -513,10 +529,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>GTK是一款开源的、面向多平台的GUI工具箱，其英文全称为GIMP Toolkit。最初是Peter Mattis 和 Spencer Kimball 为GNU Image Manipulation Program (GIMP)编写。在后续的发展中，它已经成为通用的GUI库，应用于越来越多的程序，Linux平台的图形应用程序的半壁江山都是使用GTK编写的。</p>
+          <p>在部分情况下，没有办法直接访问到目标机器，需要通过中转的方式进行访问，一般使用代理，或者VPN等组网方式，使用端口转发的方式其实也是不错的。</p>
+<p>这里简单介绍一下 <code>ssh</code> 的代理方式.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/Linux%20gtk+%20demo/#more" rel="contents">
+              <a class="btn" href="/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -540,7 +557,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/06/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -554,7 +571,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">MFC OCX 开发一些注意事项</a>
+            <a href="/2021/08/06/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/" class="post-title-link" itemprop="url">bazel 工具链</a>
         </h2>
 
         <div class="post-meta">
@@ -564,15 +581,22 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-06 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-06T10:23:48+00:00">2021-08-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-07 14:33:31" itemprop="dateModified" datetime="2021-08-07T14:33:31+00:00">2021-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC/" itemprop="url" rel="index"><span itemprop="name">MFC</span></a>
+                  <a href="/categories/bazel/" itemprop="url" rel="index"><span itemprop="name">bazel</span></a>
                 </span>
             </span>
 
@@ -587,11 +611,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于一些原因，居然开始 MFC OCX 的开发，这都是淘汰了多久的玩意了啊，心塞。</p>
-<p>MFC 如何进行 OCX 开发不在本文讨论之内，可以参考一下这些内容：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hrY3Nkbi9hcnRpY2xlL2RldGFpbHMvNTI5MDg3NDg=">MFC ActiveX (ocx)控件的开发<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIxNTM5NS9hcnRpY2xlL2RldGFpbHMvNzk3MTgzNTM=">MFC .ocx控件开发<i class="fa fa-external-link-alt"></i></span>，<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFpZHUuY29tL3M/d2Q9bWZjKyVFNSVCQyU4MCVFNSU4RiU5MW9jeA==">mfc 开发ocx<i class="fa fa-external-link-alt"></i></span></p>
+          <p>最近在使用 <code>bazel</code> ，尝试使用交叉编译，在这做个记录</p>
+<p>配置的地方有几个：</p>
+<ol>
+<li><code>.bazelrc</code> 文件配置，用于激活 <code>config</code> 配置</li>
+<li>创建 <code>toolchain</code> 目录，并创建<code>BUILD</code>文件</li>
+<li>创建对应的 <code>.bzl</code> 文件</li>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more" rel="contents">
+              <a class="btn" href="/2021/08/06/bazel%20%E5%B7%A5%E5%85%B7%E9%93%BE%2001/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -615,7 +644,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/05/%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -629,7 +658,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/Net%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90%EF%BC%9ARider/" class="post-title-link" itemprop="url">.Net 开发工具推荐：Rider</a>
+            <a href="/2021/08/05/%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">安卓模拟自动注入</a>
         </h2>
 
         <div class="post-meta">
@@ -639,15 +668,22 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-05 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-05T10:23:48+00:00">2021-08-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-07 14:33:31" itemprop="dateModified" datetime="2021-08-07T14:33:31+00:00">2021-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Rider/" itemprop="url" rel="index"><span itemprop="name">Rider</span></a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -662,13 +698,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>一般情况下来说，我们开发<code>c#</code>、<code>.net</code>软件的时候，都会使用<code>vs(Microsoft Visual Studio)</code>，进行开发，但是如果我们的主系统为<code>Unix</code>系列并且习惯了<code>idea</code>系列IDE的话，使用<code>VS</code>还需要开一个虚拟机，或者下载对应版本的<code>VS</code>。<br>但我更喜欢使用 <code>idea</code> 系列的<code>Rider</code>进行开发。</p>
-<p><img src="/images/20210807/WX20201125-142020@2x.png" alt="Rider 启动图"></p>
-<p><code>Rider</code> 的整个风格可以选择与<code>vs(Microsoft Visual Studio)</code>一致或者使用传统的<code>Intellij</code>主题风格。能够直接打开 <code>c#</code> 的 <code>sln</code> 格式项目，与<code>vs</code>兼容，和别人合作开发或者多机器开发测试的情况下比较方便。</p>
-<p><code>Rider</code> 在安装的时候需要选择希望支持的 <code>.net</code> 宿主，我这边使用的是 <code>mono</code>，编译起来没有问题<del>（不过可能由于我的原项目是<code>vs</code>开发且依赖了<code>WinApi</code>以及部分Windows动态库，所以没完整跑起来，会报错，啧<del>\</del>~。）</del>；</p>
-<p>由于我的系统是<code>Unix</code>系列，以往使用<code>vs(Microsoft Visual Studio)</code>还需要使用<code>Windows</code>虚拟机，然，我主机总共才<code>8G</code>内存，导致开了虚拟机经常告警闪退，难受的不行！！！！</p>
-<p>如果你的情况和我的差不多，我建议试试<code>Rider</code>，真不错🐩</p>
-
+          <p>本项目是用于模拟自动注入，通过添加注解<code>@Autowired</code>，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行<code>Instance</code>维护。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/05/%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -687,7 +725,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -701,7 +739,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">OpenCV ORB 模板匹配</a>
+            <a href="/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/" class="post-title-link" itemprop="url">gradle发布到github packages</a>
         </h2>
 
         <div class="post-meta">
@@ -711,8 +749,106 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-03 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-03T10:23:48+00:00">2021-08-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-07 14:33:31" itemprop="dateModified" datetime="2021-08-07T14:33:31+00:00">2021-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近弄了个<code>Android</code>的模拟自动注入的库，在给别人用的时候，需要发送 <code>jar</code> 或者 <code>aar</code> 给对方，这就导致我可能需要保留一份，否则每次都需要重新编译生成。为了 <del>偷懒</del><br>增加效率，在查询资料之后，将其发布到了<code>github packages</code>。</p>
+<p>准备工作：需要<code>github</code>账号（废话），生成<code>GitHub token</code>需要有写权限（如果只是使用不需要，如果需要推送则需要），将账号(<code>GITHUB_USER</code>)<br>和<code>token</code>(<code>GITHUB_PERSONAL_ACCESS_TOKEN</code>)配置到用户目录下<code>~/.gradle/gradle.properties</code>。</p>
+<blockquote>
+<p>注意事项：</p>
+<p>如果发布返回4**系列错误，原因可能是这几个：</p>
+<ol>
+<li><code>GroupPageId</code>或者<code>ArtificatId</code>使用了大写，需要改为小写。</li>
+<li>当前<code>GroupPageId</code>或者<code>ArtificatId</code>已经在使用了！！！，需要修改，或者把在使用的删掉。。。。</li>
+<li>账号密码(<code>Token</code>)错误。</li>
+</ol>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">OpenCV ORB 模板匹配</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-02 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-02T10:23:48+00:00">2021-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-07 14:33:31" itemprop="dateModified" datetime="2021-08-07T14:33:31+00:00">2021-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -747,7 +883,7 @@
 <p>如果想要从其中桌子图片找到身份证图片的话，我们可以使用 OpenCV 的 ORB特征检测器（SIFT和SURF已获得专利，如果要在实际应用中使用它，则需要支付许可费，而 ORB 速度和性能也不差）。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/#more" rel="contents">
+              <a class="btn" href="/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -771,7 +907,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/01/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -785,7 +921,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/" class="post-title-link" itemprop="url">PHP 调用webservice</a>
+            <a href="/2021/08/01/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">docker-compose 使用代理</a>
         </h2>
 
         <div class="post-meta">
@@ -795,15 +931,22 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
+              <time title="创建时间：2021-08-01 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-01T10:23:48+00:00">2021-08-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-07 14:33:31" itemprop="dateModified" datetime="2021-08-07T14:33:31+00:00">2021-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
                 </span>
             </span>
 
@@ -818,89 +961,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>很多时候，我们需要调用第三方的接口，例如使用 <code>PHP</code>调用 <code>webservice</code> 接口。</p>
-<p>关于 <code>webservice</code> 接口，我们可以直接使用<code>SoapUi</code>查看或者像对方索要具体地址函数以及参数。</p>
-<p>在<code>PHP</code>里面调用的话，可以使用 <code>SoapClient</code>，一般<code>PHP</code>都会开启该扩展，并且相对也比较简单。</p>
+          <p>docker-compose 使用代理</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/08/07/PHP%20%E8%B0%83%E7%94%A8webservice/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/Raspberry%20Zero%20UPS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="kekxv">
-      <meta itemprop="description" content="kekxv 个人博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kekxv 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/07/Raspberry%20Zero%20UPS/" class="post-title-link" itemprop="url">Raspberry Zero UPS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-07 07:13:39" itemprop="dateCreated datePublished" datetime="2021-08-07T07:13:39+00:00">2021-08-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/raspi/" itemprop="url" rel="index"><span itemprop="name">raspi</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有一款小巧的开发板：<code>Raspberry Zero</code>，Broadcom BCM2835 SoC，它装有1 GHz ARM1176JZF-S单核CPU，Broadcom VideoCore IV @ 250 MHz GPU（仍支持高清）和512MB SDRAM；支持运行完整的<code>Linux (Arm系列)</code>系统，并且带有<code>WiFi</code>。</p>
-<p><img src="/images/20210807/03/202003172109357539136.jpg" alt="树莓派zero" title="树莓派zero"></p>
-<p>当然，这只是本文的主角之一，另一个主角是对应的UPS(算是吧)：</p>
-<p><img src="/images/20210807/03/202003172113385662548.png" alt="树莓派 UPS" title="树莓派 UPS"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/07/Raspberry%20Zero%20UPS/#more" rel="contents">
+              <a class="btn" href="/2021/08/01/docker-compose%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
