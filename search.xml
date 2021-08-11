@@ -1172,37 +1172,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vue网页简单拼音输入法</title>
-    <url>/2021/01/06/vue%E7%BD%91%E9%A1%B5%E7%AE%80%E5%8D%95%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/</url>
-    <content><![CDATA[<p>当我们在开发嵌入式应用的时候，我们可能不想让输入法的虚拟键盘出现。</p>
-<p>因为虚拟键盘可以做到比较多的事情，而且也不容易控制。</p>
-<p>例如 PC 上的虚拟键盘就可以执行 Alt F4，或者调出任务管理器，但是很多情况，我们是不允许用户这样操作的。</p>
-<span id="more"></span>
-
-<p>英文与数字字符的输入比较简单，直接贴个按钮便可以了，但却苦了咱们大汉字，常用字就有 3755 个（GB2312标准共收录6763个汉字，其中一级汉字3755个，二级汉字3008个，参考自：<span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzIwNzY3MjczL2Fuc3dlci8xNzk4NjUxNA==">https://www.zhihu.com/question/20767273/answer/17986514<i class="fa fa-external-link-alt"></i></span> ），怎么滴，也不能在界面上贴3千个按钮吧，这不合适。</p>
-<p>于是我开始寻找纯网页的输入法，发现有好几种类型，一种是类似控件的形式，侵入系统的方式实现，一种是在线输入法，而网页版离线输入法则基本上没有。</p>
-<p>（都用网页了，为什么还要离线？？？emmmmmmm，因为实际环境可能能是离线的，或者是局域网方式，而网页(HTML5)可以更优雅的进行界面开发以及展示）。</p>
-<p>翻遍了github，发现大多数不太适合，最终选定了一款，进行定制开发，封装了一层 Vue。方便自己使用。</p>
-<p><img src="/images/20210807/995AC07E-6CB4-4086-B790-DBC7156CE855.png" alt="Vue Input Keyboard"></p>
-<p><img src="/images/20210807/3C63AA68-C9FF-47D2-8217-D1EC1A770513.png" alt="Vue Input Keyboard"></p>
-<p>参考借鉴 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N4ZWkvcGlueWluanM=">https://github.com/sxei/pinyinjs<i class="fa fa-external-link-alt"></i></span></p>
-<p>因为是决定复用切开源的组件，所以内部并没有使用第三方的 <code>UI</code> 直接手写代码，不过也没啥<code>UI</code>要弄得。</p>
-<p>封装组件之后,只需要很简单的代码便可以引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pinyin&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>拼音输入测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;test&quot;</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;text&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PinYinKeyboard</span> @<span class="attr">on-delete</span>=<span class="string">&quot;DeleteText&quot;</span> @<span class="attr">on-push</span>=<span class="string">&quot;PushText&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">PinYinKeyboard</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// @ is an alias to /src</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> PinYinKeyboard <span class="keyword">from</span> <span class="string">&quot;../components/PinYinKeyboard&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>: <span class="string">&#x27;pinyin&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>: &#123;PinYinKeyboard&#125;,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">text</span>: <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">log</span>: <span class="built_in">console</span>.log,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">DeleteText</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.text = <span class="built_in">this</span>.text.substr(<span class="number">0</span>, <span class="built_in">this</span>.text.length - <span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">PushText</span>(<span class="params">key</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.text += (key);</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>组件源码 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L3Z1ZS1waW55aW5LZXlib2FyZC90cmVlL21hc3Rlci9zcmMvY29tcG9uZW50cw==">https://github.com/kekxv/vue-pinyinKeyboard/tree/master/src/components<i class="fa fa-external-link-alt"></i></span></p>
-<p>内部代码也比较简洁，感兴趣的可以自行查看。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>javascript</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安卓WebView高版本无法加载</title>
     <url>/2021/05/06/%E5%AE%89%E5%8D%93WebView%E9%AB%98%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
     <content><![CDATA[<p>在电脑虚拟机上测试的时候，发现本地<code>127.0.0.1</code>无法开始加载，出现<code>net::ERR_CLEARTEXT_NOT_PERMITTED</code>错误，这是由于<code>Android</code>在<code>8</code>的版本之后默认启用<code>https</code>，由于项目中只是使用了<code>http</code>，所以安全机制下拦截了。</p>
@@ -1231,6 +1200,37 @@
         <tag>笔记</tag>
         <tag>android</tag>
         <tag>webview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue网页简单拼音输入法</title>
+    <url>/2021/01/06/vue%E7%BD%91%E9%A1%B5%E7%AE%80%E5%8D%95%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+    <content><![CDATA[<p>当我们在开发嵌入式应用的时候，我们可能不想让输入法的虚拟键盘出现。</p>
+<p>因为虚拟键盘可以做到比较多的事情，而且也不容易控制。</p>
+<p>例如 PC 上的虚拟键盘就可以执行 Alt F4，或者调出任务管理器，但是很多情况，我们是不允许用户这样操作的。</p>
+<span id="more"></span>
+
+<p>英文与数字字符的输入比较简单，直接贴个按钮便可以了，但却苦了咱们大汉字，常用字就有 3755 个（GB2312标准共收录6763个汉字，其中一级汉字3755个，二级汉字3008个，参考自：<span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzIwNzY3MjczL2Fuc3dlci8xNzk4NjUxNA==">https://www.zhihu.com/question/20767273/answer/17986514<i class="fa fa-external-link-alt"></i></span> ），怎么滴，也不能在界面上贴3千个按钮吧，这不合适。</p>
+<p>于是我开始寻找纯网页的输入法，发现有好几种类型，一种是类似控件的形式，侵入系统的方式实现，一种是在线输入法，而网页版离线输入法则基本上没有。</p>
+<p>（都用网页了，为什么还要离线？？？emmmmmmm，因为实际环境可能能是离线的，或者是局域网方式，而网页(HTML5)可以更优雅的进行界面开发以及展示）。</p>
+<p>翻遍了github，发现大多数不太适合，最终选定了一款，进行定制开发，封装了一层 Vue。方便自己使用。</p>
+<p><img src="/images/20210807/995AC07E-6CB4-4086-B790-DBC7156CE855.png" alt="Vue Input Keyboard"></p>
+<p><img src="/images/20210807/3C63AA68-C9FF-47D2-8217-D1EC1A770513.png" alt="Vue Input Keyboard"></p>
+<p>参考借鉴 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N4ZWkvcGlueWluanM=">https://github.com/sxei/pinyinjs<i class="fa fa-external-link-alt"></i></span></p>
+<p>因为是决定复用切开源的组件，所以内部并没有使用第三方的 <code>UI</code> 直接手写代码，不过也没啥<code>UI</code>要弄得。</p>
+<p>封装组件之后,只需要很简单的代码便可以引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pinyin&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>拼音输入测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;test&quot;</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;text&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">PinYinKeyboard</span> @<span class="attr">on-delete</span>=<span class="string">&quot;DeleteText&quot;</span> @<span class="attr">on-push</span>=<span class="string">&quot;PushText&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">PinYinKeyboard</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// @ is an alias to /src</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> PinYinKeyboard <span class="keyword">from</span> <span class="string">&quot;../components/PinYinKeyboard&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>: <span class="string">&#x27;pinyin&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>: &#123;PinYinKeyboard&#125;,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">text</span>: <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">log</span>: <span class="built_in">console</span>.log,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">DeleteText</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.text = <span class="built_in">this</span>.text.substr(<span class="number">0</span>, <span class="built_in">this</span>.text.length - <span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">PushText</span>(<span class="params">key</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.text += (key);</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>组件源码 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L3Z1ZS1waW55aW5LZXlib2FyZC90cmVlL21hc3Rlci9zcmMvY29tcG9uZW50cw==">https://github.com/kekxv/vue-pinyinKeyboard/tree/master/src/components<i class="fa fa-external-link-alt"></i></span></p>
+<p>内部代码也比较简洁，感兴趣的可以自行查看。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>javascript</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
