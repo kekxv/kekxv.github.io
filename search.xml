@@ -1172,37 +1172,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安卓WebView高版本无法加载</title>
-    <url>/2021/05/06/%E5%AE%89%E5%8D%93WebView%E9%AB%98%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
-    <content><![CDATA[<p>在电脑虚拟机上测试的时候，发现本地<code>127.0.0.1</code>无法开始加载，出现<code>net::ERR_CLEARTEXT_NOT_PERMITTED</code>错误，这是由于<code>Android</code>在<code>8</code>的版本之后默认启用<code>https</code>，由于项目中只是使用了<code>http</code>，所以安全机制下拦截了。</p>
-<p>解决的办法：在<code>manifest</code>中<code>application</code>节点添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">android:usesCleartextTraffic=&quot;true&quot;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>加了之后结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest ...&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</span><br><span class="line">    &lt;application</span><br><span class="line">        ...</span><br><span class="line">        android:usesCleartextTraffic=&quot;true&quot;</span><br><span class="line">        ...&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在<code>M1</code>的系统上，虚拟机的 <code>webview</code> <code>(2020-12-28)</code>有点问题，需要升级，可以到 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXBrbWlycm9yLmNvbS8=">https://www.apkmirror.com<i class="fa fa-external-link-alt"></i></span> 进行下载更新包。</p>
-<p>注意，下载的时候一定要选择 <code>apk</code> 的版本！！！</p>
-<p><code>M1</code> 上<code>(2020-12-28)</code>只支持 <code>arm64-v8a</code>，下载的时候需要注意支持<code>arm64-v8a</code>。</p>
-<blockquote>
-<p>备注： 搜索包名可以使用 <code>com.google.android.webview</code>。</p>
-</blockquote>
-<p>参考文档</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNzIxMzIwL2FydGljbGUvZGV0YWlscy84NDQwMDgyNQ==">net::ERR_CLEARTEXT_NOT_PERMITTED Android9.0无法加载url<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>笔记</tag>
-        <tag>android</tag>
-        <tag>webview</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue网页简单拼音输入法</title>
     <url>/2021/01/06/vue%E7%BD%91%E9%A1%B5%E7%AE%80%E5%8D%95%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/</url>
     <content><![CDATA[<p>当我们在开发嵌入式应用的时候，我们可能不想让输入法的虚拟键盘出现。</p>
@@ -1231,6 +1200,37 @@
         <tag>随笔</tag>
         <tag>javascript</tag>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安卓WebView高版本无法加载</title>
+    <url>/2021/05/06/%E5%AE%89%E5%8D%93WebView%E9%AB%98%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
+    <content><![CDATA[<p>在电脑虚拟机上测试的时候，发现本地<code>127.0.0.1</code>无法开始加载，出现<code>net::ERR_CLEARTEXT_NOT_PERMITTED</code>错误，这是由于<code>Android</code>在<code>8</code>的版本之后默认启用<code>https</code>，由于项目中只是使用了<code>http</code>，所以安全机制下拦截了。</p>
+<p>解决的办法：在<code>manifest</code>中<code>application</code>节点添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">android:usesCleartextTraffic=&quot;true&quot;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>加了之后结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest ...&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</span><br><span class="line">    &lt;application</span><br><span class="line">        ...</span><br><span class="line">        android:usesCleartextTraffic=&quot;true&quot;</span><br><span class="line">        ...&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>M1</code>的系统上，虚拟机的 <code>webview</code> <code>(2020-12-28)</code>有点问题，需要升级，可以到 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXBrbWlycm9yLmNvbS8=">https://www.apkmirror.com<i class="fa fa-external-link-alt"></i></span> 进行下载更新包。</p>
+<p>注意，下载的时候一定要选择 <code>apk</code> 的版本！！！</p>
+<p><code>M1</code> 上<code>(2020-12-28)</code>只支持 <code>arm64-v8a</code>，下载的时候需要注意支持<code>arm64-v8a</code>。</p>
+<blockquote>
+<p>备注： 搜索包名可以使用 <code>com.google.android.webview</code>。</p>
+</blockquote>
+<p>参考文档</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNzIxMzIwL2FydGljbGUvZGV0YWlscy84NDQwMDgyNQ==">net::ERR_CLEARTEXT_NOT_PERMITTED Android9.0无法加载url<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>笔记</tag>
+        <tag>android</tag>
+        <tag>webview</tag>
       </tags>
   </entry>
   <entry>
