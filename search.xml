@@ -371,6 +371,14 @@
       </categories>
   </entry>
   <entry>
+    <title>http proxy 数据</title>
+    <url>/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>proxy</category>
+      </categories>
+  </entry>
+  <entry>
     <title>java PipedInputStream 管道吐槽</title>
     <url>/2021/03/07/java%20PipedInputStream%20Pipeline/</url>
     <content><![CDATA[]]></content>

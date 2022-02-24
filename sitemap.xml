@@ -9,97 +9,6 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/07/06/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/about/index.html</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/03/06/Advanced%20search%20techniques%20for%20search%20engines/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/05/06/Android%20WebView%20high%20version%20cannot%20be%20loaded/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/Compute%20Stick%20Z8350%20uses%20Ubuntu%20Server%20system/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/04/06/Java%20considerations/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/JetBrains%20open%20source%20authorization(reproduced)/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/02/06/Linux%20gtk+%20demo/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/02/06/Net%20ide%20Rider/</loc>
-    
-    <lastmod>2022-02-24</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</loc>
     
     <lastmod>2022-02-24</lastmod>
@@ -247,6 +156,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/2021/03/07/java%20PipedInputStream%20Pipeline/</loc>
     
     <lastmod>2022-02-24</lastmod>
@@ -290,6 +206,97 @@
   
   <url>
     <loc>http://kekxv.github.io/2021/04/06/%E6%A0%91%E8%8E%93%E6%B4%BE%20OLED%20%E5%B1%8F%E5%B9%95/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/07/06/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/about/index.html</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/03/06/Advanced%20search%20techniques%20for%20search%20engines/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/05/06/Android%20WebView%20high%20version%20cannot%20be%20loaded/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/Compute%20Stick%20Z8350%20uses%20Ubuntu%20Server%20system/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/Gitlab%20Runner%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/04/06/Java%20considerations/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/JetBrains%20open%20source%20authorization(reproduced)/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/02/06/Linux%20gtk+%20demo/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/02/06/Net%20ide%20Rider/</loc>
     
     <lastmod>2022-02-24</lastmod>
     
@@ -783,6 +790,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/categories/proxy/</loc>
+    <lastmod>2022-02-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/categories/linux/</loc>
     <lastmod>2022-02-24</lastmod>
     <changefreq>daily</changefreq>
@@ -804,6 +818,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/categories/WebSocket/</loc>
+    <lastmod>2022-02-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/categories/netcat/nc/</loc>
     <lastmod>2022-02-24</lastmod>
     <changefreq>daily</changefreq>
@@ -812,13 +833,6 @@
   
   <url>
     <loc>http://kekxv.github.io/categories/netcat/nc/TCP/</loc>
-    <lastmod>2022-02-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/categories/WebSocket/</loc>
     <lastmod>2022-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
