@@ -6,7 +6,7 @@
   <link href="http://kekxv.github.io/feed.xml" rel="self"/>
   
   <link href="http://kekxv.github.io/"/>
-  <updated>2022-04-08T07:02:47.657Z</updated>
+  <updated>2022-04-08T07:05:19.119Z</updated>
   <id>http://kekxv.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>kInteractiveProtocol 协议</title>
+    <link href="http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/</id>
+    <published>2022-04-08T12:00:00.000Z</published>
+    <updated>2022-04-08T07:05:19.119Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;kInteractiveProtocol 协议 为双向协议，主要用于双方主动发送数据识别在接收时期寻回发送来源，即消息ID。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Protocol" scheme="http://kekxv.github.io/categories/Protocol/"/>
+    
+    <category term="协议" scheme="http://kekxv.github.io/categories/Protocol/%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>http proxy 数据</title>
     <link href="http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/"/>
     <id>http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/</id>
     <published>2022-02-24T10:28:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;以&lt;code&gt;http&lt;/code&gt;代理简单表示 &lt;code&gt;http proxy&lt;/code&gt; 发送和接收的协议&lt;/p&gt;</summary>
@@ -38,7 +57,7 @@
     <link href="http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/"/>
     <id>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</id>
     <published>2022-02-24T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;netcat&lt;/code&gt;，简写为 &lt;code&gt;nc&lt;/code&gt;，是 &lt;code&gt;unix&lt;/code&gt; 系统下一个强大的命令行网络通信工具，用于在两台主机之间建立 &lt;code&gt;TCP&lt;/code&gt; 或者 &lt;code&gt;UDP&lt;/code&gt; 连接，并提供丰富的命令进行数据通信。&lt;code&gt;nc&lt;/code&gt; 在网络参考模型属于应用层。使用 &lt;code&gt;nc&lt;/code&gt;&lt;br&gt;可以做很多事情：&lt;code&gt;建立连接&lt;/code&gt;，&lt;code&gt;发送数据包&lt;/code&gt;，&lt;code&gt;监听端口&lt;/code&gt;，&lt;code&gt;扫描端口&lt;/code&gt;，处理 &lt;code&gt;ip4&lt;/code&gt; 和 &lt;code&gt;ip6&lt;/code&gt;，和 &lt;code&gt;telnet&lt;/code&gt; 不同，&lt;code&gt;nc&lt;/code&gt; 会区分错误输出和标准输出，&lt;code&gt;telnet&lt;/code&gt; 则都是标准输出。&lt;/p&gt;</summary>
@@ -65,7 +84,7 @@
     <link href="http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/"/>
     <id>http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过 &lt;code&gt;Windows&lt;/code&gt; 实现端口转发。本文为参考转发文章&lt;/p&gt;
@@ -90,7 +109,7 @@
     <link href="http://kekxv.github.io/2021/08/07/bazel%20notes%2001/"/>
     <id>http://kekxv.github.io/2021/08/07/bazel%20notes%2001/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;Bazel - a fast, scalable, multi-language and extensible build system&lt;/p&gt;
@@ -112,7 +131,7 @@
     <link href="http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/"/>
     <id>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用 docker-compose 管理本地容器组，是非常方便的手段，但是最近遇到一个 bug，决定使用 docker stack /swarm 替代 docker-compose 。&lt;/p&gt;
@@ -141,7 +160,7 @@
     <link href="http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/"/>
     <id>http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;承接自 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2tIdHRwZA==&quot;&gt;kHttpd&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 项目。&lt;/p&gt;
@@ -169,7 +188,7 @@
     <link href="http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     <id>http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;在部分情况下，没有办法直接访问到目标机器，需要通过中转的方式进行访问，一般使用代理，或者VPN等组网方式，使用端口转发的方式其实也是不错的。&lt;/p&gt;
@@ -189,7 +208,7 @@
     <link href="http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/"/>
     <id>http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/</id>
     <published>2021-08-06T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在使用 &lt;code&gt;bazel&lt;/code&gt; ，尝试使用交叉编译，在这做个记录&lt;/p&gt;
@@ -216,7 +235,7 @@
     <link href="http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/"/>
     <id>http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/</id>
     <published>2021-08-05T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;本项目是用于模拟自动注入，通过添加注解&lt;code&gt;@Autowired&lt;/code&gt;，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行&lt;code&gt;Instance&lt;/code&gt;维护。&lt;/p&gt;</summary>
@@ -239,7 +258,7 @@
     <link href="http://kekxv.github.io/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/"/>
     <id>http://kekxv.github.io/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/</id>
     <published>2021-08-03T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近弄了个&lt;code&gt;Android&lt;/code&gt;的模拟自动注入的库，在给别人用的时候，需要发送 &lt;code&gt;jar&lt;/code&gt; 或者 &lt;code&gt;aar&lt;/code&gt; 给对方，这就导致我可能需要保留一份，否则每次都需要重新编译生成。为了 &lt;del&gt;偷懒&lt;/del&gt;&lt;br&gt;增加效率，在查询资料之后，将其发布到了&lt;code&gt;github packages&lt;/code&gt;。&lt;/p&gt;
@@ -272,7 +291,7 @@
     <link href="http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/"/>
     <id>http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</id>
     <published>2021-08-02T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;在某些情况下，我们需要用一个已知的物体，在一个场景内进行匹配，比如有一张身份证，然后想要在桌子上找到他的位置。比如以下两张图片：&lt;/p&gt;
@@ -303,7 +322,7 @@
     <link href="http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/"/>
     <id>http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;在需要带着笔记本出门的情况下，相对于如今动不动就 &lt;code&gt;15寸+&lt;/code&gt; 的笔记本电脑，我更喜欢携带一些小尺寸的电脑，毕竟，每天上下班背电脑是真的重。&lt;/p&gt;</summary>
@@ -322,7 +341,7 @@
     <link href="http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/"/>
     <id>http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;docker-compose 使用代理&lt;/p&gt;</summary>
@@ -343,7 +362,7 @@
     <link href="http://kekxv.github.io/2021/08/01/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/"/>
     <id>http://kekxv.github.io/2021/08/01/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前写篇 &lt;code&gt;gitlab&lt;/code&gt; 仓库搭建步骤教程，最近升级的时候发现命令实在是太长了，于是决定使用 &lt;code&gt;docker-compose.yml&lt;/code&gt; 文件进行配置搭建。&lt;/p&gt;
@@ -367,7 +386,7 @@
     <link href="http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/"/>
     <id>http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;某些情况下，我们只有内网的环境，无法很好的使用 &lt;code&gt;yum&lt;/code&gt; 镜像源，进行安装，所以我们可以选择搭建本地镜像源站来使用。&lt;/p&gt;
@@ -387,7 +406,7 @@
     <link href="http://kekxv.github.io/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/"/>
     <id>http://kekxv.github.io/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</id>
     <published>2021-07-16T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;在Linux系列下，我们连接WiFi的时候，可以使用nmcli作为管理工具，进行WiFi连接断开等操作，操作也相对方便。&lt;/p&gt;
@@ -416,7 +435,7 @@
     <link href="http://kekxv.github.io/2021/07/06/gitea%20drone%20CI/"/>
     <id>http://kekxv.github.io/2021/07/06/gitea%20drone%20CI/</id>
     <published>2021-07-06T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;搭建 &lt;code&gt;gitea&lt;/code&gt; 仓库以及 &lt;code&gt;drone&lt;/code&gt; &lt;code&gt;CI&lt;/code&gt; 工具。&lt;/p&gt;
@@ -442,7 +461,7 @@
     <link href="http://kekxv.github.io/2021/07/06/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/"/>
     <id>http://kekxv.github.io/2021/07/06/%E8%87%AA%E5%AE%9A%E4%B9%89WebSocket%E9%80%9A%E4%BF%A1%E5%9B%9E%E5%A4%8D%E5%8D%8F%E8%AE%AE/</id>
     <published>2021-07-06T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.119Z</updated>
     
     
     <summary type="html">&lt;p&gt;在有些情况下，我们在使用 &lt;code&gt;WebSocket&lt;/code&gt; 通信的时候，需要对方进行回应，但由于 &lt;code&gt;WebSocket&lt;/code&gt; 是&lt;code&gt;全双工&lt;/code&gt;交互，所以不能像 &lt;code&gt;http&lt;/code&gt; 协议一样，发送之后能够得到对应的回复，为了能够很好的获取到对应的回复，设计了一个简单的协议，各位有需要的话，可以参考看看。&lt;/p&gt;
@@ -464,7 +483,7 @@
     <link href="http://kekxv.github.io/2021/06/06/PHP%20%E8%B0%83%E7%94%A8webservice/"/>
     <id>http://kekxv.github.io/2021/06/06/PHP%20%E8%B0%83%E7%94%A8webservice/</id>
     <published>2021-06-06T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
+    <updated>2022-04-08T07:05:19.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;很多时候，我们需要调用第三方的接口，例如使用 &lt;code&gt;PHP&lt;/code&gt;调用 &lt;code&gt;webservice&lt;/code&gt; 接口。&lt;/p&gt;
@@ -479,31 +498,6 @@
     <category term="php" scheme="http://kekxv.github.io/tags/php/"/>
     
     <category term="webservice" scheme="http://kekxv.github.io/tags/webservice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓WebView高版本无法加载</title>
-    <link href="http://kekxv.github.io/2021/05/06/Android%20WebView%20high%20version%20cannot%20be%20loaded/"/>
-    <id>http://kekxv.github.io/2021/05/06/Android%20WebView%20high%20version%20cannot%20be%20loaded/</id>
-    <published>2021-05-06T10:23:48.000Z</published>
-    <updated>2022-04-08T07:02:47.657Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在电脑虚拟机上测试的时候，发现本地&lt;code&gt;127.0.0.1&lt;/code&gt;无法开始加载，出现&lt;code&gt;net::ERR_CLEARTEXT_NOT_PERMITTED&lt;/code&gt;错误，这是由于&lt;code&gt;Android&lt;/code&gt;在&lt;code&gt;8&lt;/code&gt;的版本之后默认启用&lt;code&gt;https&lt;/code&gt;，由于项目中只是使用了&lt;code&gt;http&lt;/code&gt;，所以安全机制下拦截了。&lt;/p&gt;
-&lt;p&gt;解决的办法：在&lt;code&gt;manifest&lt;/code&gt;中&lt;code&gt;application&lt;/code&gt;节点添加&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;android:usesCleartextTraffic=&amp;quot;true&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="android" scheme="http://kekxv.github.io/categories/android/"/>
-    
-    
-    <category term="notes" scheme="http://kekxv.github.io/tags/notes/"/>
-    
-    <category term="android" scheme="http://kekxv.github.io/tags/android/"/>
-    
-    <category term="webview" scheme="http://kekxv.github.io/tags/webview/"/>
     
   </entry>
   
