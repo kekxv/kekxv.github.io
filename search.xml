@@ -438,6 +438,21 @@
       </tags>
   </entry>
   <entry>
+    <title>systemd 简单编写</title>
+    <url>/2022/04/16/systemd%20%E7%AE%80%E5%8D%95%E7%BC%96%E5%86%99/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>unix</category>
+        <category>linux</category>
+        <category>systemd</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>unix</tag>
+        <tag>systemd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue网页简单拼音输入法</title>
     <url>/2021/01/06/vue%20web%20simple%20pinyin%20input/</url>
     <content><![CDATA[]]></content>
