@@ -113,6 +113,20 @@
       </tags>
   </entry>
   <entry>
+    <title>NSIS 简单配置</title>
+    <url>/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>NSIS</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>NSIS</tag>
+        <tag>Windows</tag>
+        <tag>安装包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>.Net 开发工具推荐：Rider</title>
     <url>/2021/02/06/Net%20ide%20Rider/</url>
     <content><![CDATA[]]></content>
@@ -416,17 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title>reposync 同步镜像源</title>
-    <url>/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ssh 隧道端口转发</title>
     <url>/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</url>
     <content><![CDATA[]]></content>
@@ -492,6 +495,17 @@
         <tag>netcat</tag>
         <tag>nc</tag>
         <tag>TCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reposync 同步镜像源</title>
+    <url>/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>

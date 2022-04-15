@@ -9,76 +9,6 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/User%20configuration%20script%20file%20.netrc/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2020/03/01/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/08/07/bazel%20notes%2001/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/c51%20warning/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/03/06/cSharp%20HttpClient%20Cookie%20notes/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/01/06/clangTools/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kekxv.github.io/2021/07/06/gitea%20drone%20CI/</loc>
     
     <lastmod>2022-04-15</lastmod>
@@ -156,13 +86,6 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
-    
-    <lastmod>2022-04-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</loc>
     
     <lastmod>2022-04-15</lastmod>
@@ -192,6 +115,13 @@
   
   <url>
     <loc>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
     
     <lastmod>2022-04-15</lastmod>
     
@@ -282,6 +212,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/2021/02/06/Net%20ide%20Rider/</loc>
     
     <lastmod>2022-04-15</lastmod>
@@ -311,6 +248,76 @@
   
   <url>
     <loc>http://kekxv.github.io/2021/05/06/Raspberry%20Zero%20UPS/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/User%20configuration%20script%20file%20.netrc/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2020/03/01/Web%20%E7%89%88%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5(OpenCV)/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/07/bazel%20notes%2001/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/c51%20warning/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/03/06/cSharp%20HttpClient%20Cookie%20notes/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/01/06/clangTools/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</loc>
     
     <lastmod>2022-04-15</lastmod>
     
@@ -453,6 +460,27 @@
   
   <url>
     <loc>http://kekxv.github.io/tags/c-c/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/tags/NSIS/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/tags/Windows/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/tags/%E5%AE%89%E8%A3%85%E5%8C%85/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -720,6 +748,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/categories/NSIS/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/categories/Rider/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
@@ -790,6 +825,13 @@
   </url>
   
   <url>
+    <loc>http://kekxv.github.io/categories/NSIS/Windows/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://kekxv.github.io/categories/gitea/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
@@ -846,21 +888,14 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/categories/unix/linux/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://kekxv.github.io/categories/unix/linux/systemd/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://kekxv.github.io/categories/netcat/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/categories/unix/linux/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -874,13 +909,6 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/categories/Protocol/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://kekxv.github.io/categories/netcat/nc/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
@@ -888,7 +916,14 @@
   </url>
   
   <url>
-    <loc>http://kekxv.github.io/categories/Protocol/%E5%8D%8F%E8%AE%AE/</loc>
+    <loc>http://kekxv.github.io/categories/Protocol/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/categories/unix/linux/systemd/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -896,6 +931,13 @@
   
   <url>
     <loc>http://kekxv.github.io/categories/netcat/nc/TCP/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kekxv.github.io/categories/Protocol/%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
