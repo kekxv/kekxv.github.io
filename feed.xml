@@ -6,7 +6,7 @@
   <link href="http://kekxv.github.io/feed.xml" rel="self"/>
   
   <link href="http://kekxv.github.io/"/>
-  <updated>2022-04-16T03:47:12.288Z</updated>
+  <updated>2022-04-16T04:06:52.546Z</updated>
   <id>http://kekxv.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/"/>
     <id>http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/</id>
     <published>2022-04-16T11:05:59.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;在&lt;code&gt;Windows&lt;/code&gt;下，有时候需要管理一些程序，在 &lt;code&gt;unix&lt;/code&gt; 系列下的时候都是使用 &lt;code&gt;shell&lt;/code&gt; 脚本，但在 &lt;code&gt;Windows&lt;/code&gt; 下却没有 &lt;code&gt;shell&lt;/code&gt; 的默认支持，所以我编写了简单的 &lt;code&gt;startup.vbs&lt;/code&gt; 以及 &lt;code&gt;shutdown.vbs&lt;/code&gt; 脚本，给予有需要的人以及未来的我进行&lt;del&gt;照抄&lt;/del&gt;借鉴。&lt;/p&gt;</summary>
@@ -36,7 +36,7 @@
     <link href="http://kekxv.github.io/2022/04/16/systemd%20%E7%AE%80%E5%8D%95%E7%BC%96%E5%86%99/"/>
     <id>http://kekxv.github.io/2022/04/16/systemd%20%E7%AE%80%E5%8D%95%E7%BC%96%E5%86%99/</id>
     <published>2022-04-16T00:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;我们使用 &lt;code&gt;unix&lt;/code&gt; 服务器目前管理服务的方式，基本上是使用&lt;code&gt;systemd&lt;/code&gt;来进行管理，所以这边简单的说明一下如何编写一个简单的&lt;code&gt;systemd&lt;/code&gt;服务脚本。&lt;/p&gt;</summary>
@@ -63,7 +63,7 @@
     <link href="http://kekxv.github.io/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
     <id>http://kekxv.github.io/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</id>
     <published>2022-04-15T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;NSIS（Nullsoft Scriptable Install System）&lt;/code&gt;是一个开源的 &lt;code&gt;Windows&lt;/code&gt; 系统下安装程序制作程序。它提供了安装、卸载、系统设置、文件解压缩等功能。这如其名字所指出的那样，&lt;code&gt;NSIS&lt;/code&gt; 是通过它的脚本语言来描述安装程序的行为和逻辑的。&lt;code&gt;NSIS&lt;/code&gt; 的脚本语言和通常的编程语言有类似的结构和语法，但它是为安装程序这类应用所设计的。&lt;/p&gt;</summary>
@@ -88,7 +88,7 @@
     <link href="http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/"/>
     <id>http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/</id>
     <published>2022-04-08T12:00:00.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;kInteractiveProtocol 协议 为双向协议，主要用于双方主动发送数据识别在接收时期寻回发送来源，即消息ID。&lt;/p&gt;</summary>
@@ -107,7 +107,7 @@
     <link href="http://kekxv.github.io/2022/03/16/idea%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7/"/>
     <id>http://kekxv.github.io/2022/03/16/idea%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7/</id>
     <published>2022-03-16T09:03:29.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;JetBrains&lt;/code&gt; 公司旗下的 &lt;code&gt;IDEA&lt;/code&gt; 功能都十分强大，深受各种编程语言相关的程序员的喜爱。&lt;/p&gt;
@@ -132,7 +132,7 @@
     <link href="http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/"/>
     <id>http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/</id>
     <published>2022-02-24T10:28:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;以&lt;code&gt;http&lt;/code&gt;代理简单表示 &lt;code&gt;http proxy&lt;/code&gt; 发送和接收的协议&lt;/p&gt;</summary>
@@ -149,7 +149,7 @@
     <link href="http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/"/>
     <id>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</id>
     <published>2022-02-24T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;netcat&lt;/code&gt;，简写为 &lt;code&gt;nc&lt;/code&gt;，是 &lt;code&gt;unix&lt;/code&gt; 系统下一个强大的命令行网络通信工具，用于在两台主机之间建立 &lt;code&gt;TCP&lt;/code&gt; 或者 &lt;code&gt;UDP&lt;/code&gt; 连接，并提供丰富的命令进行数据通信。&lt;code&gt;nc&lt;/code&gt; 在网络参考模型属于应用层。使用 &lt;code&gt;nc&lt;/code&gt;&lt;br&gt;可以做很多事情：&lt;code&gt;建立连接&lt;/code&gt;，&lt;code&gt;发送数据包&lt;/code&gt;，&lt;code&gt;监听端口&lt;/code&gt;，&lt;code&gt;扫描端口&lt;/code&gt;，处理 &lt;code&gt;ip4&lt;/code&gt; 和 &lt;code&gt;ip6&lt;/code&gt;，和 &lt;code&gt;telnet&lt;/code&gt; 不同，&lt;code&gt;nc&lt;/code&gt; 会区分错误输出和标准输出，&lt;code&gt;telnet&lt;/code&gt; 则都是标准输出。&lt;/p&gt;</summary>
@@ -176,7 +176,7 @@
     <link href="http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/"/>
     <id>http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过 &lt;code&gt;Windows&lt;/code&gt; 实现端口转发。本文为参考转发文章&lt;/p&gt;
@@ -201,7 +201,7 @@
     <link href="http://kekxv.github.io/2021/08/07/bazel%20notes%2001/"/>
     <id>http://kekxv.github.io/2021/08/07/bazel%20notes%2001/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;Bazel - a fast, scalable, multi-language and extensible build system&lt;/p&gt;
@@ -223,7 +223,7 @@
     <link href="http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/"/>
     <id>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用 docker-compose 管理本地容器组，是非常方便的手段，但是最近遇到一个 bug，决定使用 docker stack /swarm 替代 docker-compose 。&lt;/p&gt;
@@ -252,7 +252,7 @@
     <link href="http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/"/>
     <id>http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;承接自 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2tIdHRwZA==&quot;&gt;kHttpd&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 项目。&lt;/p&gt;
@@ -280,7 +280,7 @@
     <link href="http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     <id>http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;在部分情况下，没有办法直接访问到目标机器，需要通过中转的方式进行访问，一般使用代理，或者VPN等组网方式，使用端口转发的方式其实也是不错的。&lt;/p&gt;
@@ -300,7 +300,7 @@
     <link href="http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/"/>
     <id>http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/</id>
     <published>2021-08-06T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在使用 &lt;code&gt;bazel&lt;/code&gt; ，尝试使用交叉编译，在这做个记录&lt;/p&gt;
@@ -327,7 +327,7 @@
     <link href="http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/"/>
     <id>http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/</id>
     <published>2021-08-05T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.542Z</updated>
     
     
     <summary type="html">&lt;p&gt;本项目是用于模拟自动注入，通过添加注解&lt;code&gt;@Autowired&lt;/code&gt;，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行&lt;code&gt;Instance&lt;/code&gt;维护。&lt;/p&gt;</summary>
@@ -350,7 +350,7 @@
     <link href="http://kekxv.github.io/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/"/>
     <id>http://kekxv.github.io/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/</id>
     <published>2021-08-03T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近弄了个&lt;code&gt;Android&lt;/code&gt;的模拟自动注入的库，在给别人用的时候，需要发送 &lt;code&gt;jar&lt;/code&gt; 或者 &lt;code&gt;aar&lt;/code&gt; 给对方，这就导致我可能需要保留一份，否则每次都需要重新编译生成。为了 &lt;del&gt;偷懒&lt;/del&gt;&lt;br&gt;增加效率，在查询资料之后，将其发布到了&lt;code&gt;github packages&lt;/code&gt;。&lt;/p&gt;
@@ -383,7 +383,7 @@
     <link href="http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/"/>
     <id>http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/</id>
     <published>2021-08-02T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;在某些情况下，我们需要用一个已知的物体，在一个场景内进行匹配，比如有一张身份证，然后想要在桌子上找到他的位置。比如以下两张图片：&lt;/p&gt;
@@ -414,7 +414,7 @@
     <link href="http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/"/>
     <id>http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;在需要带着笔记本出门的情况下，相对于如今动不动就 &lt;code&gt;15寸+&lt;/code&gt; 的笔记本电脑，我更喜欢携带一些小尺寸的电脑，毕竟，每天上下班背电脑是真的重。&lt;/p&gt;</summary>
@@ -433,7 +433,7 @@
     <link href="http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/"/>
     <id>http://kekxv.github.io/2021/08/01/docker-compose%20%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;docker-compose 使用代理&lt;/p&gt;</summary>
@@ -454,7 +454,7 @@
     <link href="http://kekxv.github.io/2021/08/01/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/"/>
     <id>http://kekxv.github.io/2021/08/01/gitlab%E4%BB%93%E5%BA%93yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%90%AD%E5%BB%BA/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.284Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前写篇 &lt;code&gt;gitlab&lt;/code&gt; 仓库搭建步骤教程，最近升级的时候发现命令实在是太长了，于是决定使用 &lt;code&gt;docker-compose.yml&lt;/code&gt; 文件进行配置搭建。&lt;/p&gt;
@@ -478,7 +478,7 @@
     <link href="http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/"/>
     <id>http://kekxv.github.io/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/</id>
     <published>2021-08-01T10:23:48.000Z</published>
-    <updated>2022-04-16T03:47:12.288Z</updated>
+    <updated>2022-04-16T04:06:52.546Z</updated>
     
     
     <summary type="html">&lt;p&gt;某些情况下，我们只有内网的环境，无法很好的使用 &lt;code&gt;yum&lt;/code&gt; 镜像源，进行安装，所以我们可以选择搭建本地镜像源站来使用。&lt;/p&gt;
