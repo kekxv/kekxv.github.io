@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -194,6 +194,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">kProxyCpp 服务端软件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-07 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-07T10:23:48+00:00">2021-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>承接自 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2tIdHRwZA==">kHttpd<i class="fa fa-external-link-alt"></i></span> 项目。</p>
+<p>由于 <code>kHttpd</code> 项目使用了 <code>libevent</code> 开源库，其中某些特性导致使用上面不太方面（仅仅指的是我个人而言），所以重新开发了本项目。</p>
+<h1 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h1><ol>
+<li><p><code>http server</code> 实现， <code>http server</code> 服务端功能，使用线程池为每个连接进行处理，所以每个请求都可以阻塞（但是并不建议，除非某种特定的场景，例如进行http代理服务，必须等到对方回应，不使用 <code>libevent</code> 其中一个原因）。</p>
+</li>
+<li><p><code>WebSocket server</code> 实现，当前项目实现了<code>WebSocket server</code>端代码，可以使用 c/c++ 愉快的开发<code>WebSocket</code>项目，同时<code>WebSocket</code>服务端也支持<code>http server</code>，也就是同一个端口同时使用<code>WebSocket server</code> 以及 <code>http server</code>，使得更方便一些。使用<code>WebSocket server</code>的情况下，请根据实际情况，加大线程数量以及监听数量，否则可能造成后续连接被阻塞。</p>
+</li>
+<li><p><code>CGI</code> 功能实现，目前实现 <code>CGI</code> 调用 <code>php</code>，可以使用<code>php</code>作为动态脚本进行开发，不过现在还未实现 <code>php</code>的<code>POST</code>模式，即还未将 <code>php</code> <code>body</code>数据传入给<code>CGI</code>。</p>
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +315,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,7 +397,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -394,7 +484,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -475,7 +565,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -566,7 +656,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,7 +747,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -738,7 +828,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -819,7 +909,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -901,7 +991,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
+                <time title="修改时间：2022-04-16 03:06:56" itemprop="dateModified" datetime="2022-04-16T03:06:56+00:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -929,93 +1019,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/01/reposync%20%E5%90%8C%E6%AD%A5%E9%95%9C%E5%83%8F%E6%BA%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="kekxv">
-      <meta itemprop="description" content="kekxv 个人博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kekxv 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">nmcli 简单用法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-16 10:23:48" itemprop="dateCreated datePublished" datetime="2021-07-16T10:23:48+00:00">2021-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 01:26:34" itemprop="dateModified" datetime="2022-04-16T01:26:34+00:00">2022-04-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Linux系列下，我们连接WiFi的时候，可以使用nmcli作为管理工具，进行WiFi连接断开等操作，操作也相对方便。</p>
-<p><code>nmcli</code> 不仅仅支持操作 <code>Wi-Fi</code>，还支持操作所有网络设备</p>
-<blockquote>
-<p>提示：<br>在<code>centos7</code>某些情况下，以太网并没有自动连接网络，可以使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection modify &quot;设备名(ens33)&quot; connection.autoconnect yes</span><br></pre></td></tr></table></figure>
-<p>设置自动管理，且开机自动连接。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1106,7 +1109,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
