@@ -509,6 +509,18 @@
       </tags>
   </entry>
   <entry>
+    <title>深度学习记录-简单</title>
+    <url>/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>tensorflow</tag>
+        <tag>ncnn</tag>
+        <tag>onnx</tag>
+        <tag>keras</tag>
+        <tag>hdf5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网络通信工具 netcat</title>
     <url>/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</url>
     <content><![CDATA[]]></content>
