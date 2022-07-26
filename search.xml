@@ -477,6 +477,18 @@
       </tags>
   </entry>
   <entry>
+    <title>tensorflow gpu 安装(ubuntu22.04)</title>
+    <url>/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>tensorflow</category>
+        <category>NVIDIA</category>
+      </categories>
+      <tags>
+        <tag>tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vbs 启动进程并记录 PID</title>
     <url>/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/</url>
     <content><![CDATA[]]></content>
