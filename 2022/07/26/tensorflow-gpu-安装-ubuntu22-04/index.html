@@ -27,7 +27,7 @@
 <meta property="og:description" content="ubuntu22.04 安装 tensorflow-gpu 记录，主要是 NVIDIA 驱动麻烦，这里做个记录。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-26T13:56:21.000Z">
-<meta property="article:modified_time" content="2022-07-30T10:16:06.684Z">
+<meta property="article:modified_time" content="2022-09-02T01:21:24.438Z">
 <meta property="article:author" content="kekxv">
 <meta property="article:tag" content="tensorflow">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-30 10:16:06" itemprop="dateModified" datetime="2022-07-30T10:16:06+00:00">2022-07-30</time>
+                <time title="修改时间：2022-09-02 01:21:24" itemprop="dateModified" datetime="2022-09-02T01:21:24+00:00">2022-09-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,15 +276,21 @@
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果您对推荐版本感到满意，请使用以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ubuntu-drivers autoinstall</span><br></pre></td></tr></table></figure>
 
-<p>如果想安装指定版本(例如:<code>nvidia-driver-510</code>):</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-driver-510</span><br></pre></td></tr></table></figure>
+<p>如果想安装指定版本(例如:<code>nvidia-driver-515</code>):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-driver-515</span><br></pre></td></tr></table></figure>
 
 <p>装好之后，重启系统，则可以加载驱动，使用显卡</p>
-<p>目前（<code>2022年07月26日</code>） <code>2204</code> 的库不全，需要使用 <code>2004</code> 的库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export last_public_key=3bf863cc.pub</span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin</span><br><span class="line">sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600</span><br><span class="line">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/$&#123;last_public_key&#125;.pub</span><br><span class="line">sudo add-apt-repository &quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /&quot;</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libcudnn8</span><br><span class="line">sudo apt-get install libcudnn8-dev</span><br></pre></td></tr></table></figure>
-
-<p>附<code>2204</code>版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin</span><br><span class="line">sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600</span><br><span class="line">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub</span><br><span class="line">sudo add-apt-repository &quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /&quot;</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libcudnn8</span><br><span class="line">sudo apt-get install libcudnn8-dev</span><br></pre></td></tr></table></figure>
+<p><del>目前（<code>2022年07月26日</code>） <code>2204</code> 的库不全，需要使用 <code>2004</code> 的库</del></p>
+<p><del>export last_public_key=3bf863cc.pub</del></p>
+<p><del>wget <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuZG93bmxvYWQubnZpZGlhLmNvbS9jb21wdXRlL2N1ZGEvcmVwb3MvdWJ1bnR1MjAwNC94ODZfNjQvY3VkYS11YnVudHUyMDA0LnBpbg==">https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin<i class="fa fa-external-link-alt"></i></span></del></p>
+<p><del>sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600</del></p>
+<p><del>sudo apt-key adv –fetch-keys <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuZG93bmxvYWQubnZpZGlhLmNvbS9jb21wdXRlL2N1ZGEvcmVwb3MvdWJ1bnR1MjAwNC94ODZfNjQvJCU3Qmxhc3RfcHVibGljX2tleSU3RA==">https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/${last_public_key}<i class="fa fa-external-link-alt"></i></span></del></p>
+<p><del>sudo add-apt-repository “deb <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuZG93bmxvYWQubnZpZGlhLmNvbS9jb21wdXRlL2N1ZGEvcmVwb3MvdWJ1bnR1MjAwNC94ODZfNjQv">https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/<i class="fa fa-external-link-alt"></i></span> /“</del></p>
+<p><del>sudo apt-get update</del></p>
+<p><del>sudo apt-get install libcudnn8</del></p>
+<p><del>sudo apt-get install libcudnn8-dev</del></p>
+<p><del>附</del><code>2204</code>版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin</span><br><span class="line">sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600</span><br><span class="line">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub</span><br><span class="line">sudo add-apt-repository &quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /&quot;</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install cuda</span><br><span class="line">sudo apt-get install libcudnn8</span><br><span class="line">sudo apt-get install libcudnn8-dev</span><br></pre></td></tr></table></figure>
 
 <p>参考：<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjY5NzcyMjcvY291bGQtbm90LWxvYWQtZHluYW1pYy1saWJyYXJ5LWxpYmN1ZG5uLXNvLTgtd2hlbi1ydW5uaW5nLXRlbnNvcmZsb3ctb24tdWJ1bg==">https://stackoverflow.com/questions/66977227/could-not-load-dynamic-library-libcudnn-so-8-when-running-tensorflow-on-ubun<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="安装-tensorflow-gpu"><a href="#安装-tensorflow-gpu" class="headerlink" title="安装 tensorflow-gpu"></a>安装 tensorflow-gpu</h2><p>参考 ： <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvaW5zdGFsbC9waXA=">https://www.tensorflow.org/install/pip<i class="fa fa-external-link-alt"></i></span></p>
