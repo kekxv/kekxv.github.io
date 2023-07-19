@@ -124,12 +124,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">59</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">51</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -194,6 +194,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">OpenCV ORB 模板匹配</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-02 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-02T10:23:48+00:00">2021-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/opencv/" itemprop="url" rel="index"><span itemprop="name">opencv</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在某些情况下，我们需要用一个已知的物体，在一个场景内进行匹配，比如有一张身份证，然后想要在桌子上找到他的位置。比如以下两张图片：</p>
+<blockquote>
+<p>身份证图片：</p>
+<img src="/images/20210807/12/201912181125218966050.jpg" alt="韦小宝" width="300" />
+
+<p>桌子图片：</p>
+<img src="/images/20210807/12/201912181127039744167.jpg" alt="韦小宝桌子" width="400" />
+
+<p>(什么？没有桌子？哦，不要在意这些细节问题，嗯。)</p>
+</blockquote>
+<p>如果想要从其中桌子图片找到身份证图片的话，我们可以使用 OpenCV 的 ORB特征检测器（SIFT和SURF已获得专利，如果要在实际应用中使用它，则需要支付许可费，而 ORB 速度和性能也不差）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/02/OpenCV%20ORB%20%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/01/Small%20size%20computer%20comparison/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +316,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,7 +397,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -387,7 +478,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -469,7 +560,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -551,7 +642,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -638,7 +729,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -722,7 +813,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -804,7 +895,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -887,7 +978,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
+                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -916,88 +1007,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/06/Android%20WebView%20high%20version%20cannot%20be%20loaded/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="kekxv">
-      <meta itemprop="description" content="kekxv 技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kekxv 技术博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">MFC OCX 开发一些注意事项</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-06 10:23:48" itemprop="dateCreated datePublished" datetime="2021-05-06T10:23:48+00:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 06:53:04" itemprop="dateModified" datetime="2023-07-18T06:53:04+00:00">2023-07-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC/" itemprop="url" rel="index"><span itemprop="name">MFC</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>由于一些原因，居然开始 MFC OCX 的开发，这都是淘汰了多久的玩意了啊，心塞。</p>
-<p>MFC 如何进行 OCX 开发不在本文讨论之内，可以参考一下这些内容：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hrY3Nkbi9hcnRpY2xlL2RldGFpbHMvNTI5MDg3NDg=">MFC ActiveX (ocx)控件的开发<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODIxNTM5NS9hcnRpY2xlL2RldGFpbHMvNzk3MTgzNTM=">MFC .ocx控件开发<i class="fa fa-external-link-alt"></i></span>，<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFpZHUuY29tL3M/d2Q9bWZjKyVFNSVCQyU4MCVFNSU4RiU5MW9jeA==">mfc 开发ocx<i class="fa fa-external-link-alt"></i></span></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1088,18 +1097,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

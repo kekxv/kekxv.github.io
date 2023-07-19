@@ -100,6 +100,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux限制进程使用率</title>
+    <url>/2023/07/19/Linux%E9%99%90%E5%88%B6%E8%BF%9B%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%8E%87/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CpuLimit</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MFC OCX 开发一些注意事项</title>
     <url>/2021/05/06/MFC%20OCX%20%E5%BC%80%E5%8F%91%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
     <content><![CDATA[]]></content>
@@ -176,6 +188,17 @@
       </tags>
   </entry>
   <entry>
+    <title>小尺寸电脑对比</title>
+    <url>/2021/08/01/Small%20size%20computer%20comparison/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Raspberry Zero UPS</title>
     <url>/2021/05/06/Raspberry%20Zero%20UPS/</url>
     <content><![CDATA[]]></content>
@@ -185,17 +208,6 @@
       <tags>
         <tag>notes</tag>
         <tag>raspi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小尺寸电脑对比</title>
-    <url>/2021/08/01/Small%20size%20computer%20comparison/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>notes</category>
-      </categories>
-      <tags>
-        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
