@@ -27,7 +27,7 @@
 <meta property="og:description" content="承广大开发者的无私，目前开源免费的 git 仓库管理项目已经越来越多，也越来越好，例如gitea、gogs以及gitlab。这篇文章主要是简单介绍一下通过 docker 搭建gitlab以及gitlab runner 自动CI工具。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-01T10:23:48.000Z">
-<meta property="article:modified_time" content="2023-07-19T14:11:51.134Z">
+<meta property="article:modified_time" content="2023-12-19T15:10:16.244Z">
 <meta property="article:author" content="kekxv">
 <meta property="article:tag" content="gitlab">
 <meta property="article:tag" content="git">
@@ -128,12 +128,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">63</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">54</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-19 14:11:51" itemprop="dateModified" datetime="2023-07-19T14:11:51+00:00">2023-07-19</time>
+                <time title="修改时间：2023-12-19 15:10:16" itemprop="dateModified" datetime="2023-12-19T15:10:16+00:00">2023-12-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +262,7 @@
 <li><p>下来<code>gitlab</code>镜像：<code>gitlab/gitlab-ce</code></p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab-ce为稳定版本，后面不填写版本则默认pull最新latest版本</span></span><br><span class="line">docker pull gitlab/gitlab-ce</span><br></pre></td></tr></table></figure></li>
 <li><p>运行<code>gitlab</code>镜像:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --hostname=git.kekxv.com --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/<span class="built_in">log</span>/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce</span><br><span class="line"><span class="comment"># -d：后台运行</span></span><br><span class="line"><span class="comment"># -p：将容器内部端口向外映射</span></span><br><span class="line"><span class="comment"># --hostname：设置容器的 hostname</span></span><br><span class="line"><span class="comment"># --name：命名容器名称</span></span><br><span class="line"><span class="comment"># -v：将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --hostname=git.example.com --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/<span class="built_in">log</span>/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce</span><br><span class="line"><span class="comment"># -d：后台运行</span></span><br><span class="line"><span class="comment"># -p：将容器内部端口向外映射</span></span><br><span class="line"><span class="comment"># --hostname：设置容器的 hostname</span></span><br><span class="line"><span class="comment"># --name：命名容器名称</span></span><br><span class="line"><span class="comment"># -v：将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录</span></span><br></pre></td></tr></table></figure>
 <p> 根据自己的需要，将对应端口映射出来，因为我主机上已经搭配好了<code>nginx</code>，并且不需要 <code>ssh</code>进行操作，所以我这边仅仅将<code>80</code>端口进行映射。各位可以根据需要，自行修改。</p>
 </li>
 <li><p>配置</p>
@@ -291,7 +291,7 @@
 </li>
 <li><p>Gitlab CI (gitlab-runner) 部署</p>
 <p> 使用 <code>docker</code> 进行部署，相对简单很多：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">sudo docker pull gitlab/gitlab-runner:latest</span><br><span class="line"><span class="comment"># 添加 gitlab-runner container</span></span><br><span class="line">sudo docker run -d --name gitlab-runner --restart always \</span><br><span class="line">  -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">  gitlab/gitlab-runner:latest</span><br><span class="line"><span class="comment"># 注册runner</span></span><br><span class="line">sudo docker <span class="built_in">exec</span> -it gitlab-runner gitlab-ci-multi-runner register</span><br><span class="line"><span class="comment"># gitlab-runner register</span></span><br><span class="line">    </span><br><span class="line">Please enter the gitlab-ci coordinator URL:</span><br><span class="line"><span class="comment"># 示例：https://git.kekxv.com/</span></span><br><span class="line">Please enter the gitlab-ci token <span class="keyword">for</span> this runner:</span><br><span class="line"><span class="comment"># xxxxxx</span></span><br><span class="line">Please enter the gitlab-ci description <span class="keyword">for</span> this runner:</span><br><span class="line"><span class="comment"># 示例：ubuntu</span></span><br><span class="line">Please enter the gitlab-ci tags <span class="keyword">for</span> this runner (comma separated):</span><br><span class="line"><span class="comment"># 示例：*,ubuntu</span></span><br><span class="line">Whether to run untagged builds [<span class="literal">true</span>/<span class="literal">false</span>]:</span><br><span class="line"><span class="comment"># true</span></span><br><span class="line">Please enter the executor: docker, parallels, shell, kubernetes, docker-ssh, ssh, virtualbox, docker+machine, docker-ssh+machine:</span><br><span class="line"><span class="comment"># docker</span></span><br><span class="line">Please enter the default Docker image (e.g. ruby:2.1):</span><br><span class="line"><span class="comment"># ubuntu</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">sudo docker pull gitlab/gitlab-runner:latest</span><br><span class="line"><span class="comment"># 添加 gitlab-runner container</span></span><br><span class="line">sudo docker run -d --name gitlab-runner --restart always \</span><br><span class="line">  -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">  gitlab/gitlab-runner:latest</span><br><span class="line"><span class="comment"># 注册runner</span></span><br><span class="line">sudo docker <span class="built_in">exec</span> -it gitlab-runner gitlab-ci-multi-runner register</span><br><span class="line"><span class="comment"># gitlab-runner register</span></span><br><span class="line">    </span><br><span class="line">Please enter the gitlab-ci coordinator URL:</span><br><span class="line"><span class="comment"># 示例：https://git.example.com/</span></span><br><span class="line">Please enter the gitlab-ci token <span class="keyword">for</span> this runner:</span><br><span class="line"><span class="comment"># xxxxxx</span></span><br><span class="line">Please enter the gitlab-ci description <span class="keyword">for</span> this runner:</span><br><span class="line"><span class="comment"># 示例：ubuntu</span></span><br><span class="line">Please enter the gitlab-ci tags <span class="keyword">for</span> this runner (comma separated):</span><br><span class="line"><span class="comment"># 示例：*,ubuntu</span></span><br><span class="line">Whether to run untagged builds [<span class="literal">true</span>/<span class="literal">false</span>]:</span><br><span class="line"><span class="comment"># true</span></span><br><span class="line">Please enter the executor: docker, parallels, shell, kubernetes, docker-ssh, ssh, virtualbox, docker+machine, docker-ssh+machine:</span><br><span class="line"><span class="comment"># docker</span></span><br><span class="line">Please enter the default Docker image (e.g. ruby:2.1):</span><br><span class="line"><span class="comment"># ubuntu</span></span><br></pre></td></tr></table></figure>
 <p> 若是<code>runner</code>注册成功，<br> 此时到我们项目首页右侧 设置<br> —》<code>CI/CD Pipelines</code><br> —》<code>Runners activated for this project</code><br> 就可以看到我们刚注册的<code>qd_api_runner</code>了。</p>
 <p>  <em>测试</em> ：</p>
 <p>  我们新建一个 <code>vue</code> 项目，可以直接 <code>vue create test_ci</code> ，<br>  然后进入目录，新增文件<code>.gitlab-ci.yml</code>(注意 “<code>.</code>“ 不要漏了.)，<br>  添加以下内容：</p>
@@ -408,18 +408,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

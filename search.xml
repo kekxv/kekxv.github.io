@@ -188,17 +188,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小尺寸电脑对比</title>
-    <url>/2021/08/01/Small%20size%20computer%20comparison/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>notes</category>
-      </categories>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Raspberry Zero UPS</title>
     <url>/2021/05/06/Raspberry%20Zero%20UPS/</url>
     <content><![CDATA[]]></content>
@@ -208,6 +197,17 @@
       <tags>
         <tag>notes</tag>
         <tag>raspi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小尺寸电脑对比</title>
+    <url>/2021/08/01/Small%20size%20computer%20comparison/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -315,6 +315,20 @@
       <tags>
         <tag>linux</tag>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gitea actions CICD 自动化</title>
+    <url>/2023/12/15/gitea%20actions%20CICD%20%E8%87%AA%E5%8A%A8%E5%8C%96/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>gitea</category>
+      </categories>
+      <tags>
+        <tag>ci</tag>
+        <tag>gitea</tag>
+        <tag>actions</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -439,6 +453,24 @@
       </tags>
   </entry>
   <entry>
+    <title>luckfox-交叉编译之bazel</title>
+    <url>/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>luckfox</category>
+        <category>bazel</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>opencv</tag>
+        <tag>bazel</tag>
+        <tag>luckfox</tag>
+        <tag>ncnn</tag>
+        <tag>onnx</tag>
+        <tag>opencv-mobile</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>nmcli 简单用法</title>
     <url>/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[]]></content>
@@ -545,9 +577,9 @@
     <url>/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/</url>
     <content><![CDATA[]]></content>
       <tags>
-        <tag>tensorflow</tag>
         <tag>ncnn</tag>
         <tag>onnx</tag>
+        <tag>tensorflow</tag>
         <tag>keras</tag>
         <tag>hdf5</tag>
       </tags>
