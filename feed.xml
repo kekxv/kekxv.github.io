@@ -6,7 +6,7 @@
   <link href="http://kekxv.github.io/feed.xml" rel="self"/>
   
   <link href="http://kekxv.github.io/"/>
-  <updated>2023-12-19T15:10:16.244Z</updated>
+  <updated>2023-12-20T13:39:38.485Z</updated>
   <id>http://kekxv.github.io/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="http://kekxv.github.io/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/"/>
     <id>http://kekxv.github.io/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/</id>
     <published>2023-12-15T20:00:14.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
-    <summary type="html">&lt;p&gt;最近&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25paHVpL29wZW5jdi1tb2JpbGU=&quot;&gt;opencv-mobile&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 对&lt;code&gt;luckfox&lt;/code&gt;这款板子进行了适配优化，我对它也很有兴趣所以入手了一个&lt;code&gt;luckfox&lt;/code&gt;开发板，包含300万像素摄像头，价格还算比较便宜。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;最近&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25paHVpL29wZW5jdi1tb2JpbGU=&quot;&gt;opencv-mobile&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 对&lt;code&gt;luckfox&lt;/code&gt;&lt;br&gt;这款板子进行了适配优化，我对它也很有兴趣所以入手了一个&lt;code&gt;luckfox&lt;/code&gt;开发板，包含300万像素摄像头，价格还算比较便宜。&lt;/p&gt;
 &lt;p&gt;不过官方提供的交叉编译链只有&lt;code&gt;Linux&lt;/code&gt;以及&lt;code&gt;windows&lt;/code&gt;的，而我却是&lt;code&gt;Mac&lt;/code&gt;的，没办法直接调用，刚刚最近在使用&lt;code&gt;bazel&lt;/code&gt;，并且它支持远程编译。&lt;/p&gt;</summary>
     
     
@@ -55,7 +55,7 @@
     <link href="http://kekxv.github.io/2023/12/15/gitea%20actions%20CICD%20%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     <id>http://kekxv.github.io/2023/12/15/gitea%20actions%20CICD%20%E8%87%AA%E5%8A%A8%E5%8C%96/</id>
     <published>2023-12-15T12:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;gitea&lt;/code&gt; 已经支持自己的 &lt;code&gt;CI&lt;/code&gt; 工具: &lt;code&gt;gitea actions&lt;/code&gt;，兼容 &lt;code&gt;github actions&lt;/code&gt;。&lt;/p&gt;
@@ -84,7 +84,7 @@
     <link href="http://kekxv.github.io/2023/07/19/Linux%E9%99%90%E5%88%B6%E8%BF%9B%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%8E%87/"/>
     <id>http://kekxv.github.io/2023/07/19/Linux%E9%99%90%E5%88%B6%E8%BF%9B%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%8E%87/</id>
     <published>2023-07-19T21:56:21.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用服务器的时候，有些情况下我们需要对进程进行资源限制，例如限制&lt;code&gt;CPU&lt;/code&gt;使用率，使用&lt;code&gt;docker&lt;/code&gt;的时候，可以使用&lt;code&gt;deploy.resources.cpus&lt;/code&gt;进行限制，而当没有使用&lt;code&gt;docker&lt;/code&gt;的时候呢，我们可以考虑使用&lt;code&gt;cpulimit&lt;/code&gt;进行限制&lt;/p&gt;</summary>
@@ -105,7 +105,7 @@
     <link href="http://kekxv.github.io/2023/05/11/%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83Jellyfin%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/"/>
     <id>http://kekxv.github.io/2023/05/11/%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83Jellyfin%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/</id>
     <published>2023-05-11T19:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.248Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/20230511/jellyfin.png&quot; alt=&quot;jellyfin.png&quot;&gt;&lt;/p&gt;
@@ -123,7 +123,7 @@
     <link href="http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/"/>
     <id>http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/</id>
     <published>2022-07-30T18:14:04.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;OCR 算法以及人脸算法相信大家都听说过，也知道是需要收费的，而opencv的人脸检测和人脸识别，以及OCR算法都比较弱。&lt;/p&gt;
@@ -148,7 +148,7 @@
     <link href="http://kekxv.github.io/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/"/>
     <id>http://kekxv.github.io/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/</id>
     <published>2022-07-26T13:56:21.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;ubuntu22.04&lt;/code&gt; 安装 &lt;code&gt;tensorflow-gpu&lt;/code&gt; 记录，主要是 &lt;code&gt;NVIDIA&lt;/code&gt; 驱动麻烦，这里做个记录。&lt;/p&gt;</summary>
@@ -169,7 +169,7 @@
     <link href="http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/"/>
     <id>http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/</id>
     <published>2022-07-07T20:00:14.000Z</published>
-    <updated>2023-12-19T15:10:16.248Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录深度学习AI过程中的一些问题。涉及到 &lt;code&gt;tensorflow&lt;/code&gt;、&lt;code&gt;ncnn&lt;/code&gt;、&lt;code&gt;onnx&lt;/code&gt;、&lt;code&gt;keras&lt;/code&gt;的训练以及转换模型&lt;/p&gt;</summary>
@@ -194,7 +194,7 @@
     <link href="http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/"/>
     <id>http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/</id>
     <published>2022-04-16T11:05:59.000Z</published>
-    <updated>2023-12-19T15:10:16.248Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;在&lt;code&gt;Windows&lt;/code&gt;下，有时候需要管理一些程序，在 &lt;code&gt;unix&lt;/code&gt; 系列下的时候都是使用 &lt;code&gt;shell&lt;/code&gt; 脚本，但在 &lt;code&gt;Windows&lt;/code&gt; 下却没有 &lt;code&gt;shell&lt;/code&gt; 的默认支持，所以我编写了简单的 &lt;code&gt;startup.vbs&lt;/code&gt; 以及 &lt;code&gt;shutdown.vbs&lt;/code&gt; 脚本，给予有需要的人以及未来的我进行&lt;del&gt;照抄&lt;/del&gt;借鉴。&lt;/p&gt;</summary>
@@ -209,7 +209,7 @@
     <link href="http://kekxv.github.io/2022/04/16/systemd%20%E7%AE%80%E5%8D%95%E7%BC%96%E5%86%99/"/>
     <id>http://kekxv.github.io/2022/04/16/systemd%20%E7%AE%80%E5%8D%95%E7%BC%96%E5%86%99/</id>
     <published>2022-04-16T00:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;我们使用 &lt;code&gt;unix&lt;/code&gt; 服务器目前管理服务的方式，基本上是使用&lt;code&gt;systemd&lt;/code&gt;来进行管理，所以这边简单的说明一下如何编写一个简单的&lt;code&gt;systemd&lt;/code&gt;服务脚本。&lt;/p&gt;</summary>
@@ -236,7 +236,7 @@
     <link href="http://kekxv.github.io/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/"/>
     <id>http://kekxv.github.io/2022/04/15/NSIS%20%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</id>
     <published>2022-04-15T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;NSIS（Nullsoft Scriptable Install System）&lt;/code&gt;是一个开源的 &lt;code&gt;Windows&lt;/code&gt; 系统下安装程序制作程序。它提供了安装、卸载、系统设置、文件解压缩等功能。这如其名字所指出的那样，&lt;code&gt;NSIS&lt;/code&gt; 是通过它的脚本语言来描述安装程序的行为和逻辑的。&lt;code&gt;NSIS&lt;/code&gt; 的脚本语言和通常的编程语言有类似的结构和语法，但它是为安装程序这类应用所设计的。&lt;/p&gt;</summary>
@@ -261,7 +261,7 @@
     <link href="http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/"/>
     <id>http://kekxv.github.io/2022/04/08/kInteractiveProtocol%20%E5%8D%8F%E8%AE%AE/</id>
     <published>2022-04-08T12:00:00.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;kInteractiveProtocol 协议 为双向协议，主要用于双方主动发送数据识别在接收时期寻回发送来源，即消息ID。&lt;/p&gt;</summary>
@@ -280,7 +280,7 @@
     <link href="http://kekxv.github.io/2022/03/16/idea%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7/"/>
     <id>http://kekxv.github.io/2022/03/16/idea%E5%BC%80%E6%BA%90%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7/</id>
     <published>2022-03-16T09:03:29.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;JetBrains&lt;/code&gt; 公司旗下的 &lt;code&gt;IDEA&lt;/code&gt; 功能都十分强大，深受各种编程语言相关的程序员的喜爱。&lt;/p&gt;
@@ -305,7 +305,7 @@
     <link href="http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/"/>
     <id>http://kekxv.github.io/2022/02/24/http%20proxy%20%E6%95%B0%E6%8D%AE/</id>
     <published>2022-02-24T10:28:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;以&lt;code&gt;http&lt;/code&gt;代理简单表示 &lt;code&gt;http proxy&lt;/code&gt; 发送和接收的协议&lt;/p&gt;</summary>
@@ -322,7 +322,7 @@
     <link href="http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/"/>
     <id>http://kekxv.github.io/2022/02/24/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%20netcat/</id>
     <published>2022-02-24T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.248Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;netcat&lt;/code&gt;，简写为 &lt;code&gt;nc&lt;/code&gt;，是 &lt;code&gt;unix&lt;/code&gt; 系统下一个强大的命令行网络通信工具，用于在两台主机之间建立 &lt;code&gt;TCP&lt;/code&gt; 或者 &lt;code&gt;UDP&lt;/code&gt; 连接，并提供丰富的命令进行数据通信。&lt;code&gt;nc&lt;/code&gt; 在网络参考模型属于应用层。使用 &lt;code&gt;nc&lt;/code&gt;&lt;br&gt;可以做很多事情：&lt;code&gt;建立连接&lt;/code&gt;，&lt;code&gt;发送数据包&lt;/code&gt;，&lt;code&gt;监听端口&lt;/code&gt;，&lt;code&gt;扫描端口&lt;/code&gt;，处理 &lt;code&gt;ip4&lt;/code&gt; 和 &lt;code&gt;ip6&lt;/code&gt;，和 &lt;code&gt;telnet&lt;/code&gt; 不同，&lt;code&gt;nc&lt;/code&gt; 会区分错误输出和标准输出，&lt;code&gt;telnet&lt;/code&gt; 则都是标准输出。&lt;/p&gt;</summary>
@@ -349,7 +349,7 @@
     <link href="http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/"/>
     <id>http://kekxv.github.io/2021/08/07/Port%20forwarding%20that%20comes%20with%20Windows/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过 &lt;code&gt;Windows&lt;/code&gt; 实现端口转发。本文为参考转发文章&lt;/p&gt;
@@ -374,7 +374,7 @@
     <link href="http://kekxv.github.io/2021/08/07/bazel%20notes%2001/"/>
     <id>http://kekxv.github.io/2021/08/07/bazel%20notes%2001/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;Bazel - a fast, scalable, multi-language and extensible build system&lt;/p&gt;
@@ -396,7 +396,7 @@
     <link href="http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/"/>
     <id>http://kekxv.github.io/2021/08/07/docker%20swarm%E6%9B%BF%E4%BB%A3docker-compose/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用 docker-compose 管理本地容器组，是非常方便的手段，但是最近遇到一个 bug，决定使用 docker stack /swarm 替代 docker-compose 。&lt;/p&gt;
@@ -425,7 +425,7 @@
     <link href="http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/"/>
     <id>http://kekxv.github.io/2021/08/07/kProxyCpp%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AF%E4%BB%B6/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;承接自 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2tIdHRwZA==&quot;&gt;kHttpd&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 项目。&lt;/p&gt;
@@ -453,7 +453,7 @@
     <link href="http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     <id>http://kekxv.github.io/2021/08/07/ssh%20%E9%9A%A7%E9%81%93%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</id>
     <published>2021-08-07T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.485Z</updated>
     
     
     <summary type="html">&lt;p&gt;在部分情况下，没有办法直接访问到目标机器，需要通过中转的方式进行访问，一般使用代理，或者VPN等组网方式，使用端口转发的方式其实也是不错的。&lt;/p&gt;
@@ -473,7 +473,7 @@
     <link href="http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/"/>
     <id>http://kekxv.github.io/2021/08/06/bazel%20toolchain%2001/</id>
     <published>2021-08-06T10:23:48.000Z</published>
-    <updated>2023-12-19T15:10:16.244Z</updated>
+    <updated>2023-12-20T13:39:38.481Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在使用 &lt;code&gt;bazel&lt;/code&gt; ，尝试使用交叉编译，在这做个记录&lt;/p&gt;
