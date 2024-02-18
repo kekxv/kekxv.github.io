@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 7.1.1">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kekxv.github.io/images/20230511/jellyfin.png">
 <meta property="article:published_time" content="2023-05-11T19:23:48.000Z">
-<meta property="article:modified_time" content="2023-12-20T13:39:38.485Z">
+<meta property="article:modified_time" content="2024-02-18T14:30:26.941Z">
 <meta property="article:author" content="kekxv">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://kekxv.github.io/images/20230511/jellyfin.png">
@@ -128,12 +128,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">63</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">64</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">54</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-20 13:39:38" itemprop="dateModified" datetime="2023-12-20T13:39:38+00:00">2023-12-20</time>
+                <time title="修改时间：2024-02-18 14:30:26" itemprop="dateModified" datetime="2024-02-18T14:30:26+00:00">2024-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,8 +273,8 @@
 <p>注意： 不能用软连接，否则在<code>docker</code>容器内将找不到连接路径</p>
 </blockquote>
 <h2 id="启动以及配置"><a href="#启动以及配置" class="headerlink" title="启动以及配置"></a>启动以及配置</h2><p>启动只需要执行 <code>up -d</code> 即可:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker-compose up -d <span class="comment"># 或者 docker compose up -d</span></span></span><br><span class="line"> Creating network &quot;movie_movie_net&quot; with the default driver</span><br><span class="line"> Creating jellyfin_sonarr      ... done</span><br><span class="line"> Creating jellyfin_qbittorrent ... done</span><br><span class="line"> Creating jellyfin_prowlarr    ... done</span><br><span class="line"> Creating jellyfin_radarr      ... done</span><br><span class="line"> Creating jellyfin_jellyfin    ... done</span><br><span class="line"> Creating jellyfin_jellyseerr  ... done</span><br><span class="line"> Creating jellyfin_nginx       ... done</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker-compose ps <span class="comment"># 或者 docker compose ps</span></span></span><br><span class="line">         Name                      Command                       State                              Ports</span><br><span class="line"> ---------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"> jellyfin_jellyfin      ./jellyfin/jellyfin --data ...   Up (health: starting)   8096/tcp</span><br><span class="line"> jellyfin_jellyseerr    /sbin/tini -- yarn start         Up                      0.0.0.0:11081-&gt;5055/tcp</span><br><span class="line"> jellyfin_nginx         /docker-entrypoint.sh ngin ...   Up                      0.0.0.0:11080-&gt;80/tcp</span><br><span class="line"> jellyfin_prowlarr      /init                            Up                      9696/tcp</span><br><span class="line"> jellyfin_qbittorrent   /init                            Up                      6881/tcp, 6881/udp, 0.0.0.0:11082-&gt;8080/tcp</span><br><span class="line"> jellyfin_radarr        /init                            Up                      7878/tcp</span><br><span class="line"> jellyfin_sonarr        /init                            Up                      8989/tcp</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose up -d <span class="comment"># 或者 docker compose up -d</span></span></span><br><span class="line"> Creating network &quot;movie_movie_net&quot; with the default driver</span><br><span class="line"> Creating jellyfin_sonarr      ... done</span><br><span class="line"> Creating jellyfin_qbittorrent ... done</span><br><span class="line"> Creating jellyfin_prowlarr    ... done</span><br><span class="line"> Creating jellyfin_radarr      ... done</span><br><span class="line"> Creating jellyfin_jellyfin    ... done</span><br><span class="line"> Creating jellyfin_jellyseerr  ... done</span><br><span class="line"> Creating jellyfin_nginx       ... done</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose ps <span class="comment"># 或者 docker compose ps</span></span></span><br><span class="line">         Name                      Command                       State                              Ports</span><br><span class="line"> ---------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"> jellyfin_jellyfin      ./jellyfin/jellyfin --data ...   Up (health: starting)   8096/tcp</span><br><span class="line"> jellyfin_jellyseerr    /sbin/tini -- yarn start         Up                      0.0.0.0:11081-&gt;5055/tcp</span><br><span class="line"> jellyfin_nginx         /docker-entrypoint.sh ngin ...   Up                      0.0.0.0:11080-&gt;80/tcp</span><br><span class="line"> jellyfin_prowlarr      /init                            Up                      9696/tcp</span><br><span class="line"> jellyfin_qbittorrent   /init                            Up                      6881/tcp, 6881/udp, 0.0.0.0:11082-&gt;8080/tcp</span><br><span class="line"> jellyfin_radarr        /init                            Up                      7878/tcp</span><br><span class="line"> jellyfin_sonarr        /init                            Up                      8989/tcp</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>访问端口 <code>11080</code> 登录 <code>jellyfin</code><ul>
@@ -400,18 +400,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -446,7 +446,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
