@@ -124,12 +124,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">64</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -194,6 +194,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Guacamole 使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-06 10:23:48" itemprop="dateCreated datePublished" datetime="2021-03-06T10:23:48+00:00">2021-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Guacamole/" itemprop="url" rel="index"><span itemprop="name">Guacamole</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>使用 docker-compose 使用和管理 Guacamole。</p>
+<p>下载 <a href="/files/20210807/Guacamole.tar.gz">Guacamole.tar.gz</a> ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://kekxv.github.io/assets/file/Guacamole.tar.gz</span><br><span class="line">$ tar -zxvf Guacamole.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> Guacamole</span><br><span class="line">$ <span class="comment"># 可自行修改 docker-compose.yml 配置</span></span><br><span class="line">$ docker-compose pull</span><br><span class="line">$ <span class="comment"># 启动</span></span><br><span class="line">$ docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>访问 <code>Guacamole</code> ；<code>http[s]://域名:18080/guacamole/</code>;</p>
+<p><img src="/images/20210807/guacamole.login/img.png" alt="img.png"></p>
+<p>默认账号密码为 ： <code>guacadmin</code>/<code>guacadmin</code>。</p>
+<p>使用 <code>Ctrl</code>+<code>Alt</code>+<code>Shift</code> (<code>Control</code>+<code>option</code>+<code>Shift</code> )可以呼出菜单，如果使用的<code>ssh</code>协议，能够在菜单内进行上传下载操作。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/06/Guacamole%20%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/03/06/cSharp%20HttpClient%20Cookie%20notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +313,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,7 +395,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,7 +476,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -469,7 +557,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -548,7 +636,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -629,7 +717,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -711,7 +799,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -793,7 +881,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
 
           
@@ -867,7 +955,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
+                <time title="修改时间：2024-02-26 14:30:17" itemprop="dateModified" datetime="2024-02-26T14:30:17+00:00">2024-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -896,89 +984,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/06/c51%20warning/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/01/06/clangTools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="kekxv">
-      <meta itemprop="description" content="kekxv 技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kekxv 技术博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/06/clangTools/" class="post-title-link" itemprop="url">clangTools</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-06 10:23:48" itemprop="dateCreated datePublished" datetime="2021-01-06T10:23:48+00:00">2021-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-19 03:20:42" itemprop="dateModified" datetime="2024-02-19T03:20:42+00:00">2024-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L2NsYW5nVG9vbHM=">clangTools<i class="fa fa-external-link-alt"></i></span> 聚合类是为了将一些短小精湛的代码集合起来。</p>
-<p>在进行<code>c/c++</code>开发的使用，由于自带的系统库支持的问题，或者api接口的问题，导致<code>c/c++</code>在不规范开发的时候，很容易出现冗余代码，或者各种查API手册的问题。</p>
-<p>为了减少这些情况，所以将一些常用的方法，并且第三方依赖较少的方法进行封装。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/06/clangTools/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1069,18 +1074,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -482,6 +482,18 @@
       </tags>
   </entry>
   <entry>
+    <title>nginx代理的一种使用方式</title>
+    <url>/2024/02/26/nginx%E4%BB%A3%E7%90%86%E7%9A%84%E4%B8%80%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>proxy</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>nmcli 简单用法</title>
     <url>/2021/07/16/nmcli%20%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[]]></content>
