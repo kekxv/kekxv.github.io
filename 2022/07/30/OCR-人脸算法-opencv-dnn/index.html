@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kekxv.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="OCR 算法以及人脸算法相信大家都听说过，也知道是需要收费的，而opencv的人脸检测和人脸识别，以及OCR算法都比较弱。 但是，这在opencv4版本之后都将改变了，在opencv4的版本里面，神经网络版本的人脸算法以及OCR算法继承到了dnn模块内，以及可以作为一个成熟方案进行使用了， 接下来让我们来看看如何使用它们。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCR &amp; 人脸算法 -- opencv dnn">
+<meta property="og:url" content="http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/index.html">
+<meta property="og:site_name" content="kekxv 技术日志">
+<meta property="og:description" content="OCR 算法以及人脸算法相信大家都听说过，也知道是需要收费的，而opencv的人脸检测和人脸识别，以及OCR算法都比较弱。 但是，这在opencv4版本之后都将改变了，在opencv4的版本里面，神经网络版本的人脸算法以及OCR算法继承到了dnn模块内，以及可以作为一个成熟方案进行使用了， 接下来让我们来看看如何使用它们。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-30T18:14:04.000Z">
+<meta property="article:modified_time" content="2025-06-28T16:23:51.921Z">
+<meta property="article:author" content="kekxv">
+<meta property="article:tag" content="opencv">
+<meta property="article:tag" content="OCR">
+<meta property="article:tag" content="Face">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>OCR & 人脸算法 -- opencv dnn | kekxv 技术日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/feed.xml" title="kekxv 技术日志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kekxv 技术日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kekxv</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术日志">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OCR & 人脸算法 -- opencv dnn
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-30 18:14:04" itemprop="dateCreated datePublished" datetime="2022-07-30T18:14:04+00:00">2022-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-28 16:23:51" itemprop="dateModified" datetime="2025-06-28T16:23:51+00:00">2025-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/opencv/" itemprop="url" rel="index"><span itemprop="name">opencv</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>OCR 算法以及人脸算法相信大家都听说过，也知道是需要收费的，而opencv的人脸检测和人脸识别，以及OCR算法都比较弱。</p>
+<p>但是，这在opencv4版本之后都将改变了，在opencv4的版本里面，神经网络版本的人脸算法以及OCR算法继承到了dnn模块内，以及可以作为一个成熟方案进行使用了，</p>
+<p>接下来让我们来看看如何使用它们。</p>
+<span id="more"></span>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Optical character recognition (OCR) <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvbGl0ZS9leGFtcGxlcy9vcHRpY2FsX2NoYXJhY3Rlcl9yZWNvZ25pdGlvbi9vdmVydmlldw==">https://www.tensorflow.org/lite/examples/optical_character_recognition&#x2F;overview<i class="fa fa-external-link-alt"></i></span></li>
+<li>High Level API: TextDetectionModel and TextRecognitionModel <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9wZW5jdi5vcmcvNC54L2Q0L2Q0My90dXRvcmlhbF9kbm5fdGV4dF9zcG90dGluZy5odG1s">https://docs.opencv.org/4.x/d4/d43/tutorial_dnn_text_spotting.html<i class="fa fa-external-link-alt"></i></span></li>
+<li>DNN-based Face Detection And Recognition <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9wZW5jdi5vcmcvNC54L2QwL2RkNC90dXRvcmlhbF9kbm5fZmFjZS5odG1s">https://docs.opencv.org/4.x/d0/dd4/tutorial_dnn_face.html<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="模型下载"><a href="#模型下载" class="headerlink" title="模型下载"></a>模型下载</h2><p>首先，我们需要下载对应训练好的模型：</p>
+<h3 id="OCR-模型下载"><a href="#OCR-模型下载" class="headerlink" title="OCR 模型下载"></a>OCR 模型下载</h3><h4 id="TextRecognitionModel"><a href="#TextRecognitionModel" class="headerlink" title="TextRecognitionModel:"></a>TextRecognitionModel:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">crnn.onnx:</span><br><span class="line">url: https://drive.google.com/uc?export=dowload&amp;id=1ooaLR-rkTl8jdpGy1DoQs0-X0lQsB6Fj</span><br><span class="line">sha: 270d92c9ccb670ada2459a25977e8deeaf8380d3,</span><br><span class="line">alphabet_36.txt: https://drive.google.com/uc?export=dowload&amp;id=1oPOYx5rQRp8L6XQciUwmwhMCfX0KyO4b</span><br><span class="line">parameter setting: -rgb=0;</span><br><span class="line">description: The classification number of this model is 36 (0~9 + a~z).</span><br><span class="line">The training dataset is MJSynth.</span><br><span class="line">crnn_cs.onnx:</span><br><span class="line">url: https://drive.google.com/uc?export=dowload&amp;id=12diBsVJrS9ZEl6BNUiRp9s0xPALBS7kt</span><br><span class="line">sha: a641e9c57a5147546f7a2dbea4fd322b47197cd5</span><br><span class="line">alphabet_94.txt: https://drive.google.com/uc?export=dowload&amp;id=1oKXxXKusquimp7XY1mFvj9nwLzldVgBR</span><br><span class="line">parameter setting: -rgb=1;</span><br><span class="line">description: The classification number of this model is 94 (0~9 + a~z + A~Z + punctuations).</span><br><span class="line">The training datasets are MJsynth and SynthText.</span><br><span class="line">crnn_cs_CN.onnx:</span><br><span class="line">url: https://drive.google.com/uc?export=dowload&amp;id=1is4eYEUKH7HR7Gl37Sw4WPXx6Ir8oQEG</span><br><span class="line">sha: 3940942b85761c7f240494cf662dcbf05dc00d14</span><br><span class="line">alphabet_3944.txt: https://drive.google.com/uc?export=dowload&amp;id=18IZUUdNzJ44heWTndDO6NNfIpJMmN-ul</span><br><span class="line">parameter setting: -rgb=1;</span><br><span class="line">description: The classification number of this model is 3944 (0~9 + a~z + A~Z + Chinese characters + special characters).</span><br><span class="line">The training dataset is ReCTS (https://rrc.cvc.uab.es/?ch=12).</span><br></pre></td></tr></table></figure>
+
+<p>More models can be found in here, which are taken from clovaai. You can train more models by CRNN, and convert models by<br>torch.onnx.export.</p>
+<h4 id="TextDetectionModel"><a href="#TextDetectionModel" class="headerlink" title="TextDetectionModel:"></a>TextDetectionModel:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- DB_IC15_resnet50.onnx:</span><br><span class="line">  url: https://drive.google.com/uc?export=dowload&amp;id=17_ABp79PlFt9yPCxSaarVc_DKTmrSGGf</span><br><span class="line">  sha: bef233c28947ef6ec8c663d20a2b326302421fa3</span><br><span class="line">  recommended parameter setting: -inputHeight=736, -inputWidth=1280;</span><br><span class="line">  description: This model is trained on ICDAR2015, so it can only detect English text instances.</span><br><span class="line">- DB_IC15_resnet18.onnx:</span><br><span class="line">  url: https://drive.google.com/uc?export=dowload&amp;id=1vY_KsDZZZb_svd5RT6pjyI8BS1nPbBSX</span><br><span class="line">  sha: 19543ce09b2efd35f49705c235cc46d0e22df30b</span><br><span class="line">  recommended parameter setting: -inputHeight=736, -inputWidth=1280;</span><br><span class="line">  description: This model is trained on ICDAR2015, so it can only detect English text instances.</span><br><span class="line">- DB_TD500_resnet50.onnx:</span><br><span class="line">  url: https://drive.google.com/uc?export=dowload&amp;id=19YWhArrNccaoSza0CfkXlA8im4-lAGsR</span><br><span class="line">  sha: 1b4dd21a6baa5e3523156776970895bd3db6960a</span><br><span class="line">  recommended parameter setting: -inputHeight=736, -inputWidth=736;</span><br><span class="line">  description: This model is trained on MSRA-TD500, so it can detect both English and Chinese text instances.</span><br><span class="line">- DB_TD500_resnet18.onnx:</span><br><span class="line">  url: https://drive.google.com/uc?export=dowload&amp;id=1sZszH3pEt8hliyBlTmB-iulxHP1dCQWV</span><br><span class="line">  sha: 8a3700bdc13e00336a815fc7afff5dcc1ce08546</span><br><span class="line">  recommended parameter setting: -inputHeight=736, -inputWidth=736;</span><br><span class="line">  description: This model is trained on MSRA-TD500, so it can detect both English and Chinese text instances.</span><br></pre></td></tr></table></figure>
+
+<p>We will release more models of DB here in the future.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- EAST:</span><br><span class="line">  Download link: https://www.dropbox.com/s/r2ingd0l3zt8hxs/frozen_east_text_detection.tar.gz?dl=1</span><br><span class="line">  This model is based on https://github.com/argman/EAST</span><br></pre></td></tr></table></figure>
+
+<h3 id="Face-人脸模型"><a href="#Face-人脸模型" class="headerlink" title="Face 人脸模型"></a>Face 人脸模型</h3><p>There are two models (ONNX format) pre-trained and required for this module:</p>
+<blockquote>
+<p>Face Detection:</p>
+<ul>
+<li>Size: 338KB</li>
+<li>Results on WIDER Face Val set: 0.830(easy), 0.824(medium), 0.708(hard)</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5jdi9vcGVuY3Zfem9vL3RyZWUvbWFzdGVyL21vZGVscy9mYWNlX2RldGVjdGlvbl95dW5ldA==">download:https://github.com/opencv/opencv_zoo&#x2F;tree&#x2F;master&#x2F;models&#x2F;face_detection_yunet<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>Face Recognition</p>
+<ul>
+<li><p>Size: 36.9MB</p>
+</li>
+<li><p>Results:</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5jdi9vcGVuY3Zfem9vL3RyZWUvbWFzdGVyL21vZGVscy9mYWNlX3JlY29nbml0aW9uX3NmYWNl">download:https://github.com/opencv/opencv_zoo&#x2F;tree&#x2F;master&#x2F;models&#x2F;face_recognition_sface<i class="fa fa-external-link-alt"></i></span></p>
+<pre><code>|Database    | Accuracy  | Threshold (normL2)    | Threshold (cosine)  |
+|-----------|---|---------------------|---|
+|LFW    | 99.60%    | 1.128        | 0.363               |
+|CALFW    | 93.95%    | 1.149        | 0.340               |
+|CPLFW    | 91.05%    | 1.204        | 0.275               |
+|AgeDB-30    | 94.90%    | 1.202        | 0.277               |
+|CFP-FP    | 94.80%    | 1.253        | 0.212               |
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><h3 id="OCR-code"><a href="#OCR-code" class="headerlink" title="OCR code"></a>OCR code</h3><p>具体请查看：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9wZW5jdi5vcmcvNC54L2Q0L2Q0My90dXRvcmlhbF9kbm5fdGV4dF9zcG90dGluZy5odG1s">https://docs.opencv.org/4.x/d4/d43/tutorial_dnn_text_spotting.html<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>Step1. Loading images and models with a vocabulary<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load a cropped text line image</span></span><br><span class="line"><span class="comment">// you can find cropped images for testing in &quot;Images for Testing&quot;</span></span><br><span class="line"><span class="type">int</span> rgb = IMREAD_COLOR; <span class="comment">// This should be changed according to the model input requirement.</span></span><br><span class="line">Mat image = <span class="built_in">imread</span>(<span class="string">&quot;path/to/text_rec_test.png&quot;</span>, rgb);</span><br><span class="line"><span class="comment">// Load models weights</span></span><br><span class="line"><span class="function">TextRecognitionModel <span class="title">model</span><span class="params">(<span class="string">&quot;path/to/crnn_cs.onnx&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">// The decoding method</span></span><br><span class="line"><span class="comment">// more methods will be supported in future</span></span><br><span class="line">model.<span class="built_in">setDecodeType</span>(<span class="string">&quot;CTC-greedy&quot;</span>);</span><br><span class="line"><span class="comment">// Load vocabulary</span></span><br><span class="line"><span class="comment">// vocabulary should be changed according to the text recognition model</span></span><br><span class="line">std::ifstream vocFile;</span><br><span class="line">vocFile.<span class="built_in">open</span>(<span class="string">&quot;path/to/alphabet_94.txt&quot;</span>);</span><br><span class="line"><span class="built_in">CV_Assert</span>(vocFile.<span class="built_in">is_open</span>());</span><br><span class="line">String vocLine;</span><br><span class="line">std::vector&lt;String&gt; vocabulary;</span><br><span class="line"><span class="keyword">while</span> (std::<span class="built_in">getline</span>(vocFile, vocLine)) &#123;</span><br><span class="line">  vocabulary.<span class="built_in">push_back</span>(vocLine);</span><br><span class="line">&#125;</span><br><span class="line">model.<span class="built_in">setVocabulary</span>(vocabulary);</span><br></pre></td></tr></table></figure></li>
+<li>Step2. Setting Parameters<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Normalization parameters</span></span><br><span class="line"><span class="type">double</span> scale = <span class="number">1.0</span> / <span class="number">127.5</span>;</span><br><span class="line">Scalar mean = <span class="built_in">Scalar</span>(<span class="number">127.5</span>, <span class="number">127.5</span>, <span class="number">127.5</span>);</span><br><span class="line"><span class="comment">// The input shape</span></span><br><span class="line">Size inputSize = <span class="built_in">Size</span>(<span class="number">100</span>, <span class="number">32</span>);</span><br><span class="line">model.<span class="built_in">setInputParams</span>(scale, inputSize, mean);</span><br></pre></td></tr></table></figure></li>
+<li>Step3. Inference<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::string recognitionResult = recognizer.<span class="built_in">recognize</span>(image);</span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;&#x27;&quot;</span> &lt;&lt; recognitionResult &lt;&lt; <span class="string">&quot;&#x27;&quot;</span> &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Face-code"><a href="#Face-code" class="headerlink" title="Face code"></a>Face code</h3><p>Downloadable code: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5jdi9vcGVuY3YvdHJlZS80Lngvc2FtcGxlcy9kbm4vZmFjZV9kZXRlY3QuY3Bw">https://github.com/opencv/opencv/tree/4.x/samples/dnn/face_detect.cpp<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/dnn.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/highgui.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/objdetect.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">static</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">visualize</span><span class="params">(Mat&amp; input, <span class="type">int</span> frame, Mat&amp; faces, <span class="type">double</span> fps, <span class="type">int</span> thickness = <span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::string fpsString = cv::format(<span class="string">&quot;FPS : %.2f&quot;</span>, (<span class="type">float</span>)fps);</span><br><span class="line">    <span class="keyword">if</span> (frame &gt;= <span class="number">0</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Frame &quot;</span> &lt;&lt; frame &lt;&lt; <span class="string">&quot;, &quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;FPS: &quot;</span> &lt;&lt; fpsString &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; faces.rows; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Print results</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Face &quot;</span> &lt;&lt; i</span><br><span class="line">             &lt;&lt; <span class="string">&quot;, top-left coordinates: (&quot;</span> &lt;&lt; faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">0</span>) &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">1</span>) &lt;&lt; <span class="string">&quot;), &quot;</span></span><br><span class="line">             &lt;&lt; <span class="string">&quot;box width: &quot;</span> &lt;&lt; faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">2</span>)  &lt;&lt; <span class="string">&quot;, box height: &quot;</span> &lt;&lt; faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">3</span>) &lt;&lt; <span class="string">&quot;, &quot;</span></span><br><span class="line">             &lt;&lt; <span class="string">&quot;score: &quot;</span> &lt;&lt; cv::format(<span class="string">&quot;%.2f&quot;</span>, faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">14</span>))</span><br><span class="line">             &lt;&lt; endl;</span><br><span class="line">        <span class="comment">// Draw bounding box</span></span><br><span class="line">        <span class="built_in">rectangle</span>(input, <span class="built_in">Rect2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">0</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">1</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">2</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">3</span>))), <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), thickness);</span><br><span class="line">        <span class="comment">// Draw landmarks</span></span><br><span class="line">        <span class="built_in">circle</span>(input, <span class="built_in">Point2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">4</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">5</span>))), <span class="number">2</span>, <span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), thickness);</span><br><span class="line">        <span class="built_in">circle</span>(input, <span class="built_in">Point2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">6</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">7</span>))), <span class="number">2</span>, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), thickness);</span><br><span class="line">        <span class="built_in">circle</span>(input, <span class="built_in">Point2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">8</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">9</span>))), <span class="number">2</span>, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), thickness);</span><br><span class="line">        <span class="built_in">circle</span>(input, <span class="built_in">Point2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">10</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">11</span>))), <span class="number">2</span>, <span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>), thickness);</span><br><span class="line">        <span class="built_in">circle</span>(input, <span class="built_in">Point2i</span>(<span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">12</span>)), <span class="built_in">int</span>(faces.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, <span class="number">13</span>))), <span class="number">2</span>, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), thickness);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putText</span>(input, fpsString, <span class="built_in">Point</span>(<span class="number">0</span>, <span class="number">15</span>), FONT_HERSHEY_SIMPLEX, <span class="number">0.5</span>, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">CommandLineParser <span class="title">parser</span><span class="params">(argc, argv,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;help  h           |            | Print this message&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;image1 i1         |            | Path to the input image1. Omit for detecting through VideoCapture&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;image2 i2         |            | Path to the input image2. When image1 and image2 parameters given then the program try to find a face on both images and runs face recognition algorithm&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;video v           | 0          | Path to the input video&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;scale sc          | 1.0        | Scale factor used to resize input video frames&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;fd_model fd       | face_detection_yunet_2021dec.onnx| Path to the model. Download yunet.onnx in https://github.com/opencv/opencv_zoo/tree/master/models/face_detection_yunet&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;fr_model fr       | face_recognition_sface_2021dec.onnx | Path to the face recognition model. Download the model at https://github.com/opencv/opencv_zoo/tree/master/models/face_recognition_sface&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;score_threshold   | 0.9        | Filter out faces of score &lt; score_threshold&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;nms_threshold     | 0.3        | Suppress bounding boxes of iou &gt;= nms_threshold&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;top_k             | 5000       | Keep top_k bounding boxes before NMS&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="string">&quot;&#123;save s            | false      | Set true to save results. This flag is invalid when using camera&#125;&quot;</span></span></span></span><br><span class="line"><span class="params"><span class="function">    )</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (parser.<span class="built_in">has</span>(<span class="string">&quot;help&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        parser.<span class="built_in">printMessage</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String fd_modelPath = parser.<span class="built_in">get</span>&lt;String&gt;(<span class="string">&quot;fd_model&quot;</span>);</span><br><span class="line">    String fr_modelPath = parser.<span class="built_in">get</span>&lt;String&gt;(<span class="string">&quot;fr_model&quot;</span>);</span><br><span class="line">    <span class="type">float</span> scoreThreshold = parser.<span class="built_in">get</span>&lt;<span class="type">float</span>&gt;(<span class="string">&quot;score_threshold&quot;</span>);</span><br><span class="line">    <span class="type">float</span> nmsThreshold = parser.<span class="built_in">get</span>&lt;<span class="type">float</span>&gt;(<span class="string">&quot;nms_threshold&quot;</span>);</span><br><span class="line">    <span class="type">int</span> topK = parser.<span class="built_in">get</span>&lt;<span class="type">int</span>&gt;(<span class="string">&quot;top_k&quot;</span>);</span><br><span class="line">    <span class="type">bool</span> save = parser.<span class="built_in">get</span>&lt;<span class="type">bool</span>&gt;(<span class="string">&quot;save&quot;</span>);</span><br><span class="line">    <span class="type">float</span> scale = parser.<span class="built_in">get</span>&lt;<span class="type">float</span>&gt;(<span class="string">&quot;scale&quot;</span>);</span><br><span class="line">    <span class="type">double</span> cosine_similar_thresh = <span class="number">0.363</span>;</span><br><span class="line">    <span class="type">double</span> l2norm_similar_thresh = <span class="number">1.128</span>;</span><br><span class="line">    <span class="comment">// Initialize FaceDetectorYN</span></span><br><span class="line">    Ptr&lt;FaceDetectorYN&gt; detector = FaceDetectorYN::<span class="built_in">create</span>(fd_modelPath, <span class="string">&quot;&quot;</span>, <span class="built_in">Size</span>(<span class="number">320</span>, <span class="number">320</span>), scoreThreshold, nmsThreshold, topK);</span><br><span class="line">    TickMeter tm;</span><br><span class="line">    <span class="comment">// If input is an image</span></span><br><span class="line">    <span class="keyword">if</span> (parser.<span class="built_in">has</span>(<span class="string">&quot;image1&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        String input1 = parser.<span class="built_in">get</span>&lt;String&gt;(<span class="string">&quot;image1&quot;</span>);</span><br><span class="line">        Mat image1 = <span class="built_in">imread</span>(samples::<span class="built_in">findFile</span>(input1));</span><br><span class="line">        <span class="keyword">if</span> (image1.<span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            std::cerr &lt;&lt; <span class="string">&quot;Cannot read image: &quot;</span> &lt;&lt; input1 &lt;&lt; std::endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> imageWidth = <span class="built_in">int</span>(image1.cols * scale);</span><br><span class="line">        <span class="type">int</span> imageHeight = <span class="built_in">int</span>(image1.rows * scale);</span><br><span class="line">        <span class="built_in">resize</span>(image1, image1, <span class="built_in">Size</span>(imageWidth, imageHeight));</span><br><span class="line">        tm.<span class="built_in">start</span>();</span><br><span class="line">        <span class="comment">// Set input size before inference</span></span><br><span class="line">        detector-&gt;<span class="built_in">setInputSize</span>(image1.<span class="built_in">size</span>());</span><br><span class="line">        Mat faces1;</span><br><span class="line">        detector-&gt;<span class="built_in">detect</span>(image1, faces1);</span><br><span class="line">        <span class="keyword">if</span> (faces1.rows &lt; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            std::cerr &lt;&lt; <span class="string">&quot;Cannot find a face in &quot;</span> &lt;&lt; input1 &lt;&lt; std::endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        tm.<span class="built_in">stop</span>();</span><br><span class="line">        <span class="comment">// Draw results on the input image</span></span><br><span class="line">        <span class="built_in">visualize</span>(image1, <span class="number">-1</span>, faces1, tm.<span class="built_in">getFPS</span>());</span><br><span class="line">        <span class="comment">// Save results if save is true</span></span><br><span class="line">        <span class="keyword">if</span> (save)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Saving result.jpg...\n&quot;</span>;</span><br><span class="line">            <span class="built_in">imwrite</span>(<span class="string">&quot;result.jpg&quot;</span>, image1);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Visualize results</span></span><br><span class="line">        <span class="built_in">imshow</span>(<span class="string">&quot;image1&quot;</span>, image1);</span><br><span class="line">        <span class="built_in">pollKey</span>();  <span class="comment">// handle UI events to show content</span></span><br><span class="line">        <span class="keyword">if</span> (parser.<span class="built_in">has</span>(<span class="string">&quot;image2&quot;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            String input2 = parser.<span class="built_in">get</span>&lt;String&gt;(<span class="string">&quot;image2&quot;</span>);</span><br><span class="line">            Mat image2 = <span class="built_in">imread</span>(samples::<span class="built_in">findFile</span>(input2));</span><br><span class="line">            <span class="keyword">if</span> (image2.<span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                std::cerr &lt;&lt; <span class="string">&quot;Cannot read image2: &quot;</span> &lt;&lt; input2 &lt;&lt; std::endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            tm.<span class="built_in">reset</span>();</span><br><span class="line">            tm.<span class="built_in">start</span>();</span><br><span class="line">            detector-&gt;<span class="built_in">setInputSize</span>(image2.<span class="built_in">size</span>());</span><br><span class="line">            Mat faces2;</span><br><span class="line">            detector-&gt;<span class="built_in">detect</span>(image2, faces2);</span><br><span class="line">            <span class="keyword">if</span> (faces2.rows &lt; <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                std::cerr &lt;&lt; <span class="string">&quot;Cannot find a face in &quot;</span> &lt;&lt; input2 &lt;&lt; std::endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            tm.<span class="built_in">stop</span>();</span><br><span class="line">            <span class="built_in">visualize</span>(image2, <span class="number">-1</span>, faces2, tm.<span class="built_in">getFPS</span>());</span><br><span class="line">            <span class="keyword">if</span> (save)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;Saving result2.jpg...\n&quot;</span>;</span><br><span class="line">                <span class="built_in">imwrite</span>(<span class="string">&quot;result2.jpg&quot;</span>, image2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">imshow</span>(<span class="string">&quot;image2&quot;</span>, image2);</span><br><span class="line">            <span class="built_in">pollKey</span>();</span><br><span class="line">            <span class="comment">// Initialize FaceRecognizerSF</span></span><br><span class="line">            Ptr&lt;FaceRecognizerSF&gt; faceRecognizer = FaceRecognizerSF::<span class="built_in">create</span>(fr_modelPath, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            <span class="comment">// Aligning and cropping facial image through the first face of faces detected.</span></span><br><span class="line">            Mat aligned_face1, aligned_face2;</span><br><span class="line">            faceRecognizer-&gt;<span class="built_in">alignCrop</span>(image1, faces1.<span class="built_in">row</span>(<span class="number">0</span>), aligned_face1);</span><br><span class="line">            faceRecognizer-&gt;<span class="built_in">alignCrop</span>(image2, faces2.<span class="built_in">row</span>(<span class="number">0</span>), aligned_face2);</span><br><span class="line">            <span class="comment">// Run feature extraction with given aligned_face</span></span><br><span class="line">            Mat feature1, feature2;</span><br><span class="line">            faceRecognizer-&gt;<span class="built_in">feature</span>(aligned_face1, feature1);</span><br><span class="line">            feature1 = feature1.<span class="built_in">clone</span>();</span><br><span class="line">            faceRecognizer-&gt;<span class="built_in">feature</span>(aligned_face2, feature2);</span><br><span class="line">            feature2 = feature2.<span class="built_in">clone</span>();</span><br><span class="line">            <span class="type">double</span> cos_score = faceRecognizer-&gt;<span class="built_in">match</span>(feature1, feature2, FaceRecognizerSF::DisType::FR_COSINE);</span><br><span class="line">            <span class="type">double</span> L2_score = faceRecognizer-&gt;<span class="built_in">match</span>(feature1, feature2, FaceRecognizerSF::DisType::FR_NORM_L2);</span><br><span class="line">            <span class="keyword">if</span> (cos_score &gt;= cosine_similar_thresh)</span><br><span class="line">            &#123;</span><br><span class="line">                std::cout &lt;&lt; <span class="string">&quot;They have the same identity;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                std::cout &lt;&lt; <span class="string">&quot;They have different identities;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot; Cosine Similarity: &quot;</span> &lt;&lt; cos_score &lt;&lt; <span class="string">&quot;, threshold: &quot;</span> &lt;&lt; cosine_similar_thresh &lt;&lt; <span class="string">&quot;. (higher value means higher similarity, max 1.0)\n&quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (L2_score &lt;= l2norm_similar_thresh)</span><br><span class="line">            &#123;</span><br><span class="line">                std::cout &lt;&lt; <span class="string">&quot;They have the same identity;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                std::cout &lt;&lt; <span class="string">&quot;They have different identities.&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot; NormL2 Distance: &quot;</span> &lt;&lt; L2_score &lt;&lt; <span class="string">&quot;, threshold: &quot;</span> &lt;&lt; l2norm_similar_thresh &lt;&lt; <span class="string">&quot;. (lower value means higher similarity, min 0.0)\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Press any key to exit...&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">waitKey</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> frameWidth, frameHeight;</span><br><span class="line">        VideoCapture capture;</span><br><span class="line">        std::string video = parser.<span class="built_in">get</span>&lt;string&gt;(<span class="string">&quot;video&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (video.<span class="built_in">size</span>() == <span class="number">1</span> &amp;&amp; <span class="built_in">isdigit</span>(video[<span class="number">0</span>]))</span><br><span class="line">            capture.<span class="built_in">open</span>(parser.<span class="built_in">get</span>&lt;<span class="type">int</span>&gt;(<span class="string">&quot;video&quot;</span>));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            capture.<span class="built_in">open</span>(samples::<span class="built_in">findFileOrKeep</span>(video));  <span class="comment">// keep GStreamer pipelines</span></span><br><span class="line">        <span class="keyword">if</span> (capture.<span class="built_in">isOpened</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            frameWidth = <span class="built_in">int</span>(capture.<span class="built_in">get</span>(CAP_PROP_FRAME_WIDTH) * scale);</span><br><span class="line">            frameHeight = <span class="built_in">int</span>(capture.<span class="built_in">get</span>(CAP_PROP_FRAME_HEIGHT) * scale);</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Video &quot;</span> &lt;&lt; video</span><br><span class="line">                &lt;&lt; <span class="string">&quot;: width=&quot;</span> &lt;&lt; frameWidth</span><br><span class="line">                &lt;&lt; <span class="string">&quot;, height=&quot;</span> &lt;&lt; frameHeight</span><br><span class="line">                &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Could not initialize video capturing: &quot;</span> &lt;&lt; video &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        detector-&gt;<span class="built_in">setInputSize</span>(<span class="built_in">Size</span>(frameWidth, frameHeight));</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Press &#x27;SPACE&#x27; to save frame, any other key to exit...&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> nFrame = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Get frame</span></span><br><span class="line">            Mat frame;</span><br><span class="line">            <span class="keyword">if</span> (!capture.<span class="built_in">read</span>(frame))</span><br><span class="line">            &#123;</span><br><span class="line">                cerr &lt;&lt; <span class="string">&quot;Can&#x27;t grab frame! Stop\n&quot;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">resize</span>(frame, frame, <span class="built_in">Size</span>(frameWidth, frameHeight));</span><br><span class="line">            <span class="comment">// Inference</span></span><br><span class="line">            Mat faces;</span><br><span class="line">            tm.<span class="built_in">start</span>();</span><br><span class="line">            detector-&gt;<span class="built_in">detect</span>(frame, faces);</span><br><span class="line">            tm.<span class="built_in">stop</span>();</span><br><span class="line">            Mat result = frame.<span class="built_in">clone</span>();</span><br><span class="line">            <span class="comment">// Draw results on the input image</span></span><br><span class="line">            <span class="built_in">visualize</span>(result, nFrame, faces, tm.<span class="built_in">getFPS</span>());</span><br><span class="line">            <span class="comment">// Visualize results</span></span><br><span class="line">            <span class="built_in">imshow</span>(<span class="string">&quot;Live&quot;</span>, result);</span><br><span class="line">            <span class="type">int</span> key = <span class="built_in">waitKey</span>(<span class="number">1</span>);</span><br><span class="line">            <span class="type">bool</span> saveFrame = save;</span><br><span class="line">            <span class="keyword">if</span> (key == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                saveFrame = <span class="literal">true</span>;</span><br><span class="line">                key = <span class="number">0</span>;  <span class="comment">// handled</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (saveFrame)</span><br><span class="line">            &#123;</span><br><span class="line">                std::string frame_name = cv::format(<span class="string">&quot;frame_%05d.png&quot;</span>, nFrame);</span><br><span class="line">                std::string result_name = cv::format(<span class="string">&quot;result_%05d.jpg&quot;</span>, nFrame);</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;Saving &#x27;&quot;</span> &lt;&lt; frame_name &lt;&lt; <span class="string">&quot;&#x27; and &#x27;&quot;</span> &lt;&lt; result_name &lt;&lt; <span class="string">&quot;&#x27; ...\n&quot;</span>;</span><br><span class="line">                <span class="built_in">imwrite</span>(frame_name, frame);</span><br><span class="line">                <span class="built_in">imwrite</span>(result_name, result);</span><br><span class="line">            &#125;</span><br><span class="line">            ++nFrame;</span><br><span class="line">            <span class="keyword">if</span> (key &gt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Processed &quot;</span> &lt;&lt; nFrame &lt;&lt; <span class="string">&quot; frames&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Done.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/opencv/" rel="tag"><i class="fa fa-tag"></i> opencv</a>
+              <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
+              <a href="/tags/Face/" rel="tag"><i class="fa fa-tag"></i> Face</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/" rel="prev" title="tensorflow gpu 安装(ubuntu22.04)">
+      <i class="fa fa-chevron-left"></i> tensorflow gpu 安装(ubuntu22.04)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/05/11/%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83Jellyfin%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/" rel="next" title="影音中心Jellyfin快速部署">
+      影音中心Jellyfin快速部署 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">模型下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR-%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.1.</span> <span class="nav-text">OCR 模型下载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TextRecognitionModel"><span class="nav-number">2.1.1.</span> <span class="nav-text">TextRecognitionModel:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextDetectionModel"><span class="nav-number">2.1.2.</span> <span class="nav-text">TextDetectionModel:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Face-%E4%BA%BA%E8%84%B8%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">Face 人脸模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">测试代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR-code"><span class="nav-number">3.1.</span> <span class="nav-text">OCR code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Face-code"><span class="nav-number">3.2.</span> <span class="nav-text">Face code</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kekxv"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">kekxv</p>
+  <div class="site-description" itemprop="description">kekxv 技术日志</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kekxv"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/feed.xml" title="RSS → &#x2F;feed.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kekxv</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kekxv.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记录深度学习AI过程中的一些问题。涉及到 tensorflow、ncnn、onnx、keras的训练以及转换模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习记录-简单">
+<meta property="og:url" content="http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/index.html">
+<meta property="og:site_name" content="kekxv 技术日志">
+<meta property="og:description" content="记录深度学习AI过程中的一些问题。涉及到 tensorflow、ncnn、onnx、keras的训练以及转换模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kekxv.github.io/images/20220707/img.png">
+<meta property="article:published_time" content="2022-07-07T20:00:14.000Z">
+<meta property="article:modified_time" content="2025-06-28T16:23:51.923Z">
+<meta property="article:author" content="kekxv">
+<meta property="article:tag" content="ncnn">
+<meta property="article:tag" content="onnx">
+<meta property="article:tag" content="tensorflow">
+<meta property="article:tag" content="keras">
+<meta property="article:tag" content="hdf5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kekxv.github.io/images/20220707/img.png">
+
+<link rel="canonical" href="http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>深度学习记录-简单 | kekxv 技术日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/feed.xml" title="kekxv 技术日志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kekxv 技术日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kekxv</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术日志">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度学习记录-简单
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-07 20:00:14" itemprop="dateCreated datePublished" datetime="2022-07-07T20:00:14+00:00">2022-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-28 16:23:51" itemprop="dateModified" datetime="2025-06-28T16:23:51+00:00">2025-06-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>记录深度学习AI过程中的一些问题。涉及到 <code>tensorflow</code>、<code>ncnn</code>、<code>onnx</code>、<code>keras</code>的训练以及转换模型</p>
+<span id="more"></span>
+
+<h2 id="关于-tensorflow"><a href="#关于-tensorflow" class="headerlink" title="关于 tensorflow"></a>关于 tensorflow</h2><p>目前 <code>tensorflow</code> 发展到了 <code>2.9.+</code><br>的版本，大部分的功能都完善，且使用简单，同时教程文档也非常完善:<span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvdHV0b3JpYWxzP2hsPXpoLWNu">https://www.tensorflow.org/tutorials?hl=zh-cn<i class="fa fa-external-link-alt"></i></span></p>
+<p>例如进行分类训练：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment"># https://www.tensorflow.org/tutorials/images/classification</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">训练文件</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># TensorFlow and tf.keras</span></span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> layers</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="comment"># Helper libraries</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(tf.__version__)</span><br><span class="line">gpus = tf.config.list_physical_devices(device_type=<span class="string">&#x27;GPU&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(gpus) &gt; <span class="number">0</span>:</span><br><span class="line">    tf.config.experimental.set_memory_growth(gpus[<span class="number">0</span>], <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 图像文件路径</span></span><br><span class="line">Image_dir = <span class="string">&#x27;image&#x27;</span></span><br><span class="line">img_height = <span class="number">180</span></span><br><span class="line">img_width = <span class="number">180</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line">epochs = <span class="number">15</span></span><br><span class="line">model_path = <span class="string">&quot;model.h5&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    train_ds = tf.keras.utils.image_dataset_from_directory(</span><br><span class="line">        Image_dir + <span class="string">&quot;/train&quot;</span>,</span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        subset=<span class="string">&quot;training&quot;</span>,</span><br><span class="line">        seed=<span class="number">123</span>,</span><br><span class="line">        image_size=(img_height, img_width),</span><br><span class="line">        batch_size=batch_size)</span><br><span class="line">    val_ds = tf.keras.utils.image_dataset_from_directory(</span><br><span class="line">        Image_dir + <span class="string">&quot;/test&quot;</span>,</span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        subset=<span class="string">&quot;validation&quot;</span>,</span><br><span class="line">        seed=<span class="number">123</span>,</span><br><span class="line">        image_size=(img_height, img_width),</span><br><span class="line">        batch_size=batch_size)</span><br><span class="line">    class_names = train_ds.class_names</span><br><span class="line">    <span class="built_in">print</span>(class_names)</span><br><span class="line">    AUTOTUNE = tf.data.AUTOTUNE</span><br><span class="line">    train_ds = train_ds.cache().shuffle(<span class="number">1000</span>).prefetch(buffer_size=AUTOTUNE)</span><br><span class="line">    val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)</span><br><span class="line"></span><br><span class="line">    normalization_layer = layers.Rescaling(<span class="number">1.</span> / <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">    normalized_ds = train_ds.<span class="built_in">map</span>(<span class="keyword">lambda</span> x, y: (normalization_layer(x), y))</span><br><span class="line">    image_batch, labels_batch = <span class="built_in">next</span>(<span class="built_in">iter</span>(normalized_ds))</span><br><span class="line">    first_image = image_batch[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># Notice the pixel values are now in `[0,1]`.</span></span><br><span class="line">    <span class="built_in">print</span>(np.<span class="built_in">min</span>(first_image), np.<span class="built_in">max</span>(first_image))</span><br><span class="line">    num_classes = <span class="built_in">len</span>(class_names)</span><br><span class="line">    data_augmentation = keras.Sequential(</span><br><span class="line">        [</span><br><span class="line">            keras.layers.RandomFlip(<span class="string">&quot;horizontal&quot;</span>, input_shape=(img_height, img_width, <span class="number">3</span>)),</span><br><span class="line">            keras.layers.RandomRotation(<span class="number">0.1</span>),</span><br><span class="line">            keras.layers.RandomZoom(<span class="number">0.1</span>),</span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line">    model = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(model_path):</span><br><span class="line">        <span class="comment"># 如果模型存在，则直接加载模型继续训练</span></span><br><span class="line">        model = tf.keras.models.load_model(model_path)</span><br><span class="line">        model.summary()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        model = keras.Sequential([</span><br><span class="line">            data_augmentation,</span><br><span class="line">            keras.layers.Rescaling(<span class="number">1.</span> / <span class="number">255</span>),</span><br><span class="line">            keras.layers.Conv2D(<span class="number">16</span>, <span class="number">3</span>, padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">            keras.layers.MaxPooling2D(),</span><br><span class="line">            keras.layers.Conv2D(<span class="number">32</span>, <span class="number">3</span>, padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">            keras.layers.MaxPooling2D(),</span><br><span class="line">            keras.layers.Conv2D(<span class="number">64</span>, <span class="number">3</span>, padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">            keras.layers.MaxPooling2D(),</span><br><span class="line">            keras.layers.Conv2D(<span class="number">128</span>, <span class="number">3</span>, padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">            keras.layers.MaxPooling2D(),</span><br><span class="line">            keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">            keras.layers.Flatten(),</span><br><span class="line">            keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">            keras.layers.Dense(num_classes)</span><br><span class="line">        ])</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">                      loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span class="literal">True</span>),</span><br><span class="line">                      metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">        <span class="comment"># 执行训练</span></span><br><span class="line">        history = model.fit(</span><br><span class="line">            train_ds,</span><br><span class="line">            validation_data=val_ds,</span><br><span class="line">            epochs=epochs</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\n\n\n&#x27;</span>)</span><br><span class="line">    <span class="comment"># 验证结果</span></span><br><span class="line">    test_loss, test_acc = model.evaluate(val_ds, verbose=<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\nTest accuracy:&#x27;</span>, test_acc)</span><br><span class="line"></span><br><span class="line">    test_loss, test_acc = model.evaluate(train_ds, verbose=<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 验证结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\nTest accuracy:&#x27;</span>, test_acc)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 保存模型</span></span><br><span class="line">    model.save(model_path)</span><br><span class="line"></span><br><span class="line">exit()</span><br></pre></td></tr></table></figure>
+
+<p>该代码会自动找到 image&#x2F;train 里面的文件夹，并将文件夹作为类别，加载各自类别（文件夹）里面的图像；然后对其进行训练。可以快速得到一个分类模型。<br>完整教程 : <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvdHV0b3JpYWxzL2ltYWdlcy9jbGFzc2lmaWNhdGlvbg==">https://www.tensorflow.org/tutorials/images/classification<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="关于-keras-、-hdf5-模型"><a href="#关于-keras-、-hdf5-模型" class="headerlink" title="关于 keras 、 hdf5 模型"></a>关于 keras 、 hdf5 模型</h2><p>前面的分类训练保存的模型为 <code>keras/hdf5</code> 模型，好处是可以单文件存储，但是使用的时候需要依赖<code>keras</code>&#x2F;<code>tensorflow</code>，同时目前 <code>opencv dnn</code> 模块还不支持加载<code>keras/hdf5</code><br>模型，所以我们可以选择将其转换为其他格式的模型：</p>
+<p>例如 <code>tensorflow</code> 的<code>pb</code>模型：<br><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjk2MzM1OTUvbG9hZC1vbm54LW1vZGVsLWluLW9wZW5jdi1kbm4=">https://stackoverflow.com/questions/69633595/load-onnx-model-in-opencv-dnn<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.framework.convert_to_constants <span class="keyword">import</span> convert_variables_to_constants_v2</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> load_model</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># path of the directory where you want to save your model</span></span><br><span class="line">frozen_out_path = <span class="string">&#x27;输出模型路径&#x27;</span>  <span class="comment"># name of the .pb file</span></span><br><span class="line">frozen_graph_filename = <span class="string">&quot;输出模型文件名&quot;</span>  <span class="comment"># “frozen_graph”</span></span><br><span class="line"></span><br><span class="line">model = load_model(<span class="string">&quot;keras模型路径.h5&quot;</span>)</span><br><span class="line"><span class="comment"># model = &quot;&quot;# Your model# Convert Keras model to ConcreteFunction</span></span><br><span class="line">full_model = tf.function(<span class="keyword">lambda</span> x: model(x))</span><br><span class="line">full_model = full_model.get_concrete_function(</span><br><span class="line">    tf.TensorSpec(model.inputs[<span class="number">0</span>].shape, model.inputs[<span class="number">0</span>].dtype))  <span class="comment"># Get frozen ConcreteFunction</span></span><br><span class="line">frozen_func = convert_variables_to_constants_v2(full_model)</span><br><span class="line">frozen_func.graph.as_graph_def()</span><br><span class="line">layers = [op.name <span class="keyword">for</span> op <span class="keyword">in</span> frozen_func.graph.get_operations()]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">60</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Frozen model layers: &quot;</span>)</span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> layers:</span><br><span class="line">    <span class="built_in">print</span>(layer)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">60</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Frozen model inputs: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(frozen_func.inputs)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Frozen model outputs: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(frozen_func.outputs)  <span class="comment"># Save frozen graph to disk</span></span><br><span class="line">tf.io.write_graph(graph_or_graph_def=frozen_func.graph,</span><br><span class="line">                  logdir=frozen_out_path,</span><br><span class="line">                  name=<span class="string">f&quot;<span class="subst">&#123;frozen_graph_filename&#125;</span>.pb&quot;</span>,</span><br><span class="line">                  as_text=<span class="literal">False</span>)  <span class="comment"># Save its text representation</span></span><br><span class="line">tf.io.write_graph(graph_or_graph_def=frozen_func.graph,</span><br><span class="line">                  logdir=frozen_out_path,</span><br><span class="line">                  name=<span class="string">f&quot;<span class="subst">&#123;frozen_graph_filename&#125;</span>.pbtxt&quot;</span>,</span><br><span class="line">                  as_text=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>此时我们能够得到<code>tensorflow</code>的<code>pb</code>以及<code>pbtxt</code>模型。</p>
+<h2 id="关于opencv加载pb模型失败或分类错误问题"><a href="#关于opencv加载pb模型失败或分类错误问题" class="headerlink" title="关于opencv加载pb模型失败或分类错误问题"></a>关于opencv加载pb模型失败或分类错误问题</h2><p>如果 opencv dnn 加载pb模型失败，或者与tensorflow的结果差距较大，可以试着不加载 pbtxt 配置。输入的Mat使用方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat blob = cv::dnn::<span class="built_in">blobFromImage</span>(img, <span class="number">1.0</span>, <span class="built_in">Size</span>(<span class="number">180</span>, <span class="number">180</span>), <span class="built_in">Scalar</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>基本可以得到正确的结果。</p>
+<h2 id="关于-onnx"><a href="#关于-onnx" class="headerlink" title="关于 onnx"></a>关于 onnx</h2><p>如果 <code>opencv dnn</code> 加载 <code>pb</code> 模型一直失败，或者得到错误的分类结果，则可以考虑使用 <code>onnx</code> 模型。</p>
+<p>需要安装<code>tf2onnx</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U tf2onnx</span><br></pre></td></tr></table></figure>
+<p>macos 下如果无法安装 <code>onnxruntime</code>，可以尝试使用测试仓库安装:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -i https://test.pypi.org/simple/ onnxruntime</span><br></pre></td></tr></table></figure>
+
+<p>然后使用转换命令，进行转换：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m tf2onnx.convert --input 模型地址.pb  --inputs 模型输入 --outputs 模型输出 --output 输出模型名字.onnx</span><br></pre></td></tr></table></figure>
+
+<p>将可以得到模型<code>onnx</code>模型。</p>
+<p>可以考虑简化一下<code>onnx</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m onnxsim model.onnx model-sim.onnx</span><br></pre></td></tr></table></figure>
+
+<h2 id="关于-ncnn"><a href="#关于-ncnn" class="headerlink" title="关于 ncnn"></a>关于 ncnn</h2><p>如果不想使用opencv dnn 模块，或者opencv dnn 在arm下面速度比较慢，可以考虑使用ncnn 推导🐶：</p>
+<p>由于ncnn还没有发布版本包，所以需要自行下载源码、编译。</p>
+<p>ncnn 仓库地址：<span class="exturl" data-url="aHR0cDovL2dpdGh1Yi5jb20vVGVuY2VudC9uY25u">http://github.com/Tencent/ncnn<i class="fa fa-external-link-alt"></i></span></p>
+<p>编译好之后在 tools 下面将有所需要的工具：</p>
+<p><img src="/images/20220707/img.png" alt="img.png"></p>
+<h3 id="模型转换"><a href="#模型转换" class="headerlink" title="模型转换"></a>模型转换</h3><p>使用以下命令，我们将得到 ncnn 的模型：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./onnx2ncnn onnx模型.onnx my_mobileface.param my_mobileface.bin</span><br></pre></td></tr></table></figure>
+<p>然后就可以使用 ncnn 进行推导。</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdHQxZS9hcnRpY2xlL2RldGFpbHMvMTE2MDAwMTE4">https://blog.csdn.net/litt1e/article/details/116000118<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="opencv-dnn-c-测试-demo"><a href="#opencv-dnn-c-测试-demo" class="headerlink" title="opencv dnn c++ 测试 demo"></a>opencv dnn c++ 测试 demo</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by caesar kekxv on 2021/7/26.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;opencv2/opencv.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;string&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;OpenCV version : &quot;</span> &lt;&lt; CV_VERSION &lt;&lt; endl;</span><br><span class="line">  cv::dnn::Net tf_net = cv::dnn::<span class="built_in">readNetFromTensorflow</span>(<span class="string">&quot;freez.pb&quot;</span>);</span><br><span class="line">  cout &lt;&lt; !tf_net.<span class="built_in">empty</span>() &lt;&lt; endl;</span><br><span class="line">  cv::dnn::Net net = cv::dnn::<span class="built_in">readNetFromONNX</span>(<span class="string">&quot;model.onnx&quot;</span>);</span><br><span class="line">  std::vector&lt;string&gt; className&#123;<span class="string">&quot;success\t&quot;</span>, <span class="string">&quot;error\t&quot;</span>&#125;;</span><br><span class="line">  std::cout &lt;&lt; <span class="string">&quot;[&#x27;success&#x27;,&#x27;error&#x27;]&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">  std::vector&lt;string&gt; files&#123;</span><br><span class="line">    <span class="string">&quot;推导图像列表&quot;</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;file: files) &#123;</span><br><span class="line">    cv::Mat img = <span class="built_in">imread</span>(file);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!net.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">      cv::Mat blob;</span><br><span class="line">      cv::<span class="built_in">resize</span>(img, blob, <span class="built_in">Size</span>(<span class="number">180</span>, <span class="number">180</span>));</span><br><span class="line">      blob.<span class="built_in">convertTo</span>(blob, CV_32F);</span><br><span class="line">      blob = blob.<span class="built_in">reshape</span>(<span class="number">1</span>, &#123;<span class="number">1</span>, <span class="number">180</span>, <span class="number">180</span>, <span class="number">3</span>&#125;);</span><br><span class="line">      net.<span class="built_in">setInput</span>(blob);</span><br><span class="line">      cv::Mat output = net.forward();</span><br><span class="line">      <span class="type">double</span> minValue, maxValue;    <span class="comment">// 最大值，最小值</span></span><br><span class="line">      cv::Point minIdx, maxIdx;    <span class="comment">// 最小值坐标，最大值坐标</span></span><br><span class="line">      cv::<span class="built_in">minMaxLoc</span>(output, &amp;minValue, &amp;maxValue, &amp;minIdx, &amp;maxIdx);</span><br><span class="line">      std::cout &lt;&lt; className[maxIdx.x] &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="string">&quot; o&quot;</span> &lt;&lt; output &lt;&lt; <span class="string">&quot;[ &quot;</span> &lt;&lt; file &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!tf_net.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">      cv::Mat blob;</span><br><span class="line">      blob = cv::dnn::<span class="built_in">blobFromImage</span>(img, <span class="number">1.0</span>, <span class="built_in">Size</span>(<span class="number">180</span>, <span class="number">180</span>), <span class="built_in">Scalar</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="literal">true</span>);</span><br><span class="line">      tf_net.<span class="built_in">setInput</span>(blob);</span><br><span class="line">      cv::Mat output = tf_net.forward();</span><br><span class="line">      <span class="type">double</span> minValue, maxValue;    <span class="comment">// 最大值，最小值</span></span><br><span class="line">      cv::Point minIdx, maxIdx;    <span class="comment">// 最小值坐标，最大值坐标</span></span><br><span class="line">      cv::<span class="built_in">minMaxLoc</span>(output, &amp;minValue, &amp;maxValue, &amp;minIdx, &amp;maxIdx);</span><br><span class="line">      std::cout &lt;&lt; className[maxIdx.x] &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="string">&quot; t&quot;</span> &lt;&lt; output &lt;&lt; <span class="string">&quot;[ &quot;</span> &lt;&lt; file &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/ncnn/" rel="tag"><i class="fa fa-tag"></i> ncnn</a>
+              <a href="/tags/onnx/" rel="tag"><i class="fa fa-tag"></i> onnx</a>
+              <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> tensorflow</a>
+              <a href="/tags/keras/" rel="tag"><i class="fa fa-tag"></i> keras</a>
+              <a href="/tags/hdf5/" rel="tag"><i class="fa fa-tag"></i> hdf5</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/" rel="prev" title="vbs 启动进程并记录 PID">
+      <i class="fa fa-chevron-left"></i> vbs 启动进程并记录 PID
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/" rel="next" title="tensorflow gpu 安装(ubuntu22.04)">
+      tensorflow gpu 安装(ubuntu22.04) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-tensorflow"><span class="nav-number">1.</span> <span class="nav-text">关于 tensorflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-keras-%E3%80%81-hdf5-%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">关于 keras 、 hdf5 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Eopencv%E5%8A%A0%E8%BD%BDpb%E6%A8%A1%E5%9E%8B%E5%A4%B1%E8%B4%A5%E6%88%96%E5%88%86%E7%B1%BB%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">关于opencv加载pb模型失败或分类错误问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-onnx"><span class="nav-number">4.</span> <span class="nav-text">关于 onnx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-ncnn"><span class="nav-number">5.</span> <span class="nav-text">关于 ncnn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">5.1.</span> <span class="nav-text">模型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opencv-dnn-c-%E6%B5%8B%E8%AF%95-demo"><span class="nav-number">6.</span> <span class="nav-text">opencv dnn c++ 测试 demo</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kekxv"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">kekxv</p>
+  <div class="site-description" itemprop="description">kekxv 技术日志</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kekxv"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/feed.xml" title="RSS → &#x2F;feed.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kekxv</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

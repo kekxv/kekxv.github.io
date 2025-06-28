@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kekxv 技术日志</title>
+  <icon>http://kekxv.github.io/icon.png</icon>
+  <subtitle>kekxv</subtitle>
+  <link href="http://kekxv.github.io/feed.xml" rel="self"/>
+  
+  <link href="http://kekxv.github.io/"/>
+  <updated>2025-06-28T16:23:51.921Z</updated>
+  <id>http://kekxv.github.io/</id>
+  
+  <author>
+    <name>kekxv</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Json简单工具</title>
+    <link href="http://kekxv.github.io/2025/06/29/Json%E7%AE%80%E5%8D%95%E5%B7%A5%E5%85%B7/"/>
+    <id>http://kekxv.github.io/2025/06/29/Json%E7%AE%80%E5%8D%95%E5%B7%A5%E5%85%B7/</id>
+    <published>2025-06-29T00:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.921Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;JSON-工具箱-JSON-Toolbox&quot;&gt;&lt;a href=&quot;#JSON-工具箱-JSON-Toolbox&quot; class=&quot;headerlink&quot; title=&quot;JSON 工具箱 (JSON Toolbox)&quot;&gt;&lt;/a&gt;JSON 工具箱 (JSON Toolbox)&lt;/h1&gt;&lt;p&gt;一个强大、美观且纯前端的 JSON 工具网页，提供了丰富的 JSON 处理功能，包括格式化、对比、排序和可交互的视图。&lt;/p&gt;
+&lt;p&gt;点击使用 &lt;a href=&quot;/files/20250629/json-tools.html&quot;&gt;json-tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/../images/20250629/img.png&quot; alt=&quot;img.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="json" scheme="http://kekxv.github.io/categories/json/"/>
+    
+    
+    <category term="json" scheme="http://kekxv.github.io/tags/json/"/>
+    
+    <category term="html" scheme="http://kekxv.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Windows上运行Code Server：结合WSL打造你的云端VS Code开发环境</title>
+    <link href="http://kekxv.github.io/2025/06/21/code-server-on-windows/"/>
+    <id>http://kekxv.github.io/2025/06/21/code-server-on-windows/</id>
+    <published>2025-06-21T10:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言：因为我的主力开发机器并不是Windows，但是我又需要使用vs2015开发Windows的应用程序。所以，我希望能通过web ide 进行开发，而不是远程工具，这样我就可以将他部署在任何地方，实体机、虚拟机都可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;各位开发者，想必都对 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v&quot;&gt;VS Code&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 这款强大的本地代码编辑器情有独钟。它轻量、高效，插件生态丰富。但当你需要一个&lt;strong&gt;可以在任何浏览器中访问&lt;/strong&gt;的 VS Code 环境时，例如在平板上编写代码，或者远程连接到一台高性能服务器进行开发，&lt;code&gt;code-server&lt;/code&gt; 就应运而生了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;code-server&lt;/code&gt; 允许你在服务器上运行 VS Code 后端，并通过浏览器前端进行交互，提供与本地 VS Code 几乎一致的使用体验。然而，&lt;code&gt;code-server&lt;/code&gt; 本身&lt;strong&gt;并不直接支持 Windows 系统&lt;/strong&gt;。那么，如何在 Windows 上实现这种“云端 IDE”的梦想呢？答案就是利用 **Windows Subsystem for Linux (WSL)**！&lt;/p&gt;
+&lt;p&gt;通过 WSL，我们可以在 Windows 系统内部运行一个完整的 Linux 环境，从而完美规避 &lt;code&gt;code-server&lt;/code&gt; 不支持 Windows 的问题，同时又能享受到 Windows 系统的便利。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="code-server" scheme="http://kekxv.github.io/categories/code-server/"/>
+    
+    <category term="windows" scheme="http://kekxv.github.io/categories/code-server/windows/"/>
+    
+    <category term="ide" scheme="http://kekxv.github.io/categories/code-server/windows/ide/"/>
+    
+    <category term="wsl" scheme="http://kekxv.github.io/categories/code-server/windows/ide/wsl/"/>
+    
+    
+    <category term="windows" scheme="http://kekxv.github.io/tags/windows/"/>
+    
+    <category term="code-server" scheme="http://kekxv.github.io/tags/code-server/"/>
+    
+    <category term="ide" scheme="http://kekxv.github.io/tags/ide/"/>
+    
+    <category term="wsl" scheme="http://kekxv.github.io/tags/wsl/"/>
+    
+    <category term="远程开发" scheme="http://kekxv.github.io/tags/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="云IDE" scheme="http://kekxv.github.io/tags/%E4%BA%91IDE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安卓sdkmanager工具换源</title>
+    <link href="http://kekxv.github.io/2025/05/13/%E5%AE%89%E5%8D%93sdkmanager%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90/"/>
+    <id>http://kekxv.github.io/2025/05/13/%E5%AE%89%E5%8D%93sdkmanager%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90/</id>
+    <published>2025-05-13T22:28:48.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在使用gitea actions跑安卓ci&amp;#x2F;cd的时候，有时候老失败，可以考虑换源。&lt;/p&gt;
+&lt;p&gt;主要是&lt;code&gt;~/.android/repositories.cfg&lt;/code&gt;这个配置&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="android" scheme="http://kekxv.github.io/categories/android/"/>
+    
+    <category term="sdkmanager" scheme="http://kekxv.github.io/categories/android/sdkmanager/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>boost bazel starter</title>
+    <link href="http://kekxv.github.io/2025/04/26/boost-bazel-starter/"/>
+    <id>http://kekxv.github.io/2025/04/26/boost-bazel-starter/</id>
+    <published>2025-04-26T10:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在使用boost时，发现都是教人将依赖安装到系统，有的时候不太方便，刚好我有比较喜欢使用bazel，所以觉得创建一个简单的boost项目作为学习和测试的起点。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="bazel" scheme="http://kekxv.github.io/categories/bazel/"/>
+    
+    
+    <category term="notes" scheme="http://kekxv.github.io/tags/notes/"/>
+    
+    <category term="bazel" scheme="http://kekxv.github.io/tags/bazel/"/>
+    
+    <category term="boost" scheme="http://kekxv.github.io/tags/boost/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bazel 供应商模式</title>
+    <link href="http://kekxv.github.io/2025/04/16/bazel%20%E4%BE%9B%E5%BA%94%E5%95%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://kekxv.github.io/2025/04/16/bazel%20%E4%BE%9B%E5%BA%94%E5%95%86%E6%A8%A1%E5%BC%8F/</id>
+    <published>2025-04-16T12:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Bazel - a fast, scalable, multi-language and extensible build system&lt;/p&gt;
+&lt;p&gt;在一些情况下，我们需要在没有网络的环境下进行编译，或者一些原因，互联网不再互联网了。&lt;/p&gt;
+&lt;p&gt;我们可以使用bazel的供应商模式，离线编译，来解决这个问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="bazel" scheme="http://kekxv.github.io/categories/bazel/"/>
+    
+    
+    <category term="notes" scheme="http://kekxv.github.io/tags/notes/"/>
+    
+    <category term="bazel" scheme="http://kekxv.github.io/tags/bazel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PVE引导丢失修复</title>
+    <link href="http://kekxv.github.io/2025/04/15/PVE%E5%BC%95%E5%AF%BC%E4%B8%A2%E5%A4%B1%E4%BF%AE%E5%A4%8D/"/>
+    <id>http://kekxv.github.io/2025/04/15/PVE%E5%BC%95%E5%AF%BC%E4%B8%A2%E5%A4%B1%E4%BF%AE%E5%A4%8D/</id>
+    <published>2025-04-15T10:38:48.000Z</published>
+    <updated>2025-06-28T16:23:51.921Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;遇到一个很棘手的问题，PVE的引导丢了！&lt;/p&gt;
+&lt;p&gt;丢失引导有两种情况，&lt;code&gt;GRUB&lt;/code&gt;和&lt;code&gt;grub rescue&lt;/code&gt;模式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://kekxv.github.io/categories/linux/"/>
+    
+    
+    <category term="notes" scheme="http://kekxv.github.io/tags/notes/"/>
+    
+    <category term="linux" scheme="http://kekxv.github.io/tags/linux/"/>
+    
+    <category term="pve" scheme="http://kekxv.github.io/tags/pve/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NSFW图像检测</title>
+    <link href="http://kekxv.github.io/2024/09/10/NSFW%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B/"/>
+    <id>http://kekxv.github.io/2024/09/10/NSFW%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B/</id>
+    <published>2024-09-10T20:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.921Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;随着网络的发展，越来越多的场景被发掘，例如用户交互。用户交互除了使用文字之外，还能使用图片，这就涉及到图像的检测，毕竟不能把所有的图都接受并显示出来，&lt;br&gt;&lt;del&gt;那和twitter有什么区别&lt;/del&gt;。&lt;/p&gt;
+&lt;p&gt;这里简单的介绍一下NSFW的图像检测，支持返回结果：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;drawings&lt;/code&gt; - safe for work drawings (including anime)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hentai&lt;/code&gt; - hentai and pornographic drawings&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;neutral&lt;/code&gt; - safe for work neutral images&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;porn&lt;/code&gt; - pornographic images, sexual acts&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sexy&lt;/code&gt; - sexually explicit images, not pornography&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="AI" scheme="http://kekxv.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="http://kekxv.github.io/tags/AI/"/>
+    
+    <category term="opencv" scheme="http://kekxv.github.io/tags/opencv/"/>
+    
+    <category term="photo" scheme="http://kekxv.github.io/tags/photo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>警惕c++内置变量指针</title>
+    <link href="http://kekxv.github.io/2024/06/10/%E8%AD%A6%E6%83%95c++%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F%E6%8C%87%E9%92%88/"/>
+    <id>http://kekxv.github.io/2024/06/10/%E8%AD%A6%E6%83%95c++%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F%E6%8C%87%E9%92%88/</id>
+    <published>2024-06-10T22:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天发现一个计算时间的&lt;code&gt;BUG&lt;/code&gt;，每次执行操作的时候，结果居然不一样。&lt;/p&gt;
+&lt;p&gt;代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="c++" scheme="http://kekxv.github.io/categories/c/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于内网springboot启动慢记录</title>
+    <link href="http://kekxv.github.io/2024/05/26/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91springboot%E5%90%AF%E5%8A%A8%E6%85%A2%E8%AE%B0%E5%BD%95/"/>
+    <id>http://kekxv.github.io/2024/05/26/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91springboot%E5%90%AF%E5%8A%A8%E6%85%A2%E8%AE%B0%E5%BD%95/</id>
+    <published>2024-05-26T10:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在内网环境部署&lt;code&gt;springboot&lt;/code&gt;项目的时候，发现启动需要&lt;code&gt;3分钟&lt;/code&gt;以上，服务器也不是什么弱鸡服务器，并且&lt;code&gt;CPU&lt;/code&gt;以及&lt;code&gt;内存&lt;/code&gt;还有富余；很奇怪。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://kekxv.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="docker" scheme="http://kekxv.github.io/tags/docker/"/>
+    
+    <category term="笔记" scheme="http://kekxv.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="dns" scheme="http://kekxv.github.io/tags/dns/"/>
+    
+    <category term="springboot" scheme="http://kekxv.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页转换为chrome插件</title>
+    <link href="http://kekxv.github.io/2024/05/10/html%20to%20chrome%20extension/"/>
+    <id>http://kekxv.github.io/2024/05/10/html%20to%20chrome%20extension/</id>
+    <published>2024-05-10T22:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;chrome&lt;/code&gt;有一个特别棒的功能，叫做&lt;code&gt;扩展程序&lt;/code&gt;，我们可以使用他来辅助我们浏览网页。&lt;br&gt;不过，别人的扩展程序用得多了，难免会想要整一个自己的&lt;code&gt;扩展程序&lt;/code&gt;。&lt;br&gt;这里记录一下如何快速的将一个&lt;code&gt;html&lt;/code&gt; 项目转换为扩展程序。&lt;br&gt;&lt;code&gt;(除了传统的网页外，也执行现在流行vue或uniapp或taro等打包出来的html5的网页)&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="chrome" scheme="http://kekxv.github.io/categories/chrome/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nginx代理的一种使用方式</title>
+    <link href="http://kekxv.github.io/2024/02/26/nginx%E4%BB%A3%E7%90%86%E7%9A%84%E4%B8%80%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/"/>
+    <id>http://kekxv.github.io/2024/02/26/nginx%E4%BB%A3%E7%90%86%E7%9A%84%E4%B8%80%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</id>
+    <published>2024-02-26T22:03:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;nginx 的代理相信大家都使用过，例如负载均衡，高可用等等，对于这些应用，资料有很多，但是像是以下这种很特别的情况，却没啥资料：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;GET http://www.example.com/http://file.example.com/download.bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;只能访问&lt;code&gt;www.example.com&lt;/code&gt;，但是想要使用&lt;code&gt;file.example.com&lt;/code&gt;的文件，其中&lt;code&gt;file.example.com&lt;/code&gt;是动态的；这种情况下，简单的方式是，在服务器上配置子路径，进行一一对应，可如果&lt;code&gt;file.example.com&lt;/code&gt;有很多呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文仅作为一个记录。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="nginx" scheme="http://kekxv.github.io/categories/nginx/"/>
+    
+    
+    <category term="proxy" scheme="http://kekxv.github.io/tags/proxy/"/>
+    
+    <category term="nginx" scheme="http://kekxv.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>YOLOv8 训练自己的数据</title>
+    <link href="http://kekxv.github.io/2024/02/17/YOLOv8%20%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE/"/>
+    <id>http://kekxv.github.io/2024/02/17/YOLOv8%20%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE/</id>
+    <published>2024-02-17T20:56:21.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;YOLOv8&lt;/code&gt;是&lt;code&gt;YOLO&lt;/code&gt; 的最新&lt;code&gt;(20240206)&lt;/code&gt;版本，由&lt;code&gt;Ultralytics&lt;/code&gt; 提供。&lt;code&gt;YOLOv8&lt;/code&gt; 支持全方位的视觉 AI&lt;br&gt;任务，包括&lt;code&gt;检测&lt;/code&gt;、&lt;code&gt;分割&lt;/code&gt;、&lt;code&gt;姿态估计&lt;/code&gt;、&lt;code&gt;跟踪&lt;/code&gt;和&lt;code&gt;分类&lt;/code&gt;。这种多功能性使用户能够在各种应用和领域中利用&lt;code&gt;YOLOv8&lt;/code&gt;的功能。&lt;/p&gt;
+&lt;p&gt;本文将介绍如何快速训练自己的 &lt;code&gt;YOLOv8&lt;/code&gt; 模型。&lt;/p&gt;
+&lt;p&gt;仓库地址: &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L1lPTE92OFR1dG9yaWFs&quot;&gt;https://github.com/kekxv/YOLOv8Tutorial&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AI" scheme="http://kekxv.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="http://kekxv.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>luckfox-交叉编译之bazel</title>
+    <link href="http://kekxv.github.io/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/"/>
+    <id>http://kekxv.github.io/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/</id>
+    <published>2023-12-15T20:00:14.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25paHVpL29wZW5jdi1tb2JpbGU=&quot;&gt;opencv-mobile&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 对&lt;code&gt;luckfox&lt;/code&gt;&lt;br&gt;这款板子进行了适配优化，我对它也很有兴趣所以入手了一个&lt;code&gt;luckfox&lt;/code&gt;开发板，包含300万像素摄像头，价格还算比较便宜。&lt;/p&gt;
+&lt;p&gt;不过官方提供的交叉编译链只有&lt;code&gt;Linux&lt;/code&gt;以及&lt;code&gt;windows&lt;/code&gt;的，而我却是&lt;code&gt;Mac&lt;/code&gt;的，没办法直接调用，刚刚最近在使用&lt;code&gt;bazel&lt;/code&gt;，并且它支持远程编译。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="luckfox" scheme="http://kekxv.github.io/categories/luckfox/"/>
+    
+    <category term="bazel" scheme="http://kekxv.github.io/categories/luckfox/bazel/"/>
+    
+    
+    <category term="linux" scheme="http://kekxv.github.io/tags/linux/"/>
+    
+    <category term="opencv" scheme="http://kekxv.github.io/tags/opencv/"/>
+    
+    <category term="bazel" scheme="http://kekxv.github.io/tags/bazel/"/>
+    
+    <category term="luckfox" scheme="http://kekxv.github.io/tags/luckfox/"/>
+    
+    <category term="ncnn" scheme="http://kekxv.github.io/tags/ncnn/"/>
+    
+    <category term="onnx" scheme="http://kekxv.github.io/tags/onnx/"/>
+    
+    <category term="opencv-mobile" scheme="http://kekxv.github.io/tags/opencv-mobile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gitea actions CICD 自动化</title>
+    <link href="http://kekxv.github.io/2023/12/15/gitea%20actions%20CICD%20%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <id>http://kekxv.github.io/2023/12/15/gitea%20actions%20CICD%20%E8%87%AA%E5%8A%A8%E5%8C%96/</id>
+    <published>2023-12-15T12:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;gitea&lt;/code&gt; 已经支持自己的 &lt;code&gt;CI&lt;/code&gt; 工具: &lt;code&gt;gitea actions&lt;/code&gt;，兼容 &lt;code&gt;github actions&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;之前使用&lt;code&gt;drone&lt;/code&gt;搭配&lt;code&gt;gitea&lt;/code&gt;进行自动化，效果还可以，但是终究不是官方支持。&lt;/p&gt;
+&lt;p&gt;而最新的 &lt;code&gt;gitea&lt;/code&gt; &lt;code&gt;1.21&lt;/code&gt; 之后的版本，开始支持&lt;code&gt;actions&lt;/code&gt;功能，使用方式更贴近&lt;code&gt;github actions&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这里做一个简单部署说明，具体的用法可以看官方文档以及&lt;code&gt;github actions&lt;/code&gt;的用法。&lt;/p&gt;
+&lt;h1 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/20231215/gitea-actions.png&quot; alt=&quot;gitea-actions&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="gitea" scheme="http://kekxv.github.io/categories/gitea/"/>
+    
+    
+    <category term="ci" scheme="http://kekxv.github.io/tags/ci/"/>
+    
+    <category term="gitea" scheme="http://kekxv.github.io/tags/gitea/"/>
+    
+    <category term="actions" scheme="http://kekxv.github.io/tags/actions/"/>
+    
+    <category term="git" scheme="http://kekxv.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux限制进程使用率</title>
+    <link href="http://kekxv.github.io/2023/07/19/Linux%E9%99%90%E5%88%B6%E8%BF%9B%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%8E%87/"/>
+    <id>http://kekxv.github.io/2023/07/19/Linux%E9%99%90%E5%88%B6%E8%BF%9B%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%8E%87/</id>
+    <published>2023-07-19T21:56:21.000Z</published>
+    <updated>2025-06-28T16:23:51.921Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在使用服务器的时候，有些情况下我们需要对进程进行资源限制，例如限制&lt;code&gt;CPU&lt;/code&gt;使用率，使用&lt;code&gt;docker&lt;/code&gt;的时候，可以使用&lt;code&gt;deploy.resources.cpus&lt;/code&gt;进行限制，而当没有使用&lt;code&gt;docker&lt;/code&gt;的时候呢，我们可以考虑使用&lt;code&gt;cpulimit&lt;/code&gt;进行限制&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://kekxv.github.io/categories/Linux/"/>
+    
+    <category term="CpuLimit" scheme="http://kekxv.github.io/categories/Linux/CpuLimit/"/>
+    
+    
+    <category term="Linux" scheme="http://kekxv.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>影音中心Jellyfin快速部署</title>
+    <link href="http://kekxv.github.io/2023/05/11/%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83Jellyfin%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/"/>
+    <id>http://kekxv.github.io/2023/05/11/%E5%BD%B1%E9%9F%B3%E4%B8%AD%E5%BF%83Jellyfin%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/</id>
+    <published>2023-05-11T19:23:48.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/20230511/jellyfin.png&quot; alt=&quot;jellyfin.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;影音中心&lt;code&gt;Jellyfin&lt;/code&gt;目前的教程都是从头开始教，一步一步往下配置，比较麻烦，为了简单了事，直接做了基础配置之后，生成 &lt;code&gt;docker-compose.yaml&lt;/code&gt; 配置；在这里做一个打包记录&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jellyfin" scheme="http://kekxv.github.io/categories/jellyfin/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OCR &amp; 人脸算法 -- opencv dnn</title>
+    <link href="http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/"/>
+    <id>http://kekxv.github.io/2022/07/30/OCR-%E4%BA%BA%E8%84%B8%E7%AE%97%E6%B3%95-opencv-dnn/</id>
+    <published>2022-07-30T18:14:04.000Z</published>
+    <updated>2025-06-28T16:23:51.921Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;OCR 算法以及人脸算法相信大家都听说过，也知道是需要收费的，而opencv的人脸检测和人脸识别，以及OCR算法都比较弱。&lt;/p&gt;
+&lt;p&gt;但是，这在opencv4版本之后都将改变了，在opencv4的版本里面，神经网络版本的人脸算法以及OCR算法继承到了dnn模块内，以及可以作为一个成熟方案进行使用了，&lt;/p&gt;
+&lt;p&gt;接下来让我们来看看如何使用它们。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="opencv" scheme="http://kekxv.github.io/categories/opencv/"/>
+    
+    
+    <category term="opencv" scheme="http://kekxv.github.io/tags/opencv/"/>
+    
+    <category term="OCR" scheme="http://kekxv.github.io/tags/OCR/"/>
+    
+    <category term="Face" scheme="http://kekxv.github.io/tags/Face/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tensorflow gpu 安装(ubuntu22.04)</title>
+    <link href="http://kekxv.github.io/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/"/>
+    <id>http://kekxv.github.io/2022/07/26/tensorflow-gpu-%E5%AE%89%E8%A3%85-ubuntu22-04/</id>
+    <published>2022-07-26T13:56:21.000Z</published>
+    <updated>2025-06-28T16:23:51.922Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;ubuntu22.04&lt;/code&gt; 安装 &lt;code&gt;tensorflow-gpu&lt;/code&gt; 记录，主要是 &lt;code&gt;NVIDIA&lt;/code&gt; 驱动麻烦，这里做个记录。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="tensorflow" scheme="http://kekxv.github.io/categories/tensorflow/"/>
+    
+    <category term="NVIDIA" scheme="http://kekxv.github.io/categories/tensorflow/NVIDIA/"/>
+    
+    
+    <category term="tensorflow" scheme="http://kekxv.github.io/tags/tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习记录-简单</title>
+    <link href="http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/"/>
+    <id>http://kekxv.github.io/2022/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/</id>
+    <published>2022-07-07T20:00:14.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录深度学习AI过程中的一些问题。涉及到 &lt;code&gt;tensorflow&lt;/code&gt;、&lt;code&gt;ncnn&lt;/code&gt;、&lt;code&gt;onnx&lt;/code&gt;、&lt;code&gt;keras&lt;/code&gt;的训练以及转换模型&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="ncnn" scheme="http://kekxv.github.io/tags/ncnn/"/>
+    
+    <category term="onnx" scheme="http://kekxv.github.io/tags/onnx/"/>
+    
+    <category term="tensorflow" scheme="http://kekxv.github.io/tags/tensorflow/"/>
+    
+    <category term="keras" scheme="http://kekxv.github.io/tags/keras/"/>
+    
+    <category term="hdf5" scheme="http://kekxv.github.io/tags/hdf5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vbs 启动进程并记录 PID</title>
+    <link href="http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/"/>
+    <id>http://kekxv.github.io/2022/04/16/vbs-%E5%90%AF%E5%8A%A8%E8%BF%9B%E7%A8%8B%E5%B9%B6%E8%AE%B0%E5%BD%95-PID/</id>
+    <published>2022-04-16T11:05:59.000Z</published>
+    <updated>2025-06-28T16:23:51.923Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在&lt;code&gt;Windows&lt;/code&gt;下，有时候需要管理一些程序，在 &lt;code&gt;unix&lt;/code&gt; 系列下的时候都是使用 &lt;code&gt;shell&lt;/code&gt; 脚本，但在 &lt;code&gt;Windows&lt;/code&gt; 下却没有 &lt;code&gt;shell&lt;/code&gt; 的默认支持，所以我编写了简单的 &lt;code&gt;startup.vbs&lt;/code&gt; 以及 &lt;code&gt;shutdown.vbs&lt;/code&gt; 脚本，给予有需要的人以及未来的我进行&lt;del&gt;照抄&lt;/del&gt;借鉴。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kekxv.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本项目是用于模拟自动注入，通过添加注解@Autowired，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行Instance维护。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓模拟自动注入">
+<meta property="og:url" content="http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/index.html">
+<meta property="og:site_name" content="kekxv 技术日志">
+<meta property="og:description" content="本项目是用于模拟自动注入，通过添加注解@Autowired，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行Instance维护。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-05T10:23:48.000Z">
+<meta property="article:modified_time" content="2025-06-28T16:23:51.921Z">
+<meta property="article:author" content="kekxv">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="injection">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>安卓模拟自动注入 | kekxv 技术日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/feed.xml" title="kekxv 技术日志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kekxv 技术日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kekxv</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2021/08/05/Android%20simulation%20automatic%20injection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术日志">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          安卓模拟自动注入
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-05 10:23:48" itemprop="dateCreated datePublished" datetime="2021-08-05T10:23:48+00:00">2021-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-28 16:23:51" itemprop="dateModified" datetime="2025-06-28T16:23:51+00:00">2025-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本项目是用于模拟自动注入，通过添加注解<code>@Autowired</code>，方便在安卓下能够更好的自动注入自动添加对象，不需要自己给每一个类进行<code>Instance</code>维护。</p>
+<span id="more"></span>
+
+<h1 id="在-Android-应用中使用-Dagger"><a href="#在-Android-应用中使用-Dagger" class="headerlink" title="在 Android 应用中使用 Dagger"></a>在 Android 应用中使用 Dagger</h1><p><code>Dagger</code> 效果更好，建议使用，当前项目就作为一个学习的参考项目吧。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vdHJhaW5pbmcvZGVwZW5kZW5jeS1pbmplY3Rpb24vZGFnZ2VyLWFuZHJvaWQ/aGw9emgtY24=">https://developer.android.com/training/dependency-injection/dagger-android?hl=zh-cn<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="安卓模拟自动注入"><a href="#安卓模拟自动注入" class="headerlink" title="安卓模拟自动注入"></a>安卓模拟自动注入</h1><p>源码位置 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L0FuZHJvaWRBdXRvV2lyZWQ=">https://github.com/kekxv/AndroidAutoWired<i class="fa fa-external-link-alt"></i></span></p>
+<p>代码下载 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L0FuZHJvaWRBdXRvV2lyZWQvYXJjaGl2ZS9tYXN0ZXIuemlw">AndroidAutoWired.zip<i class="fa fa-external-link-alt"></i></span></p>
+<p>仓库 ： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L0phdmFSZXBvL3BhY2thZ2Vz">Repo<i class="fa fa-external-link-alt"></i></span> 。</p>
+<h1 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h1><ol>
+<li>扫描所有(或手动传入)带有 <code>@Service</code> 的自动注入类</li>
+<li>手动或继承<code>IAutoWired</code> 自动调用 <code>IAutoWired.inject(this);</code> 进行注入。</li>
+<li>为保证<code>private</code>也能注入成功；通过反射以及<code>setAccessible(true);</code>修改权限进行<code>newInstance()</code>以及<code>赋值</code>。</li>
+</ol>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>建议结合仓库源码以及 <a href="Usage.md">Usage.md</a> 一起查看</p>
+<h2 id="Service-interface"><a href="#Service-interface" class="headerlink" title="Service : @interface"></a>Service : @interface</h2><p>用于扫描标记，当使用自动扫描的方式，会查找带有 <code>@Service</code> 标记的类进行记录，用于后期进行自动注入创建实例类。</p>
+<p>也可以通过手动注入的方式进行传入。</p>
+<h3 id="参数-service"><a href="#参数-service" class="headerlink" title="参数 service"></a>参数 service</h3><p>是否是服务类型，如果为 <code>true</code> ； 则自动调用 <code>start</code> 无参函数 ； 默认为 <code>false</code>。</p>
+<h2 id="AutoWired-interface"><a href="#AutoWired-interface" class="headerlink" title="AutoWired : @interface"></a>AutoWired : @interface</h2><p>标记为需要自动注入。如果一个对象需要自动注入，则需要添加该注解，将会自动查找实例类并注入。</p>
+<h3 id="参数-Sign"><a href="#参数-Sign" class="headerlink" title="参数 Sign"></a>参数 Sign</h3><p>使用不同的 <code>Sign</code> 可以创建不同的对象，默认为空。同一个<code>Sign</code>则会注入同一个对象。</p>
+<h3 id="参数-dependencies"><a href="#参数-dependencies" class="headerlink" title="参数 dependencies"></a>参数 dependencies</h3><p>是否在构造函数依赖，如果设置为 <code>true</code> 则会在其他之后注入。默认为<code>false</code>。</p>
+<h3 id="参数-Interpretation"><a href="#参数-Interpretation" class="headerlink" title="参数 Interpretation"></a>参数 Interpretation</h3><p>当自动注入类型为 <code>interface</code> 情况下作用；用于获取注入 <code>interface</code> 的对应 <code>class</code>，<strong>如果只有一个<code>class</code>，将会忽略该标注</strong>。</p>
+<h2 id="InjectView-interface"><a href="#InjectView-interface" class="headerlink" title="InjectView : @interface"></a>InjectView : @interface</h2><p>需要 <code>setContentView</code> 之后调用 <code>IAutoWired.inject</code>；<strong>只支持 <code>Activity</code> 或者带有自动注入 <code>Activity</code> 的对象</strong>。</p>
+<p>该注解将会自动查找相应 <code>View</code> 并进行赋值。</p>
+<h3 id="参数-value"><a href="#参数-value" class="headerlink" title="参数 value"></a>参数 value</h3><p>指定查找的的 <code>R.id.*</code> ，例如 <code>@InjectView(R.id.text)</code>。</p>
+<h2 id="IAutoWired-class"><a href="#IAutoWired-class" class="headerlink" title="IAutoWired : class"></a>IAutoWired : class</h2><p>注入工具类；可以直接 <code>extends IAutoWired</code> 自动调用注册当前对象。</p>
+<h3 id="IAutoWired"><a href="#IAutoWired" class="headerlink" title="IAutoWired"></a>IAutoWired</h3><p>可以直接 <code>extends IAutoWired</code> 将自动调用注册以及注入当前对象，对 <code>new</code> 也起作用。</p>
+<h3 id="init-自动扫描初始化"><a href="#init-自动扫描初始化" class="headerlink" title="init 自动扫描初始化"></a>init 自动扫描初始化</h3><p>初始化，并且自动扫描所有 <code>@Service</code> 类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(Context context)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="init-手动指定类型"><a href="#init-手动指定类型" class="headerlink" title="init 手动指定类型"></a>init 手动指定类型</h3><p>初始化，手动指定类型，且不进行自动扫描</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(Class&lt;?&gt;[]list)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="registered-注册对象"><a href="#registered-注册对象" class="headerlink" title="registered 注册对象"></a>registered 注册对象</h3><p>手动注册对象，多用于注册<code>Context.class</code>与<code>Activity.class</code>；例如：<code>IAutoWired.registered(Context.class, this);</code><br>;<code>IAutoWired.registered(Activity.class, this);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手动注册 Sign 为 空 的 对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> cls    对象类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> object 对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">registered</span><span class="params">(Class&lt;?&gt; cls,Object object)</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手动注册对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> cls    对象类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> object 对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> Sign   sign</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">registered</span><span class="params">(Class&lt;?&gt; cls,Object object,String Sign)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="inject-注入对象"><a href="#inject-注入对象" class="headerlink" title="inject 注入对象"></a>inject 注入对象</h3><p>将会将 <code>source</code> 对象内的带有<code>@AutoWired</code>进行注入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">inject</span><span class="params">(Object source)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="injectView-注入-View-对象"><a href="#injectView-注入-View-对象" class="headerlink" title="injectView 注入 View 对象"></a>injectView 注入 View 对象</h3><p>将会将 <code>source</code> 对象内的带有<code>@injectView</code>进行注入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">InjectView</span><span class="params">(Activity activity)</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h1><p>以下配置均在项目<code>build.gradle</code>下</p>
+<p>方式一</p>
+<blockquote>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZnJlZS1wcm8tdGVhbUBsYXRlc3QvZ2l0aHViL2F1dGhlbnRpY2F0aW5nLXRvLWdpdGh1Yi9jcmVhdGluZy1hLXBlcnNvbmFsLWFjY2Vzcy10b2tlbg==">生成 GitHub Token，教程点击本链接<i class="fa fa-external-link-alt"></i></span></li>
+<li>配置 <code>gradle</code> ，增加仓库<code>https://maven.pkg.github.com/kekxv/JavaRepo/</code> ，github 的仓库需要授权（公开的也要），自己配置一下 <code>GITHUB_USER</code>、<code>GITHUB_PERSONAL_ACCESS_TOKEN</code>，建议在家目录的<code>gradle.properties</code>进行配置。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//配置gradle</span><br><span class="line">android &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            name = &quot;GitHubPackages&quot;</span><br><span class="line">            url = uri(&quot;https://maven.pkg.github.com/kekxv/JavaRepo/&quot;)</span><br><span class="line">            credentials &#123;</span><br><span class="line">                username = System.getenv(&#x27;ACCESS_USER&#x27;) ?: project.properties[&#x27;GITHUB_USER&#x27;]</span><br><span class="line">                password = System.getenv(&#x27;ACCESS_PERSONAL_ACCESS_TOKEN&#x27;) ?: project.properties[&#x27;GITHUB_PERSONAL_ACCESS_TOKEN&#x27;]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>增加 <code>dependencies</code> <code>implementation &#39;com.kekxv:autowired:0.2.6&#39;</code> (<code>0.2.6</code>为版本号，可更改为最新版本)</li>
+</ol>
+</blockquote>
+<p>方式二</p>
+<blockquote>
+<p>直接下载前往 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L0phdmFSZXBvL3BhY2thZ2Vz">仓库<i class="fa fa-external-link-alt"></i></span> 下载<code>autowired-0.2.6.aar</code>导入到项目。<br>根据情况，可能需要将<code>autowired-0.2.6.aar</code> 拷贝到<code>libs</code> 目录并 <code>implementation fileTree(dir: &quot;libs&quot;, include: [&quot;*.jar&quot;])</code> 更改为<code>implementation fileTree(dir: &quot;libs&quot;, include: [&quot;*.jar&quot;,&quot;*.aar&quot;])</code></p>
+</blockquote>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>先按照 引入方式 <a href="doc/Introduce.md">Introduce</a> 引入。</p>
+<p>API 文档参照 <a href="doc/API.md">API</a>。</p>
+<h2 id="创建基础接口"><a href="#创建基础接口" class="headerlink" title="创建基础接口"></a>创建基础接口</h2><h3 id="教师-ITeacher"><a href="#教师-ITeacher" class="headerlink" title="教师 ITeacher"></a>教师 ITeacher</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ITeacher</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">teach</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="学生-IStudent"><a href="#学生-IStudent" class="headerlink" title="学生 IStudent"></a>学生 IStudent</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IStudent</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">learn</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">rollCall</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="作业-IHomework"><a href="#作业-IHomework" class="headerlink" title="作业 IHomework"></a>作业 IHomework</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IHomework</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">Assignment</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建实现类"><a href="#创建实现类" class="headerlink" title="创建实现类"></a>创建实现类</h2><h3 id="教师-TeacherImpl"><a href="#教师-TeacherImpl" class="headerlink" title="教师 TeacherImpl"></a>教师 TeacherImpl</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.ITeacher;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service(service = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TeacherImpl</span> <span class="keyword">implements</span> <span class="title class_">ITeacher</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">teach</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;TeacherImpl&quot;</span>, String.format(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; teacher teach %d \n&quot;</span>, count++));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;TeacherImpl&quot;</span>, <span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; teacher teach 开始上课 \n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="学生-StudentImpl"><a href="#学生-StudentImpl" class="headerlink" title="学生 StudentImpl"></a>学生 StudentImpl</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.IStudent;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service(service = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StudentImpl</span> <span class="keyword">implements</span> <span class="title class_">IStudent</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;StudentImpl&quot;</span>, String.format(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student %s 进入课堂&quot;</span>, name));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">learn</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;StudentImpl&quot;</span>, String.format(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student %s learn %d&quot;</span>, name, count++));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rollCall</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;StudentImpl&quot;</span>, String.format(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student %s here&quot;</span>, name));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><h4 id="数学-HomeworkMathImpl"><a href="#数学-HomeworkMathImpl" class="headerlink" title="数学 HomeworkMathImpl"></a>数学 HomeworkMathImpl</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.IHomework;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.IAutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HomeworkMathImpl</span> <span class="keyword">extends</span> <span class="title class_">IAutoWired</span> <span class="keyword">implements</span> <span class="title class_">IHomework</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HomeworkMathImpl</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;HomeworkMathImpl&quot;</span>, <span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 数学作业&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Assignment</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;HomeworkMathImpl&quot;</span>, <span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 布置数学作业&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="语文-HomeworkChineseImpl"><a href="#语文-HomeworkChineseImpl" class="headerlink" title="语文 HomeworkChineseImpl"></a>语文 HomeworkChineseImpl</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.IHomework;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.IAutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HomeworkChineseImpl</span> <span class="keyword">extends</span> <span class="title class_">IAutoWired</span> <span class="keyword">implements</span> <span class="title class_">IHomework</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HomeworkChineseImpl</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;HomeworkChineseImpl&quot;</span>, <span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 语文作业&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Assignment</span><span class="params">()</span> &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;HomeworkMathImpl&quot;</span>, <span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 布置语文作业&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="学校"><a href="#学校" class="headerlink" title="学校"></a>学校</h2><ol>
+<li>School</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.annotation.SuppressLint;</span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.R;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.Impl.HomeworkChineseImpl;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.AutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.IAutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.InjectView;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">School</span> <span class="keyword">extends</span> <span class="title class_">IAutoWired</span> &#123;</span><br><span class="line">    <span class="meta">@AutoWired()</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小红&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_A;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小明&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_B;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    <span class="keyword">private</span> ITeacher teacher;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    Context context;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    Activity activity;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressLint(&quot;NonConstantResourceId&quot;)</span></span><br><span class="line">    <span class="meta">@InjectView(R.id.text)</span></span><br><span class="line">    TextView text;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;Chinese&quot;, Interpretation = &quot;getIHomework&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IHomework iHomework;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt; getIHomework() &#123;</span><br><span class="line">        <span class="keyword">return</span> HomeworkChineseImpl.class;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">School</span><span class="params">()</span> &#123;</span><br><span class="line">        student.rollCall();</span><br><span class="line">        student_A.rollCall();</span><br><span class="line">        student_B.rollCall();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">work</span><span class="params">()</span> &#123;</span><br><span class="line">        teacher.teach();</span><br><span class="line">        student.learn();</span><br><span class="line">        student_A.learn();</span><br><span class="line">        student_B.learn();</span><br><span class="line">        Log.d(<span class="string">&quot;context&quot;</span>, context.toString());</span><br><span class="line">        <span class="keyword">if</span> (text != <span class="literal">null</span>) &#123;</span><br><span class="line">            text.setText(<span class="string">&quot;开始上课&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        iHomework.Assignment();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>mSchool</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.AutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.IAutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">mSchool</span> <span class="keyword">extends</span> <span class="title class_">IAutoWired</span> &#123;</span><br><span class="line">    <span class="meta">@AutoWired()</span></span><br><span class="line">    <span class="keyword">public</span> IStudent student;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小红&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_A;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小明&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_B;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    <span class="keyword">private</span> ITeacher teacher;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;Math&quot;, Interpretation = &quot;getIHomework&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IHomework iHomework;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getIHomework</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;HomeworkMathImpl&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">mSchool</span><span class="params">()</span> &#123;</span><br><span class="line">        student.rollCall();</span><br><span class="line">        student_A.rollCall();</span><br><span class="line">        student_B.rollCall();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">work</span><span class="params">()</span> &#123;</span><br><span class="line">        teacher.teach();</span><br><span class="line">        student.learn();</span><br><span class="line">        student_A.learn();</span><br><span class="line">        student_B.learn();</span><br><span class="line"></span><br><span class="line">        iHomework.Assignment();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="主类"><a href="#主类" class="headerlink" title="主类"></a>主类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.annotation.SuppressLint;</span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.IStudent;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.Impl.HomeworkChineseImpl;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.Impl.HomeworkMathImpl;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.Impl.StudentImpl;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.Impl.TeacherImpl;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.School;</span><br><span class="line"><span class="keyword">import</span> com.example.test_autowired.testClass.mSchool;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.AutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.IAutoWired;</span><br><span class="line"><span class="keyword">import</span> com.kekxv.AutoWired.InjectView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    School school;</span><br><span class="line">    <span class="meta">@AutoWired</span></span><br><span class="line">    mSchool mSchool;</span><br><span class="line">    <span class="meta">@AutoWired()</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小红&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_A;</span><br><span class="line">    <span class="meta">@AutoWired(Sign = &quot;小明&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> IStudent student_B;</span><br><span class="line">    <span class="meta">@SuppressLint(&quot;NonConstantResourceId&quot;)</span></span><br><span class="line">    <span class="meta">@InjectView(R.id.text)</span></span><br><span class="line">    TextView text;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">// 自动扫描</span></span><br><span class="line">        <span class="comment">// IAutoWired.init(this);</span></span><br><span class="line">        <span class="comment">// 手动设置</span></span><br><span class="line">        IAutoWired.init(<span class="keyword">new</span> <span class="title class_">Class</span>&lt;?&gt;[]&#123;</span><br><span class="line">                StudentImpl.class,</span><br><span class="line">                TeacherImpl.class,</span><br><span class="line">                mSchool.class,</span><br><span class="line">                School.class,</span><br><span class="line">                HomeworkChineseImpl.class,</span><br><span class="line">                HomeworkMathImpl.class,</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 将注册 Context 自动注入</span></span><br><span class="line">        IAutoWired.registered(Context.class, <span class="built_in">this</span>);</span><br><span class="line"></span><br><span class="line">        IAutoWired.inject(<span class="built_in">this</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 后注册测试 将注册 Activity 自动注入</span></span><br><span class="line">        IAutoWired.registered(Activity.class, <span class="built_in">this</span>);</span><br><span class="line"></span><br><span class="line">        student.setName(<span class="string">&quot;小兰&quot;</span>);</span><br><span class="line">        student_A.setName(<span class="string">&quot;小红&quot;</span>);</span><br><span class="line">        student_B.setName(<span class="string">&quot;小明&quot;</span>);</span><br><span class="line"></span><br><span class="line">        school.work();</span><br><span class="line">        mSchool.work();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试输出"><a href="#测试输出" class="headerlink" title="测试输出"></a>测试输出</h2><p>在例子中，<code>school</code>与<code>mSchool</code>包括其内部的<code>@AutoWired</code>均自动注入成功，执行后输出结果为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  进入课堂</span><br><span class="line">I/chatty: uid=10152(com.example.test_autowired) identical 1 line</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  进入课堂</span><br><span class="line">I/TeacherImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; teacher teach 开始上课 </span><br><span class="line">I/HomeworkChineseImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 语文作业</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  here</span><br><span class="line">I/chatty: uid=10152(com.example.test_autowired) identical 1 line</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  here</span><br><span class="line">I/HomeworkMathImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 数学作业</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  here</span><br><span class="line">I/chatty: uid=10152(com.example.test_autowired) identical 1 line</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student  here</span><br><span class="line">I/TeacherImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; teacher teach 0 </span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小兰 learn 0</span><br><span class="line">    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小红 learn 0</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小明 learn 0</span><br><span class="line">D/context: com.example.test_autowired.MainActivity@4d23216</span><br><span class="line">I/HomeworkMathImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 布置语文作业</span><br><span class="line">I/TeacherImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; teacher teach 1 </span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小兰 learn 1</span><br><span class="line">    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小红 learn 1</span><br><span class="line">I/StudentImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; student 小明 learn 1</span><br><span class="line">I/HomeworkMathImpl: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 布置数学作业</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更新记录</p>
+<ul>
+<li><p>20210127 修复 <code>interface</code> 接口包含变量没有注入问题。</p>
+</li>
+<li><p>20210126 修复重复依赖陷入无限回调的问题。</p>
+</li>
+<li><p>20210126 增加 <code>Interpretation</code> 用于 多个 <code>interface</code> 继承类型判断注入对象。</p>
+</li>
+<li></li>
+<li><p>20210124 修复重复依赖陷入无限回调的问题。</p>
+</li>
+<li><p>20210124 增加 <code>InjectView</code> 自动<code>findViewById</code>并赋值；需要 <code>setContentView</code> 之后调用。</p>
+</li>
+<li></li>
+<li><p>20210114 增加<code>Service</code>内<code>service</code>标记，用于开启调用<code>start()</code>。</p>
+</li>
+<li><p>20210114 自动注入后注入，可在更新之后自动注入之前未找到的注入字段。</p>
+</li>
+<li><p>20210114 在原有自动扫描的基础上，增加手动传入 <code>Service</code> 类。</p>
+</li>
+<li><p>20201226 增加<code>Sign</code>标记，用于区分各个不一样的实例。</p>
+</li>
+<li><p>20201226 增加<code>IAutoWired.registered</code>手动注册，可用于自动注入<code>Context</code>之类。</p>
+</li>
+</ul>
+</blockquote>
+<p>原理说明：</p>
+<ol>
+<li>扫描所有(或手动传入)带有 <code>@Service</code> 的自动注入类</li>
+<li>手动或继承<code>IAutoWired</code> 自动调用 <code>IAutoWired.inject(this);</code> 进行注入。</li>
+<li>为保证<code>private</code>也能注入成功；通过反射以及<code>setAccessible(true);</code>修改权限进行<code>newInstance()</code>以及<code>赋值</code>。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Constructor&lt;?&gt; constructor=cla.getDeclaredConstructor();</span><br><span class="line">        constructor.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        constructor.newInstance()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Field[]fields=source.getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span>(Field field:fields)&#123;</span><br><span class="line">        field.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        field.set(source,target);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>本项目是用于模拟自动注入，通过添加注解<code>@AutoWired</code>，举个例子：<a href="doc/Usage.md">Usage</a></p>
+<p>注意：所有自动注入的同类型类，为同一个对象。</p>
+<p>为了能够区分对应的自动注入实例 ，则需要添加注解<code>@Service</code>，方便<code>AutoWired</code>确认。</p>
+<h2 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h2><ol>
+<li>目前还是有些不足的地方 <del>，例如当有多个实现类，希望能够根据指定参数或者指定注解，自动注入不一样的实现类，从而更灵活智能，但这个只能看后期项目需求或者是否有时间以及是否有好心人帮忙完善了</del>(已在 0.2.6版本加上)。</li>
+<li><code>DexFile</code>已经被 <code>API 29</code> 以上列为过时(<code>Deprecated</code>)，这个在扫描当前类时候用上，需要寻找一个替换方案。不过在虚拟机<code>Android11</code>上面能够正常使用。</li>
+</ol>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NTI3Njk1L2FydGljbGUvZGV0YWlscy8xMDQyMTczOTc=">仿springboot @Autowired自动注入:https://blog.csdn.net/qq_38527695&#x2F;article&#x2F;details&#x2F;104217397<i class="fa fa-external-link-alt"></i></span></p>
+<p>其他互联网文档</p>
+<p>备注：由于找资料比较多和杂，部分资料查看后关闭页面，导致没有加入到参考文档内，如果您发现本文章内有借鉴您的文档的部分，请将您的文献地址提交<code>Issues</code>或者提交 PR(<code>pull requests</code>)<br>到<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L0FuZHJvaWRBdXRvV2lyZWQ=">https://github.com/kekxv/AndroidAutoWired<i class="fa fa-external-link-alt"></i></span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+              <a href="/tags/injection/" rel="tag"><i class="fa fa-tag"></i> injection</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/03/gradle%E5%8F%91%E5%B8%83%E5%88%B0github%20packages/" rel="prev" title="gradle发布到github packages">
+      <i class="fa fa-chevron-left"></i> gradle发布到github packages
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/06/bazel%20toolchain%2001/" rel="next" title="bazel 工具链">
+      bazel 工具链 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8-Android-%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8-Dagger"><span class="nav-number">1.</span> <span class="nav-text">在 Android 应用中使用 Dagger</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">安卓模拟自动注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API-%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">API 文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">3.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-interface"><span class="nav-number">3.2.</span> <span class="nav-text">Service : @interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-service"><span class="nav-number">3.2.1.</span> <span class="nav-text">参数 service</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoWired-interface"><span class="nav-number">3.3.</span> <span class="nav-text">AutoWired : @interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-Sign"><span class="nav-number">3.3.1.</span> <span class="nav-text">参数 Sign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-dependencies"><span class="nav-number">3.3.2.</span> <span class="nav-text">参数 dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-Interpretation"><span class="nav-number">3.3.3.</span> <span class="nav-text">参数 Interpretation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InjectView-interface"><span class="nav-number">3.4.</span> <span class="nav-text">InjectView : @interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-value"><span class="nav-number">3.4.1.</span> <span class="nav-text">参数 value</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IAutoWired-class"><span class="nav-number">3.5.</span> <span class="nav-text">IAutoWired : class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IAutoWired"><span class="nav-number">3.5.1.</span> <span class="nav-text">IAutoWired</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#init-%E8%87%AA%E5%8A%A8%E6%89%AB%E6%8F%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.5.2.</span> <span class="nav-text">init 自动扫描初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#init-%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.5.3.</span> <span class="nav-text">init 手动指定类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#registered-%E6%B3%A8%E5%86%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.5.4.</span> <span class="nav-text">registered 注册对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inject-%E6%B3%A8%E5%85%A5%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.5.5.</span> <span class="nav-text">inject 注入对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#injectView-%E6%B3%A8%E5%85%A5-View-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.5.6.</span> <span class="nav-text">injectView 注入 View 对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">引入方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%9F%BA%E7%A1%80%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.1.</span> <span class="nav-text">创建基础接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%99%E5%B8%88-ITeacher"><span class="nav-number">5.1.1.</span> <span class="nav-text">教师 ITeacher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F-IStudent"><span class="nav-number">5.1.2.</span> <span class="nav-text">学生 IStudent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A-IHomework"><span class="nav-number">5.1.3.</span> <span class="nav-text">作业 IHomework</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-number">5.2.</span> <span class="nav-text">创建实现类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%99%E5%B8%88-TeacherImpl"><span class="nav-number">5.2.1.</span> <span class="nav-text">教师 TeacherImpl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F-StudentImpl"><span class="nav-number">5.2.2.</span> <span class="nav-text">学生 StudentImpl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A"><span class="nav-number">5.2.3.</span> <span class="nav-text">作业</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6-HomeworkMathImpl"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">数学 HomeworkMathImpl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%96%87-HomeworkChineseImpl"><span class="nav-number">5.2.3.2.</span> <span class="nav-text">语文 HomeworkChineseImpl</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E6%A0%A1"><span class="nav-number">5.3.</span> <span class="nav-text">学校</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E7%B1%BB"><span class="nav-number">5.4.</span> <span class="nav-text">主类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%BE%93%E5%87%BA"><span class="nav-number">5.5.</span> <span class="nav-text">测试输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3%E4%B9%8B%E5%A4%84"><span class="nav-number">5.6.</span> <span class="nav-text">不足之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">5.7.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kekxv"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">kekxv</p>
+  <div class="site-description" itemprop="description">kekxv 技术日志</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kekxv"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/feed.xml" title="RSS → &#x2F;feed.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kekxv</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

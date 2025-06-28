@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kekxv.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="YOLOv8是YOLO 的最新(20240206)版本，由Ultralytics 提供。YOLOv8 支持全方位的视觉 AI任务，包括检测、分割、姿态估计、跟踪和分类。这种多功能性使用户能够在各种应用和领域中利用YOLOv8的功能。 本文将介绍如何快速训练自己的 YOLOv8 模型。 仓库地址: https:&#x2F;&#x2F;github.com&#x2F;kekxv&#x2F;YOLOv8Tutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLOv8 训练自己的数据">
+<meta property="og:url" content="http://kekxv.github.io/2024/02/17/YOLOv8%20%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="kekxv 技术日志">
+<meta property="og:description" content="YOLOv8是YOLO 的最新(20240206)版本，由Ultralytics 提供。YOLOv8 支持全方位的视觉 AI任务，包括检测、分割、姿态估计、跟踪和分类。这种多功能性使用户能够在各种应用和领域中利用YOLOv8的功能。 本文将介绍如何快速训练自己的 YOLOv8 模型。 仓库地址: https:&#x2F;&#x2F;github.com&#x2F;kekxv&#x2F;YOLOv8Tutorial">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-17T20:56:21.000Z">
+<meta property="article:modified_time" content="2025-06-28T16:23:51.922Z">
+<meta property="article:author" content="kekxv">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://kekxv.github.io/2024/02/17/YOLOv8%20%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>YOLOv8 训练自己的数据 | kekxv 技术日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/feed.xml" title="kekxv 技术日志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kekxv 技术日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kekxv</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kekxv.github.io/2024/02/17/YOLOv8%20%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="kekxv">
+      <meta itemprop="description" content="kekxv 技术日志">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kekxv 技术日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YOLOv8 训练自己的数据
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-17 20:56:21" itemprop="dateCreated datePublished" datetime="2024-02-17T20:56:21+00:00">2024-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-28 16:23:51" itemprop="dateModified" datetime="2025-06-28T16:23:51+00:00">2025-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><code>YOLOv8</code>是<code>YOLO</code> 的最新<code>(20240206)</code>版本，由<code>Ultralytics</code> 提供。<code>YOLOv8</code> 支持全方位的视觉 AI<br>任务，包括<code>检测</code>、<code>分割</code>、<code>姿态估计</code>、<code>跟踪</code>和<code>分类</code>。这种多功能性使用户能够在各种应用和领域中利用<code>YOLOv8</code>的功能。</p>
+<p>本文将介绍如何快速训练自己的 <code>YOLOv8</code> 模型。</p>
+<p>仓库地址: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2L1lPTE92OFR1dG9yaWFs">https://github.com/kekxv/YOLOv8Tutorial<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+
+<h2 id="YOLO-简史"><a href="#YOLO-简史" class="headerlink" title="YOLO:简史"></a>YOLO:简史</h2><p><code>YOLO(You Only Look Once）</code>是一种流行的物体检测和图像分割模型，由<code>华盛顿大学</code>的<code>约瑟夫-雷德蒙（Joseph Redmon）</code><br>和<code>阿里-法哈迪（Ali Farhadi）</code>开发。<code>YOLO</code> 于 <code>2015</code> 年推出，因其高速度和高精确度而迅速受到欢迎。</p>
+<ul>
+<li><code>2016</code> 年发布的<code>YOLOv2</code> 通过纳入<code>批量归一化</code>、<code>锚框</code>和<code>维度集群</code>改进了原始模型。</li>
+<li><code>2018</code> 年推出的<code>YOLOv3</code> 使用<code>更高效的骨干网络</code>、<code>多锚和空间金字塔池</code>进一步增强了模型的性能。</li>
+<li><code>YOLOv4</code>于 <code>2020</code> 年发布，引入了 <code>Mosaic</code> 数据增强、新的<code>无锚检测头</code>和新的<code>损失函数</code>等创新技术。</li>
+<li><code>YOLOv5</code>进一步提高了模型的性能，并增加了超参数优化、集成实验跟踪和自动导出为常用导出格式等新功能。</li>
+<li><code>YOLOv6</code>于 <code>2022</code> 年由<code>美团</code>开源，目前已用于该公司的许多自主配送机器人。</li>
+<li><code>YOLOv7</code>增加了额外的任务，如 <code>COCO</code> 关键点数据集的姿势估计。</li>
+<li><code>YOLOv8</code>是<code>YOLO</code> 的最新<code>(20240206)</code>版本，由<code>Ultralytics</code> 提供。<code>YOLOv8</code> 支持全方位的视觉 AI<br>任务，包括<code>检测</code>、<code>分割</code>、<code>姿态估计</code>、<code>跟踪</code>和<code>分类</code>。这种多功能性使用户能够在各种应用和领域中利用<code>YOLOv8</code>的功能。</li>
+</ul>
+<p>更多的资料可以查看：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVsdHJhbHl0aWNzLmNvbS96aC8=">https://docs.ultralytics.com/zh/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="关于-Makefile"><a href="#关于-Makefile" class="headerlink" title="关于 Makefile"></a>关于 Makefile</h2><p><code>Makefile</code> 一般用于<code>c</code>的编译辅助，但是它不只是可以用于编译，它的目标规则特性，可以让用来做一些其他的事情：</p>
+<ul>
+<li><code>make clean</code> 清理缓存</li>
+<li><code>make clean-all</code> 清理所有缓存，包括训练数据</li>
+<li><code>make install-dev</code> 安装依赖</li>
+<li><code>make train</code> 开始训练</li>
+<li><code>make test</code> 测试 <code>image/test</code> 文件夹的识别结果</li>
+<li><code>make val</code> 验证</li>
+<li><code>make onnx</code> 导出 <code>onnx</code> 模型，其他的 <code>ncnn</code>以及<code>mnn</code>可以通过<code>onnx</code>模型转换</li>
+<li><code>make env</code> 创建虚拟环境</li>
+<li><code>make labelImg</code> 启动分类标注工具</li>
+</ul>
+<p>可以查看 <code>Makefile</code>文件以及官方文档，手动使用 <code>cli</code> 进行训练等操作</p>
+<h2 id="开始准备"><a href="#开始准备" class="headerlink" title="开始准备"></a>开始准备</h2><h3 id="样本收集"><a href="#样本收集" class="headerlink" title="样本收集"></a>样本收集</h3><p>需要准备训练样本，这个根据情况进行收集，前期做验证，可以考虑通过搜索引擎进行搜集，注意来源数据是否涉及版权以及个人隐私问题，请不要公开发布涉及版权以及个人隐私问题。</p>
+<p>本项目提供的证件样本，均通过搜索引擎从公开网站所获取。（如果提供的样张涉及到版权或者隐私问题，请发<code>issue</code>，将会进行处理。）</p>
+<p>将收集到的训练样本，放到 <code>datasets/images/train</code>，想要做测试的样本，放到<code>datasets/images/test</code>里面。</p>
+<h3 id="开始标注"><a href="#开始标注" class="headerlink" title="开始标注"></a>开始标注</h3><p>可以根据自己的实际情况进行标注，当前项目可以考虑使用<code>labelImg</code> 工具进行标注。执行以下命令，将会启动<code>labelImg</code>标注工具。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make labelImg</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>labelImg</code> 快捷键：</p>
+<p><code>A</code> 上一张</p>
+<p><code>D</code> 下一张</p>
+<p><code>W</code> 画框</p>
+<p>建议打开自动保存</p>
+</blockquote>
+<h3 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h3><p>标注完成之后，就可以开始训练了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">训练 epochs 10</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make train-10</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">训练</span></span><br><span class="line">make train</span><br></pre></td></tr></table></figure>
+
+<p><del>如果出现<code>Dataset &#39;config.yaml&#39; images not found ⚠️, missing path</code>则可能路径识别错误，请将<code>config.yaml</code>的<code>path</code><br>改为<code>datasets</code>目录的绝对路径。</del> 增加动态修改为当前位置的配置，应该不会再出现这个问题。</p>
+<p>训练的结果大概是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">196 epochs completed in 2.217 hours.</span><br><span class="line">Optimizer stripped from runs/detect/train/weights/last.pt, 6.3MB</span><br><span class="line">Optimizer stripped from runs/detect/train/weights/best.pt, 6.3MB</span><br><span class="line"> ..... </span><br><span class="line">Validating runs/detect/train/weights/best.pt...</span><br><span class="line">Speed: 1.0ms preprocess, 132.0ms inference, 0.0ms loss, 0.4ms postprocess per image</span><br><span class="line">Results saved to runs/detect/train</span><br><span class="line">💡 Learn more at https://docs.ultralytics.com/modes/train</span><br><span class="line">#yolo task=detect mode=train weight_decay=0.001 box=4.5 model=yolov8x.pt data=config.yaml batch=-1 imgsz=640 epochs=10</span><br></pre></td></tr></table></figure>
+
+<p>如果没有出现报错，则表示训练完成。</p>
+<h3 id="测试模型"><a href="#测试模型" class="headerlink" title="测试模型"></a>测试模型</h3><p>测试模型效果，可以将图片放到 <code>datasets/images/test</code> ，然后执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make test</span><br></pre></td></tr></table></figure>
+
+<p>测试的结果将会保存在目录<code>runs/detect/predict(序号)</code>，根据输出的日志查看。</p>
+<p>如果效果可以，则可以考试正式的数据训练😁。</p>
+<h3 id="导出为-ONNX"><a href="#导出为-ONNX" class="headerlink" title="导出为 ONNX"></a>导出为 ONNX</h3><p>默认的模型格式为<code>.pt</code>，如果是服务器进行识别，则可以考虑直接使用，如果是想要边缘计算或者不想使用<code>.pt</code><br>的模型，可以考虑导出为<code>onnx</code>模型，只需要执行:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make onnx</span><br></pre></td></tr></table></figure>
+
+<p>则可以直接导出为<code>onnx</code>格式模型。</p>
+<h2 id="额外说明"><a href="#额外说明" class="headerlink" title="额外说明"></a>额外说明</h2><h3 id="支持系统"><a href="#支持系统" class="headerlink" title="支持系统"></a>支持系统</h3><p>目前只在 <code>Linux</code>以及<code>macOS</code>测试，<del><code>windows</code>可以考虑使用 <code>wsl</code> 进行训练。后续增加<code>windows</code>支持。</del> windows 建议使用<code>wsl</code>，或者 <code>powershell</code> 进行操作。</p>
+<h3 id="windows系统注意"><a href="#windows系统注意" class="headerlink" title="windows系统注意"></a>windows系统注意</h3><p>需要手动安装 <code>python3</code>，<code>make</code>，<code>cmake</code>（用于<code>onnx</code>，如果不需要可以不装）。</p>
+<h3 id="训练卡住问题"><a href="#训练卡住问题" class="headerlink" title="训练卡住问题"></a>训练卡住问题</h3><p>如果开始训练出现卡住的问题，可能是无法访问<code>https://ultralytics.com</code><br>，可以检查一下网络环境，或者尝试将<a href="front/Arial.ttf">front&#x2F;Arial.ttf</a>字体加入到系统。再进行训练</p>
+<h3 id="关于-labelImg"><a href="#关于-labelImg" class="headerlink" title="关于 labelImg"></a>关于 <code>labelImg</code></h3><p><code>labelImg</code> 需要使用 <code>python3.9</code> 的版本，其他版本会有<code>bug</code>，无法保存</p>
+<h3 id="关于安装："><a href="#关于安装：" class="headerlink" title="关于安装："></a>关于安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. env/bin/activate</span><br></pre></td></tr></table></figure>
+
+<h3 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<h3 id="训练："><a href="#训练：" class="headerlink" title="训练："></a>训练：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yolo task=detect mode=train model=yolov8n.pt data=config.yaml batch=-1 imgsz=640 epochs=100</span><br></pre></td></tr></table></figure>
+
+<h2 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h2><p><code>yolov8</code> 文档<br><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVsdHJhbHl0aWNzLmNvbS96aC9xdWlja3N0YXJ0Lw==">https://docs.ultralytics.com/zh/quickstart/<i class="fa fa-external-link-alt"></i></span></p>
+<p>在线转换模型类型：<br><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bW9kZWwuY29tLw==">https://convertmodel.com<i class="fa fa-external-link-alt"></i></span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/15/luckfox-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B9%8Bbazel/" rel="prev" title="luckfox-交叉编译之bazel">
+      <i class="fa fa-chevron-left"></i> luckfox-交叉编译之bazel
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/02/26/nginx%E4%BB%A3%E7%90%86%E7%9A%84%E4%B8%80%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" rel="next" title="nginx代理的一种使用方式">
+      nginx代理的一种使用方式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO-%E7%AE%80%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">YOLO:简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-Makefile"><span class="nav-number">2.</span> <span class="nav-text">关于 Makefile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%87%86%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">开始准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E6%9C%AC%E6%94%B6%E9%9B%86"><span class="nav-number">3.1.</span> <span class="nav-text">样本收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%A0%87%E6%B3%A8"><span class="nav-number">3.2.</span> <span class="nav-text">开始标注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">3.3.</span> <span class="nav-text">开始训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.4.</span> <span class="nav-text">测试模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E4%B8%BA-ONNX"><span class="nav-number">3.5.</span> <span class="nav-text">导出为 ONNX</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">额外说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.1.</span> <span class="nav-text">支持系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows%E7%B3%BB%E7%BB%9F%E6%B3%A8%E6%84%8F"><span class="nav-number">4.2.</span> <span class="nav-text">windows系统注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%8D%A1%E4%BD%8F%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">训练卡住问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-labelImg"><span class="nav-number">4.4.</span> <span class="nav-text">关于 labelImg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">关于安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">4.6.</span> <span class="nav-text">激活虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%80%E5%87%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">4.7.</span> <span class="nav-text">退出虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%EF%BC%9A"><span class="nav-number">4.8.</span> <span class="nav-text">训练：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3"><span class="nav-number">5.</span> <span class="nav-text">相关文档</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kekxv"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">kekxv</p>
+  <div class="site-description" itemprop="description">kekxv 技术日志</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tla3h2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kekxv"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/feed.xml" title="RSS → &#x2F;feed.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kekxv</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
